@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 use think\Db;
 use think\View;
@@ -18,7 +18,7 @@ use app\user\model\User;
 if (!function_exists('is_signin')) {
     /**
      * 判断是否登录
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     function is_signin()
@@ -49,7 +49,7 @@ if (!function_exists('data_auth_sign')) {
     /**
      * 数据签名认证
      * @param array $data 被认证的数据
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function data_auth_sign($data = [])
@@ -73,7 +73,7 @@ if (!function_exists('get_file_path')) {
     /**
      * 获取附件路径
      * @param int $id 附件id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function get_file_path($id = 0)
@@ -90,7 +90,7 @@ if (!function_exists('get_files_path')) {
     /**
      * 批量获取附件路径
      * @param array $ids 附件id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array
      */
     function get_files_path($ids = [])
@@ -104,7 +104,7 @@ if (!function_exists('get_thumb')) {
     /**
      * 获取图片缩略图路径
      * @param int $id 附件id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function get_thumb($id = 0)
@@ -121,7 +121,7 @@ if (!function_exists('get_avatar')) {
     /**
      * 获取用户头像路径
      * @param int $uid 用户id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @alter 小乌 <82950492@qq.com>
      * @return string
      */
@@ -140,7 +140,7 @@ if (!function_exists('get_file_name')) {
     /**
      * 根据附件id获取文件名
      * @param string $id 附件id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function get_file_name($id = '')
@@ -158,7 +158,7 @@ if (!function_exists('minify')) {
      * 合并输出js代码或css代码
      * @param string $type 类型：group-分组，file-单个文件，base-基础目录
      * @param string $files 文件名或分组名
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     function minify($type = '', $files = '')
     {
@@ -182,11 +182,11 @@ if (!function_exists('minify')) {
 
 if (!function_exists('ck_js')) {
     /**
-     * 返回ckeditor编辑器上传文件时需要返回的js代码
+     * 返回ckeditorEdit器上传文件时需要返回的js代码
      * @param string $callback 回调
      * @param string $file_path 文件路径
      * @param string $error_msg 错误信息
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function ck_js($callback = '', $file_path = '', $error_msg = '')
@@ -235,7 +235,7 @@ if (!function_exists('parse_array')) {
     /**
      * 将一维数组解析成键值相同的数组
      * @param array $arr 一维数组
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array
      */
     function parse_array($arr) {
@@ -251,7 +251,7 @@ if (!function_exists('parse_config')) {
     /**
      * 解析配置，返回配置值
      * @param array $configs 配置
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array
      */
     function parse_config($configs = []) {
@@ -313,7 +313,7 @@ if (!function_exists('set_config_value')) {
      * 设置配置的值，并返回配置好的数组
      * @param array $configs 配置
      * @param array $values 配置值
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array
      */
     function set_config_value($configs = [], $values = []) {
@@ -377,7 +377,7 @@ if (!function_exists('hook')) {
      * @param mixed  $params 传入参数
      * @param mixed  $extra  额外参数
      * @param bool   $once   只获取一个有效返回值
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @alter 小乌 <82950492@qq.com>
      */
     function hook($name = '', $params = null, $extra = null, $once = false) {
@@ -454,7 +454,7 @@ if (!function_exists('get_plugin_class')) {
     /**
      * 获取插件类名
      * @param  string $name 插件名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function get_plugin_class($name)
@@ -527,7 +527,7 @@ if (!function_exists('format_date')) {
      * 使用bootstrap-datepicker插件的时间格式来格式化时间戳
      * @param null $time 时间戳
      * @param string $format bootstrap-datepicker插件的时间格式 https://bootstrap-datepicker.readthedocs.io/en/stable/options.html#format
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return false|string
      */
     function format_date($time = null, $format='yyyy-mm-dd') {
@@ -563,7 +563,7 @@ if (!function_exists('format_moment')) {
      * 使用momentjs的时间格式来格式化时间戳
      * @param null $time 时间戳
      * @param string $format momentjs的时间格式
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return false|string
      */
     function format_moment($time = null, $format='YYYY-MM-DD HH:mm') {
@@ -635,7 +635,7 @@ if (!function_exists('format_linkage')) {
     /**
      * 格式化联动数据
      * @param array $data 数据
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array
      */
     function format_linkage($data = [])
@@ -656,7 +656,7 @@ if (!function_exists('get_auth_node')) {
      * 获取用户授权节点
      * @param int $uid 用户id
      * @param string $group 权限分组，可以以点分开模型名称和分组名称，如user.group
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array|bool
      */
     function get_auth_node($uid = 0, $group = '')
@@ -671,7 +671,7 @@ if (!function_exists('check_auth_node')) {
      * @param int $uid 用户id
      * @param string $group $group 权限分组，可以以点分开模型名称和分组名称，如user.group
      * @param int $node 需要检查的节点id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return bool
      */
     function check_auth_node($uid = 0, $group = '', $node = 0)
@@ -686,7 +686,7 @@ if (!function_exists('get_level_data')) {
      * @param string $table 表名
      * @param  integer $pid 父级ID
      * @param  string $pid_field 父级ID的字段名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return false|PDOStatement|string|\think\Collection
      */
     function get_level_data($table = '', $pid = 0, $pid_field = 'pid')
@@ -712,7 +712,7 @@ if (!function_exists('get_level_pid')) {
      * @param int $id 主键值
      * @param string $id_field 主键名
      * @param string $pid_field pid字段名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     function get_level_pid($table = '', $id = 1, $id_field = 'id', $pid_field = 'pid')
@@ -730,7 +730,7 @@ if (!function_exists('get_level_key_data')) {
      * @param string $name_field name字段名
      * @param string $pid_field pid字段名
      * @param int $level 级别
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array
      */
     function get_level_key_data($table = '', $id = '', $id_field = 'id', $name_field = 'name', $pid_field = 'pid', $level = 1)
@@ -758,7 +758,7 @@ if (!function_exists('plugin_action_exists')) {
      * @param string $name 插件名
      * @param string $controller 控制器
      * @param string $action 动作
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return bool
      */
     function plugin_action_exists($name = '', $controller = '', $action = '')
@@ -774,7 +774,7 @@ if (!function_exists('plugin_model_exists')) {
     /**
      * 检查插件模型是否存在
      * @param string $name 插件名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return bool
      */
     function plugin_model_exists($name = '')
@@ -787,7 +787,7 @@ if (!function_exists('plugin_validate_exists')) {
     /**
      * 检查插件验证器是否存在
      * @param string $name 插件名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return bool
      */
     function plugin_validate_exists($name = '')
@@ -800,7 +800,7 @@ if (!function_exists('get_plugin_model')) {
     /**
      * 获取插件模型实例
      * @param  string $name 插件名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return object
      */
     function get_plugin_model($name)
@@ -818,7 +818,7 @@ if (!function_exists('plugin_action')) {
      * @param string $controller 控制器
      * @param string $action 动作
      * @param mixed $params 参数
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     function plugin_action($name = '', $controller = '', $action = '', $params = [])
@@ -868,7 +868,7 @@ if (!function_exists('get_plugin_validate')) {
     /**
      * 获取插件验证类实例
      * @param string $name 插件名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return bool
      */
     function get_plugin_validate($name = '')
@@ -884,7 +884,7 @@ if (!function_exists('plugin_url')) {
      * @param string $url 链接：插件名称/控制器/操作
      * @param array $param 参数
      * @param string $module 模块名，admin需要登录验证，index不需要登录验证
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function plugin_url($url = '', $param = [], $module = 'admin')
@@ -914,7 +914,7 @@ if (!function_exists('public_url')) {
      * 生成插件操作链接(不需要登陆验证)
      * @param string $url 链接：插件名称/控制器/操作
      * @param array $param 参数
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function public_url($url = '', $param = [])
@@ -928,7 +928,7 @@ if (!function_exists('clear_js')) {
     /**
      * 过滤js内容
      * @param string $str 要过滤的字符串
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed|string
      */
     function clear_js($str = '')
@@ -1016,7 +1016,7 @@ if (!function_exists('action_log')) {
             // 查询行为,判断是否执行
             $action_info = model('admin/action')->where('module', $module)->getByName($action);
             if($action_info['status'] != 1){
-                return '该行为被禁用或删除';
+                return '该行为被禁用或Delete';
             }
 
             // 插入行为日志
@@ -1177,9 +1177,9 @@ if (!function_exists('get_location')) {
     /**
      * 获取当前位置
      * @param string $id 节点id，如果没有指定，则取当前节点id
-     * @param bool $del_last_url 是否删除最后一个节点的url地址
+     * @param bool $del_last_url 是否Delete最后一个节点的url地址
      * @param bool $check 检查节点是否存在，不存在则抛出错误
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     function get_location($id = '', $del_last_url = false, $check = true)
@@ -1193,7 +1193,7 @@ if (!function_exists('packet_exists')) {
     /**
      * 查询数据包是否存在，即是否已经安装
      * @param string $name 数据包名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return bool
      */
     function packet_exists($name = '')
@@ -1211,7 +1211,7 @@ if (!function_exists('load_assets')) {
      * 加载静态资源
      * @param string $assets 资源名称
      * @param string $type 资源类型
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function load_assets($assets = '', $type = 'css')
@@ -1294,7 +1294,7 @@ if (!function_exists('htmlpurifier')) {
     /**
      * html安全过滤
      * @param string $html 要过滤的内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function htmlpurifier($html = '') {
@@ -1310,7 +1310,7 @@ if (!function_exists('extend_form_item')) {
      * 扩展表单项
      * @param array $form 类型
      * @param array $_layout 布局参数
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function extend_form_item($form = [], $_layout = []) {
@@ -1333,7 +1333,7 @@ if (!function_exists('extend_form_item')) {
 if (!function_exists('role_auth')) {
     /**
      * 读取当前用户权限
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     function role_auth() {
         session('role_menu_auth', model('user/role')->roleAuth());
@@ -1381,7 +1381,7 @@ if (!function_exists('generate_rand_str')) {
      * 生成随机字符串
      * @param int $length 生成长度
      * @param int $type 生成类型：0-小写字母+数字，1-小写字母，2-大写字母，3-数字，4-小写+大写字母，5-小写+大写+数字
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     function generate_rand_str($length = 8, $type = 0) {
@@ -1412,7 +1412,7 @@ if (!function_exists('dp_send_message')) {
      * @param string $type 消息类型
      * @param string $content 消息内容
      * @param string $uids 用户id，可以是数组，也可以是逗号隔开的字符串
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return bool
      */
     function dp_send_message($type = '', $content = '', $uids = '') {

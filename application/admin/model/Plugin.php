@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\admin\model;
 
@@ -35,7 +35,7 @@ class Plugin extends Model
      * 获取所有插件信息
      * @param string $keyword 查找关键词
      * @param string $status 查找状态
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array|bool
      */
     public function getAll($keyword = '', $status = '')
@@ -163,7 +163,7 @@ class Plugin extends Model
                     case '0': // 禁用
                         $plugin['bg_color'] = 'warning';
                         $plugin['actions'] = '<a class="btn btn-sm btn-noborder btn-success ajax-get confirm" href="'.url('enable', ['ids' => $plugin['id']]).'">启用</a> ';
-                        $plugin['actions'] .= '<a class="btn btn-sm btn-noborder btn-danger ajax-get confirm" data-tips="如果包括数据库，将同时删除数据库！" href="'.url('uninstall', ['name' => $plugin['name']]).'">卸载</a> ';
+                        $plugin['actions'] .= '<a class="btn btn-sm btn-noborder btn-danger ajax-get confirm" data-tips="如果包括数据库，将同时Delete数据库！" href="'.url('uninstall', ['name' => $plugin['name']]).'">卸载</a> ';
                         if (isset($plugin['config']) && $plugin['config'] != '') {
                             $plugin['actions'] .= '<a class="btn btn-sm btn-noborder btn-info" href="'.url('config', ['name' => $plugin['name']]).'">设置</a> ';
                         }
@@ -176,7 +176,7 @@ class Plugin extends Model
                     case '1': // 启用
                         $plugin['bg_color'] = 'success';
                         $plugin['actions'] = '<a class="btn btn-sm btn-noborder btn-warning ajax-get confirm" href="'.url('disable', ['ids' => $plugin['id']]).'">禁用</a> ';
-                        $plugin['actions'] .= '<a class="btn btn-sm btn-noborder btn-danger ajax-get confirm" data-tips="如果包括数据库，将同时删除数据库！" href="'.url('uninstall', ['name' => $plugin['name']]).'">卸载</a> ';
+                        $plugin['actions'] .= '<a class="btn btn-sm btn-noborder btn-danger ajax-get confirm" data-tips="如果包括数据库，将同时Delete数据库！" href="'.url('uninstall', ['name' => $plugin['name']]).'">卸载</a> ';
                         if (isset($plugin['config']) && $plugin['config'] != '') {
                             $plugin['actions'] .= '<a class="btn btn-sm btn-noborder btn-info" href="'.url('config', ['name' => $plugin['name']]).'">设置</a> ';
                         }
@@ -204,7 +204,7 @@ class Plugin extends Model
     /**
      * 检查插件插件信息是否完整
      * @param string $info 插件插件信息
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return bool
      */
     private function checkInfo($info = '')
@@ -222,7 +222,7 @@ class Plugin extends Model
      * 获取插件配置
      * @param string $name 插件名称
      * @param string $item 指定返回的插件配置项
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array|mixed
      */
     public static function getConfig($name = '', $item = '')

@@ -8,11 +8,11 @@ jQuery(document).ready(function() {
     var webuploader = [];
     // 当前上传对象
     var curr_uploader = {};
-    // editordm编辑器集合
+    // editordmEdit器集合
     var editormds   = {};
-    // ueditor编辑器集合
+    // ueditorEdit器集合
     var ueditors    = {};
-    // wangeditor编辑器集合
+    // wangeditorEdit器集合
     var wangeditors = {};
     // 当前图标选择器
     var curr_icon_picker;
@@ -304,7 +304,7 @@ jQuery(document).ready(function() {
             $jcrop_cut_info.val('');
         });
 
-        // 删除图片
+        // Delete图片
         $remove_picture.click(function () {
             $(this).parent().hide();
             $jcrop_input.val('');
@@ -355,7 +355,7 @@ jQuery(document).ready(function() {
         Dolphin.viewer();
     });
 
-    // editormd编辑器
+    // editormdEdit器
     $('.js-editormd').each(function () {
         var editormd_name = $(this).attr('name');
         var image_formats = $(this).data('image-formats') || [];
@@ -363,7 +363,7 @@ jQuery(document).ready(function() {
 
         editormds[editormd_name] = editormd(editormd_name, {
             height: 500, // 高度
-            placeholder: '海豚PHP，为提升开发效率而生！！',
+            placeholder: 'PHP，为提升开发效率而生！！',
             watch : watch,
             searchReplace : true,
             toolbarAutoFixed: false, // 取消工具栏固定
@@ -387,25 +387,25 @@ jQuery(document).ready(function() {
         });
     });
 
-    // ueditor编辑器
+    // ueditorEdit器
     $('.js-ueditor').each(function () {
         var ueditor_name = $(this).attr('name');
         ueditors[ueditor_name] = UE.getEditor(ueditor_name, {
-            initialFrameHeight:400,  //初始化编辑器高度,默认320
+            initialFrameHeight:400,  //初始化Edit器高度,默认320
             autoHeightEnabled:false,  //是否自动长高
             maximumWords: 50000, //允许的最大字符数
             serverUrl: dolphin.ueditor_upload_url
         });
     });
 
-    // wangeditor编辑器
+    // wangeditorEdit器
     $('.js-wangeditor').each(function () {
         var wangeditor_name = $(this).attr('name');
         var imgExt = $(this).data('img-ext') || '';
 
         // 关闭调试信息
         wangEditor.config.printLog = false;
-        // 实例化编辑器
+        // 实例化Edit器
         wangeditors[wangeditor_name] = new wangEditor(wangeditor_name);
         // 上传图片地址
         wangeditors[wangeditor_name].config.uploadImgUrl = dolphin.wangeditor_upload_url;
@@ -520,7 +520,7 @@ jQuery(document).ready(function() {
                 '<span class="pull-right file-state"><span class="text-info"><i class="fa fa-sun-o fa-spin"></i> 正在读取文件信息...</span></span>' +
                 '<i class="fa fa-file"></i> ' +
                 file.name +
-                ' [<a href="javascript:void(0);" class="download-file">下载</a>] [<a href="javascript:void(0);" class="remove-file">删除</a>]' +
+                ' [<a href="javascript:void(0);" class="download-file">下载</a>] [<a href="javascript:void(0);" class="remove-file">Delete</a>]' +
                 '<div class="progress progress-mini remove-margin active" style="display: none"><div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div></div>'+
                 '</li>';
 
@@ -591,7 +591,7 @@ jQuery(document).ready(function() {
             }
         });
 
-        // 完成上传完了，成功或者失败，先删除进度条。
+        // 完成上传完了，成功或者失败，先Delete进度条。
         uploader.on( 'uploadComplete', function( file ) {
             setTimeout(function(){
                 $('#'+file.id).find('.progress').remove();
@@ -603,7 +603,7 @@ jQuery(document).ready(function() {
             if (window['dp_file_upload_complete_'+$input_file_name] !== undefined) window['dp_file_upload_complete_'+$input_file_name]();
         });
 
-        // 删除文件
+        // Delete文件
         $file_list.delegate('.remove-file', 'click', function(){
             if ($multiple) {
                 var id  = $(this).data('id'),
@@ -778,7 +778,7 @@ jQuery(document).ready(function() {
             }
         });
 
-        // 完成上传完了，成功或者失败，先删除进度条。
+        // 完成上传完了，成功或者失败，先Delete进度条。
         uploader.on( 'uploadComplete', function( file ) {
             setTimeout(function(){
                 $( '#'+file.id ).find('.progress').remove();
@@ -790,7 +790,7 @@ jQuery(document).ready(function() {
             if (window['dp_image_upload_complete_'+$input_file_name] !== undefined) window['dp_image_upload_complete_'+$input_file_name]();
         });
 
-        // 删除图片
+        // Delete图片
         $file_list.delegate('.remove-picture', 'click', function(){
             $(this).closest('.file-item').remove();
             if ($multiple) {
@@ -802,7 +802,7 @@ jQuery(document).ready(function() {
             } else {
                 $input_file.val('');
             }
-            // 删除后，再次初始化图片查看功能
+            // Delete后，再次初始化图片查看功能
             Dolphin.viewer();
         });
 
@@ -1008,15 +1008,15 @@ jQuery(document).ready(function() {
 
                             if (dolphin._field_clear[trigger] !== undefined && dolphin._field_clear[trigger] === 1) {
                                 if ($.type(ueditors) == 'object' && ueditors[$targets[item]] != undefined) {
-                                    // 清除百度编辑器内容
+                                    // 清除百度Edit器内容
                                     ueditors[$targets[item]].ready(function(){
                                         ueditors[$targets[item]].execCommand("cleardoc");
                                     });
                                 } else if ($.type(wangeditors) == 'object' && wangeditors[$targets[item]] != undefined) {
-                                    // 清除wang编辑器内容
+                                    // 清除wangEdit器内容
                                     wangeditors[$targets[item]].clear();
                                 } else if ($.type(editormds) == 'object' && editormds[$targets[item]] != undefined) {
-                                    // 清除markdown编辑器内容
+                                    // 清除markdownEdit器内容
                                     if (init) {
                                         continue;
                                     } else {

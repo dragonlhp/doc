@@ -49,7 +49,7 @@
         return;
     }
 
-    // 编辑器（整体）构造函数
+    // Edit器（整体）构造函数
     var E = function (elem) {
         // 支持 id 和 element 两种形式
         if (typeof elem === 'string') {
@@ -118,7 +118,7 @@ _e(function (E, $) {
         // 增加container
         this.addEditorContainer();
 
-        // 增加编辑区域
+        // 增加Edit区域
         this.addTxt();
 
         // 增加menuContainer
@@ -162,7 +162,7 @@ _e(function (E, $) {
         var $txt = editor.txt.$txt;
 
         if ($valueContainer === $txt) {
-            // 传入生成编辑器的div，即是编辑区域
+            // 传入生成Edit器的div，即是Edit区域
             return;
         }
 
@@ -197,7 +197,7 @@ _e(function (E, $) {
     // 除了传入的 menuIds，其他全部启用
     E.fn.enableMenusExcept = function (menuIds) {
         if (this._disabled) {
-            // 编辑器处于禁用状态，则不执行改操作
+            // Edit器处于禁用状态，则不执行改操作
             return;
         }
         // menuIds参数：支持数组和字符串
@@ -217,7 +217,7 @@ _e(function (E, $) {
     // 除了传入的 menuIds，其他全部禁用
     E.fn.disableMenusExcept = function (menuIds) {
         if (this._disabled) {
-            // 编辑器处于禁用状态，则不执行改操作
+            // Edit器处于禁用状态，则不执行改操作
             return;
         }
         // menuIds参数：支持数组和字符串
@@ -330,7 +330,7 @@ _e(function (E, $) {
                 _parentElem = range.commonAncestorContainer;
             }
         }
-        // 确定父元素一定要包含在编辑器区域内
+        // 确定父元素一定要包含在Edit器区域内
         if (_parentElem && ($.contains(txt, _parentElem) || txt === _parentElem) ) {
             // 保存选择区域
             self.currentRange(range);
@@ -504,7 +504,7 @@ _e(function (E, $) {
             }
         }
 
-        // 确定父元素一定要包含在编辑器区域内
+        // 确定父元素一定要包含在Edit器区域内
         if (_parentElem && ($.contains(txt, _parentElem) || txt === _parentElem) ) {
             // 保存选择区域
             self.currentRange(range);
@@ -889,7 +889,7 @@ _e(function (E, $) {
         var data = undoList.shift();
         redoList.unshift(data);
 
-        // 并修改编辑器的内容
+        // 并修改Edit器的内容
         _handle(this, data, 'undo');
     };
 
@@ -906,14 +906,14 @@ _e(function (E, $) {
         var data = redoList.shift();
         undoList.unshift(data);
 
-        // 并修改编辑器的内容
+        // 并修改Edit器的内容
         _handle(this, data, 'redo');
     };
 });
 // 暴露给用户的 API
 _e(function (E, $) {
 
-    // 创建编辑器
+    // 创建Edit器
     E.fn.create = function () {
         var editor = this;
 
@@ -960,7 +960,7 @@ _e(function (E, $) {
         }
     };
 
-    // 禁用编辑器
+    // 禁用Edit器
     E.fn.disable = function () {
         this.txt.$txt.removeAttr('contenteditable');
         this.disableMenusExcept();
@@ -968,7 +968,7 @@ _e(function (E, $) {
         // 先禁用，再记录状态
         this._disabled = true;
     };
-    // 启用编辑器
+    // 启用Edit器
     E.fn.enable = function () {
         // 先解除状态记录，再启用
         this._disabled = false;
@@ -976,7 +976,7 @@ _e(function (E, $) {
         this.enableMenusExcept();
     };
 
-    // 销毁编辑器
+    // 销毁Edit器
     E.fn.destroy = function () {
         var self = this;
         var $valueContainer = self.$valueContainer;
@@ -984,18 +984,18 @@ _e(function (E, $) {
         var valueNodeName = self.valueNodeName;
 
         if (valueNodeName === 'div') {
-            // div 生成的编辑器
+            // div 生成的Edit器
             $valueContainer.removeAttr('contenteditable');
             $editorContainer.after($valueContainer);
             $editorContainer.hide();
         } else {
-            // textarea 生成的编辑器
+            // textarea 生成的Edit器
             $valueContainer.show();
             $editorContainer.hide();
         }
     };
 
-    // 撤销 销毁编辑器
+    // 撤销 销毁Edit器
     E.fn.undestroy = function () {
         var self = this;
         var $valueContainer = self.$valueContainer;
@@ -1004,12 +1004,12 @@ _e(function (E, $) {
         var valueNodeName = self.valueNodeName;
 
         if (valueNodeName === 'div') {
-            // div 生成的编辑器
+            // div 生成的Edit器
             $valueContainer.attr('contenteditable', 'true');
             $menuContainer.after($valueContainer);
             $editorContainer.show();
         } else {
-            // textarea 生成的编辑器
+            // textarea 生成的Edit器
             $valueContainer.hide();
             $editorContainer.show();
         }
@@ -1055,7 +1055,7 @@ _e(function (E, $) {
         self.changeShadow();
     };
 
-    // 编辑区域滚动时，增加shadow
+    // Edit区域滚动时，增加shadow
     MenuContainer.fn.changeShadow = function () {
         var $menuContainer = this.$menuContainer;
         var editor = this.editor;
@@ -1091,7 +1091,7 @@ _e(function (E, $) {
 
     // 添加菜单
     MenuContainer.fn.appendMenu = function (groupIdx, menu) {
-        // 判断是否需要新增一个菜单组
+        // 判断是否需要Create一个菜单组
         this._addGroup(groupIdx);
         // 增加菜单（返回 $menuItem）
         return this._addOneMenu(menu);
@@ -2175,7 +2175,7 @@ _e(function (E, $) {
         var $txt;
 
         if ($valueContainer.get(0).nodeName === 'DIV') {
-            // 如果传入生成编辑器的元素就是div，则直接使用
+            // 如果传入生成Edit器的元素就是div，则直接使用
             $txt = $valueContainer;
             $txt.addClass("wangEditor-txt");
             $txt.attr('contentEditable', 'true');
@@ -2195,7 +2195,7 @@ _e(function (E, $) {
 
         self.$txt = $txt;
 
-        // 删除时，如果没有内容了，就添加一个 <p><br></p>
+        // Delete时，如果没有内容了，就添加一个 <p><br></p>
         self.contentEmptyHandle();
 
         // enter时，不能使用 div 换行
@@ -2217,7 +2217,7 @@ _e(function (E, $) {
         self.bindHtml();
     };
 
-    // 删除时，如果没有内容了，就添加一个 <p><br></p>
+    // Delete时，如果没有内容了，就添加一个 <p><br></p>
     Txt.fn.contentEmptyHandle = function () {
         var self = this;
         var editor = self.editor;
@@ -2230,7 +2230,7 @@ _e(function (E, $) {
             }
             var txtHtml = $.trim($txt.html().toLowerCase());
             if (txtHtml === '<p><br></p>') {
-                // 如果最后还剩余一个空行，就不再继续删除了
+                // 如果最后还剩余一个空行，就不再继续Delete了
                 e.preventDefault();
                 return;
             }
@@ -2254,7 +2254,7 @@ _e(function (E, $) {
 
     // enter时，不能使用 div 换行
     Txt.fn.bindEnterForDiv = function () {
-        var tags = E.config.legalTags; // 配置中编辑器要求的合法标签，如 p head table blockquote ul ol 等
+        var tags = E.config.legalTags; // 配置中Edit器要求的合法标签，如 p head table blockquote ul ol 等
         var self = this;
         var editor = self.editor;
         var $txt = self.$txt;
@@ -2440,7 +2440,7 @@ _e(function (E, $) {
             if (resultHtml) {
                 editor.command(e, 'insertHtml', resultHtml);
 
-                // 删除内容为空的 p 和嵌套的 p
+                // Delete内容为空的 p 和嵌套的 p
                 self.clearEmptyOrNestP();
             }
         });
@@ -2570,10 +2570,10 @@ _e(function (E, $) {
                     attrNames.push(attr.nodeName);
                 }
             });
-            // 再根据名称删除所有attr
+            // 再根据名称Delete所有attr
             $.each(attrNames, function (key, attr) {
                 if (exception.indexOf(attr) < 0) {
-                    // 除了 exception 规定的例外情况，删除其他属性
+                    // 除了 exception 规定的例外情况，Delete其他属性
                     elem.removeAttribute(attr);
                 }
             });
@@ -2651,11 +2651,11 @@ _e(function (E, $) {
             var result;
 
             if (valueNodeName === 'div') {
-                // div 生成的编辑器，取值、赋值，都直接触发jquery的html方法
+                // div 生成的Edit器，取值、赋值，都直接触发jquery的html方法
                 result = $.fn.html.call($txt, html);
             }
 
-            // textarea 生成的编辑器，则需要考虑赋值时，也给textarea赋值
+            // textarea 生成的Edit器，则需要考虑赋值时，也给textarea赋值
 
             if (html === undefined) {
                 // 取值，直接触发jquery原生html方法
@@ -2759,7 +2759,7 @@ _e(function (E, $) {
                 }
             });
 
-            // 需在编辑器区域外面再包裹一层
+            // 需在Edit器区域外面再包裹一层
             $txt.wrap($wrap);
         }
     };
@@ -2805,7 +2805,7 @@ _e(function (E, $) {
             saveAync();
         });
 
-        // 鼠标拖拽选择时，可能会拖拽到编辑器区域外面再松手，此时 $txt 就监听不到 click事件了
+        // 鼠标拖拽选择时，可能会拖拽到Edit器区域外面再松手，此时 $txt 就监听不到 click事件了
         $txt.on('mousedown', function () {
             $txt.on('mouseleave.saveSelection', function (e) {
                 // 先同步后异步，如上述注释
@@ -2888,7 +2888,7 @@ _e(function (E, $) {
         }
     };
 
-    // 将编辑器暴露出来的文字和图片，都用 p 来包裹
+    // 将Edit器暴露出来的文字和图片，都用 p 来包裹
     Txt.fn.wrapImgAndText = function () {
         var $txt = this.$txt;
         var $imgs = $txt.children('img');
@@ -3110,7 +3110,7 @@ _e(function (E, $) {
         italic: '斜体',
         forecolor: '文字颜色',
         bgcolor: '背景色',
-        strikethrough: '删除线',
+        strikethrough: 'Delete线',
         eraser: '清空格式',
         source: '源码',
         quote: '引用',
@@ -3203,10 +3203,10 @@ _e(function (E, $) {
     // 菜单吸顶：false - 不吸顶；number - 吸顶，值为top值
     E.config.menuFixed = 0;
 
-    // 编辑源码时，过滤 javascript
+    // Edit源码时，过滤 javascript
     E.config.jsFilter = true;
 
-    // 编辑器允许的标签
+    // Edit器允许的标签
     E.config.legalTags = 'p,h1,h2,h3,h4,h5,h6,blockquote,table,ul,ol,pre';
 
     // 语言包
@@ -3546,7 +3546,7 @@ _e(function (E, $) {
     };
 
 });
-// 增加编辑区域对象
+// 增加Edit区域对象
 _e(function (E, $) {
 
     E.fn.addTxt = function () {
@@ -4275,7 +4275,7 @@ _e(function (E, $) {
             });
         }); // editor.ready(
 
-        // --------------- 处理quote中无内容时不能删除的问题 ---------------
+        // --------------- 处理quote中无内容时不能Delete的问题 ---------------
         editor.ready(function () {
             var editor = this;
             var $txt = editor.txt.$txt;
@@ -5002,7 +5002,7 @@ _e(function (E, $) {
                 }
             });
         }).on('mouseleave', function (e) {
-            // mouseleave 删除背景色
+            // mouseleave Delete背景色
             $table.find('td').removeClass('active');
 
             $row.text(0);
@@ -5078,7 +5078,7 @@ _e(function (E, $) {
             $.each(data, function (k, emotion) {
                 var src = emotion.icon || emotion.url;
                 var value = emotion.value || emotion.title;
-                // 通过配置 editor.config.emotionsShow 的值来修改插入到编辑器的内容（图片/value）
+                // 通过配置 editor.config.emotionsShow 的值来修改插入到Edit器的内容（图片/value）
                 var commandValue = emotionsShow === 'icon' ? src : value;
                 var $command = $('<a href="#" commandValue="' + commandValue + '"></a>');
                 var $img = $('<img>');
@@ -5482,7 +5482,7 @@ _e(function (E, $) {
     // 百度地图的key
     E.baiduMapAk = 'TVhjYjq1ICT2qqL5LdS8mwas';
 
-    // 一个页面中，如果有多个编辑器，地图会出现问题。这个参数记录一下，如果超过 1 就提示
+    // 一个页面中，如果有多个Edit器，地图会出现问题。这个参数记录一下，如果超过 1 就提示
     E.numberOfLocation = 0;
 
     E.createMenu(function (check) {
@@ -5492,7 +5492,7 @@ _e(function (E, $) {
         }
 
         if (++E.numberOfLocation > 1) {
-            E.error('目前不支持在一个页面多个编辑器上同时使用地图，可通过自定义菜单配置去掉地图菜单');
+            E.error('目前不支持在一个页面多个Edit器上同时使用地图，可通过自定义菜单配置去掉地图菜单');
             return;
         }
 
@@ -6324,7 +6324,7 @@ _e(function (E, $) {
             // 保存状态
             isSelected = true;
 
-            // 记录编辑器是否全屏
+            // 记录Edit器是否全屏
             editor.isFullScreen = true;
 
             // 记录设置全屏时的高度
@@ -6352,7 +6352,7 @@ _e(function (E, $) {
             // 保存状态
             isSelected = false;
 
-            // 记录编辑器是否全屏
+            // 记录Edit器是否全屏
             editor.isFullScreen = false;
 
             // 还原scrollTop
@@ -6439,7 +6439,7 @@ _e(function (E, $) {
         var $txt = editor.txt.$txt;
         var $prev, $parent;
 
-        // 将编辑器渲染到页面中
+        // 将Edit器渲染到页面中
         if ($valueContainer === $txt) {
             $prev = editor.$prev;
             $parent = editor.$parent;
@@ -6486,7 +6486,7 @@ _e(function (E, $) {
     };
 
 });
-// 编辑区域事件
+// Edit区域事件
 _e(function (E, $) {
 
     E.fn.eventTxt = function () {
@@ -6529,9 +6529,9 @@ _e(function (E, $) {
                 E.warn('上传失败：' + resultText.split('|')[1]);
                 alert(resultText.split('|')[1]);
             } else {
-                E.log('上传成功，即将插入编辑区域，结果为：' + resultText);
+                E.log('上传成功，即将插入Edit区域，结果为：' + resultText);
 
-                // 将结果插入编辑器
+                // 将结果插入Edit器
                 img = document.createElement('img');
                 img.onload = function () {
                     var html = '<img src="' + resultText + '" alt="' + originalName + '" style="max-width:100%;"/>';
@@ -6965,7 +6965,7 @@ _e(function (E, $) {
         var reader = new FileReader();
 
         if (!onload || !ontimeout || !onerror) {
-            E.error('请为编辑器配置上传图片的 onload ontimeout onerror 回调事件');
+            E.error('请为Edit器配置上传图片的 onload ontimeout onerror 回调事件');
             return;
         }
 
@@ -7213,7 +7213,7 @@ _e(function (E, $) {
             var reg = /^data:(image\/\w+);base64/;
             var $imgs = $txt.find('img');
 
-            E.log('粘贴后，检查到编辑器有' + $imgs.length + '个图片。开始遍历图片，试图找到刚刚粘贴过来的图片');
+            E.log('粘贴后，检查到Edit器有' + $imgs.length + '个图片。开始遍历图片，试图找到刚刚粘贴过来的图片');
 
             $.each($imgs, function () {
                 var img = this;
@@ -7316,7 +7316,7 @@ _e(function (E, $) {
 
                 // 获取
                 $imgsBeforePaste = $txt.find('img');
-                E.log('粘贴前，检查到编辑器有' + $imgsBeforePaste.length + '个图片');
+                E.log('粘贴前，检查到Edit器有' + $imgsBeforePaste.length + '个图片');
 
                 // 异步上传找到的图片
                 setTimeout(findPasteImgAndUpload, 0);
@@ -7391,7 +7391,7 @@ _e(function (E, $) {
     });
 
 });
-// 编辑器区域 table toolbar
+// Edit器区域 table toolbar
 _e(function (E, $) {
 
     E.plugin(function () {
@@ -7438,7 +7438,7 @@ _e(function (E, $) {
                 }
             }
 
-            // 删除
+            // Delete
             $delete.click(function (e) {
                 commandFn = function () {
                     $currentTable.remove();
@@ -7476,7 +7476,7 @@ _e(function (E, $) {
         // 显示 toolbar
         function show() {
             if (editor._disabled) {
-                // 编辑器已经被禁用，则不让显示
+                // Edit器已经被禁用，则不让显示
                 return;
             }
             if ($currentTable == null) {
@@ -7499,7 +7499,7 @@ _e(function (E, $) {
             var txtTop = $currentTxt.position().top;
             var txtHeight = $currentTxt.outerHeight();
             if (top > (txtTop + txtHeight)) {
-                // top 不得超出编辑范围
+                // top 不得超出Edit范围
                 top = txtTop + txtHeight;
             }
 
@@ -7565,7 +7565,7 @@ _e(function (E, $) {
     });
 
 });
-// 编辑器区域 img toolbar
+// Edit器区域 img toolbar
 _e(function (E, $) {
 
     if (E.userAgent.indexOf('MSIE 8') > 0) {
@@ -7713,12 +7713,12 @@ _e(function (E, $) {
                 }
             }
 
-            // 删除
+            // Delete
             $delete.click(function (e) {
-                // 删除之前先unlink
+                // Delete之前先unlink
                 imgLink(e, '');
 
-                // 删除图片
+                // Delete图片
                 commandFn = function () {
                     $currentImg.remove();
                 };
@@ -7963,7 +7963,7 @@ _e(function (E, $) {
         // 显示 toolbar
         function show() {
             if (editor._disabled) {
-                // 编辑器已经被禁用，则不让显示
+                // Edit器已经被禁用，则不让显示
                 return;
             }
             if ($currentImg == null) {
@@ -7993,10 +7993,10 @@ _e(function (E, $) {
             var txtTop = $currentTxt.position().top;
             var txtHeight = $currentTxt.outerHeight();
             if (top > (txtTop + txtHeight)) {
-                // top 不得超出编辑范围
+                // top 不得超出Edit范围
                 top = txtTop + txtHeight;
             } else {
-                // top 超出编辑范围，dragPoint就不显示了
+                // top 超出Edit范围，dragPoint就不显示了
                 $dragPoint.show();
             }
 
@@ -8103,7 +8103,7 @@ _e(function (E, $) {
     });
 
 });
-// 编辑区域 link toolbar
+// Edit区域 link toolbar
 _e(function (E, $) {
     E.plugin(function () {
         var editor = this;
@@ -8152,7 +8152,7 @@ _e(function (E, $) {
             // 初步计算top值
             var topResult = top + height + 5;
 
-            // 判断 toolbar 是否超过了编辑器区域的下边界
+            // 判断 toolbar 是否超过了Edit器区域的下边界
             var menuHeight = editor.menuContainer.height();
             var txtHeight = editor.txt.$txt.outerHeight();
             if (topResult > menuHeight + txtHeight) {
@@ -8295,7 +8295,7 @@ _e(function (E, $) {
             // 需要重新计算宽度，因为浏览器可能此时出现滚动条
             var menuWidth = $menuContainer.width();
 
-            // 如果 menuTop === 0 说明此前编辑器一直隐藏，后来显示出来了，要重新计算相关数据
+            // 如果 menuTop === 0 说明此前Edit器一直隐藏，后来显示出来了，要重新计算相关数据
             if (menuTop === 0) {
                 menuTop = $menuContainer.offset().top;
                 editorTop = $editorContainer.offset().top;
@@ -8352,7 +8352,7 @@ _e(function (E, $) {
     // 用 createMenu 方法创建菜单
     E.createMenu(function (check) {
 
-        // 定义菜单id，不要和其他菜单id重复。编辑器自带的所有菜单id，可通过『参数配置-自定义菜单』一节查看
+        // 定义菜单id，不要和其他菜单id重复。Edit器自带的所有菜单id，可通过『参数配置-自定义菜单』一节查看
         var menuId = 'indent';
 
         // check将检查菜单配置（『参数配置-自定义菜单』一节描述）中是否该菜单id，如果没有，则忽略下面的代码。
@@ -8365,7 +8365,7 @@ _e(function (E, $) {
 
         // 创建 menu 对象
         var menu = new E.Menu({
-            editor: editor,  // 编辑器对象
+            editor: editor,  // Edit器对象
             id: menuId,  // 菜单id
             title: '缩进', // 菜单标题
 
@@ -8447,7 +8447,7 @@ _e(function (E, $) {
     // 用 createMenu 方法创建菜单
     E.createMenu(function (check) {
 
-        // 定义菜单id，不要和其他菜单id重复。编辑器自带的所有菜单id，可通过『参数配置-自定义菜单』一节查看
+        // 定义菜单id，不要和其他菜单id重复。Edit器自带的所有菜单id，可通过『参数配置-自定义菜单』一节查看
         var menuId = 'lineheight';
 
         // check将检查菜单配置（『参数配置-自定义菜单』一节描述）中是否该菜单id，如果没有，则忽略下面的代码。
@@ -8470,7 +8470,7 @@ _e(function (E, $) {
 
         // 创建 menu 对象
         var menu = new E.Menu({
-            editor: editor,  // 编辑器对象
+            editor: editor,  // Edit器对象
             id: menuId,  // 菜单id
             title: '行高', // 菜单标题
             commandName: 'lineHeight', // 命令名称
@@ -8541,7 +8541,7 @@ _e(function (E, $) {
 });
 // 版权提示
 _e(function (E, $) {
-    E.info('本页面富文本编辑器由 wangEditor 提供 http://wangeditor.github.io/ ');
+    E.info('本页面富文本Edit器由 wangEditor 提供 http://wangeditor.github.io/ ');
 });
     
     // 最终返回wangEditor构造函数

@@ -250,7 +250,7 @@ function escapeHtmlEntities (str) {
 }
 
 /**
- * 对html5新增的危险实体编码进行转义
+ * 对html5Create的危险实体编码进行转义
  *
  * @param {String} str
  * @return {String}
@@ -283,7 +283,7 @@ function clearNonPrintableCharacter (str) {
 function friendlyAttrValue (str) {
   str = unescapeQuote(str);             // 双引号
   str = escapeHtmlEntities(str);         // 转换HTML实体编码
-  str = escapeDangerHtml5Entities(str);  // 转换危险的HTML5新增实体编码
+  str = escapeDangerHtml5Entities(str);  // 转换危险的HTML5Create实体编码
   str = clearNonPrintableCharacter(str); // 清除不可见字符
   return str;
 }
@@ -308,9 +308,9 @@ function onIgnoreTagStripAll () {
 }
 
 /**
- * 删除标签体
+ * Delete标签体
  *
- * @param {array} tags 要删除的标签列表
+ * @param {array} tags 要Delete的标签列表
  * @param {function} next 对不在列表中的标签的处理函数，可选
  */
 function StripTagBody (tags, next) {
@@ -324,7 +324,7 @@ function StripTagBody (tags, next) {
     return (_.indexOf(tags, tag) !== -1);
   }
 
-  var removeList = [];   // 要删除的位置范围列表
+  var removeList = [];   // 要Delete的位置范围列表
   var posStart = false;  // 当前标签开始位置
 
   return {

@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\admin\controller;
 
@@ -24,7 +24,7 @@ class Hook extends Admin
 {
     /**
      * 钩子管理
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function index()
@@ -61,8 +61,8 @@ class Hook extends Admin
     }
 
     /**
-     * 新增
-     * @author 蔡伟明 <314013107@qq.com>
+     * Create
+
      */
     public function add()
     {
@@ -80,24 +80,24 @@ class Hook extends Admin
                 cache('hook_plugins', null);
                 // 记录行为
                 action_log('hook_add', 'admin_hook', $hook['id'], UID, $data['name']);
-                $this->success('新增成功', 'index');
+                $this->success('Create成功', 'index');
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('新增')
+            ->setPageTitle('Create')
             ->addText('name', '钩子名称', '由字母和下划线组成，如：<code>page_tips</code>')
             ->addText('description', '钩子描述')
             ->fetch();
     }
 
     /**
-     * 编辑
+     * Edit
      * @param int $id 钩子id
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function edit($id = 0)
     {
@@ -118,9 +118,9 @@ class Hook extends Admin
                 cache('hook_plugins', null);
                 // 记录行为
                 action_log('hook_edit', 'admin_hook', $hook['id'], UID, $data['name']);
-                $this->success('编辑成功', 'index');
+                $this->success('Edit成功', 'index');
             } else {
-                $this->error('编辑失败');
+                $this->error('Edit失败');
             }
         }
 
@@ -133,7 +133,7 @@ class Hook extends Admin
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('编辑')
+            ->setPageTitle('Edit')
             ->addHidden('id')
             ->addText('name', '钩子名称', '由字母和下划线组成，如：<code>page_tips</code>')
             ->addText('description', '钩子描述')
@@ -143,9 +143,9 @@ class Hook extends Admin
     }
 
     /**
-     * 快速编辑（启用/禁用）
+     * 快速Edit（启用/禁用）
      * @param string $status 状态
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function quickEdit($status = '')
@@ -165,7 +165,7 @@ class Hook extends Admin
     /**
      * 启用
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function enable($record = [])
@@ -176,7 +176,7 @@ class Hook extends Admin
     /**
      * 禁用
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function disable($record = [])
@@ -185,9 +185,9 @@ class Hook extends Admin
     }
 
     /**
-     * 删除钩子
+     * Delete钩子
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($record = [])
@@ -196,7 +196,7 @@ class Hook extends Admin
         $map['id']     = ['in', $ids];
         $map['system'] = 1;
         if (HookModel::where($map)->find()) {
-            $this->error('禁止删除系统钩子');
+            $this->error('禁止Delete系统钩子');
         }
         return $this->setStatus('delete');
     }
@@ -205,7 +205,7 @@ class Hook extends Admin
      * 设置状态
      * @param string $type 类型
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function setStatus($type = '', $record = [])

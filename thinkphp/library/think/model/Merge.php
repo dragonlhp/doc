@@ -224,7 +224,7 @@ class Merge extends Model
                     }
                 }
 
-                // 新增回调
+                // Create回调
                 $this->trigger('after_update', $this);
             } else {
                 // 自动写入
@@ -268,7 +268,7 @@ class Merge extends Model
                 }
                 // 标记为更新
                 $this->isUpdate = true;
-                // 新增回调
+                // Create回调
                 $this->trigger('after_insert', $this);
             }
             $db->commit();
@@ -284,7 +284,7 @@ class Merge extends Model
     }
 
     /**
-     * 删除当前的记录 并删除关联数据
+     * Delete当前的记录 并Delete关联数据
      * @access public
      * @return int
      * @throws \Exception
@@ -303,7 +303,7 @@ class Merge extends Model
                 // 获取主键数据
                 $pk = $this->data[$this->getPk()];
 
-                // 删除关联数据
+                // Delete关联数据
                 foreach ($this->relationModel as $key => $model) {
                     $table = is_int($key) ? $db->getTable($model) : $model;
                     $query = new Query;

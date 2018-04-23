@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 /**
  * 模块信息
@@ -26,12 +26,12 @@ return [
     // 开发者[必填]
     'author'      => 'CaiWeiMing',
     // 开发者网址[选填]
-    'author_url'  => 'http://www.dolphinphp.com',
+    'author_url'  => '',
     // 版本[必填],格式采用三段式：主版本号.次版本号.修订版本号
     'version'     => '1.0.0',
     // 模块依赖[可选]，格式[[模块名, 模块唯一标识, 依赖版本, 对比方式]]
     'need_module' => [
-        ['admin', 'admin.dolphinphp.module', '1.0.0']
+        ['admin', 'admin.PHP.module', '1.0.0']
     ],
     // 插件依赖[可选]，格式[[插件名, 插件唯一标识, 依赖版本, 对比方式]]
     'need_plugin' => [],
@@ -59,10 +59,7 @@ return [
     // 模块参数配置
     'config' => [
         ['text', 'summary', '默认摘要字数', '发布文章时，如果没有填写摘要，则自动获取文档内容为摘要。如果此处不填写或填写0，则不提取摘要。', 0],
-        ['ckeditor', 'contact', '联系方式', '', '<div class="font-s13 push"><strong>河源市卓锐科技有限公司</strong><br />
-地址：河源市江东新区东环路汇通苑D3-H232<br />
-电话：0762-8910006<br />
-邮箱：admin@zrthink.com</div>'],
+        ['ckeditor', 'contact', '联系方式', '', ""],
         ['textarea', 'meta_head', '顶部代码', '代码会放在 <code>&lt;/head&gt;</code> 标签以上'],
         ['textarea', 'meta_foot', '底部代码', '代码会放在 <code>&lt;/body&gt;</code> 标签以上'],
         ['radio', 'support_status', '在线客服', '', ['禁用', '启用'], 1],
@@ -76,19 +73,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'slider_delete',
-            'title' => '删除滚动图片',
-            'remark' => '删除滚动图片',
+            'title' => 'Delete滚动图片',
+            'remark' => 'Delete滚动图片',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了滚动图片：[details]',
+            'log' => '[user|get_nickname] Delete了滚动图片：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'slider_edit',
-            'title' => '编辑滚动图片',
-            'remark' => '编辑滚动图片',
+            'title' => 'Edit滚动图片',
+            'remark' => 'Edit滚动图片',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了滚动图片：[details]',
+            'log' => '[user|get_nickname] Edit了滚动图片：[details]',
             'status' => 1,
         ],
         [
@@ -103,10 +100,10 @@ return [
         [
             'module' => 'cms',
             'name' => 'document_delete',
-            'title' => '删除文档',
-            'remark' => '删除文档',
+            'title' => 'Delete文档',
+            'remark' => 'Delete文档',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了文档：[details]',
+            'log' => '[user|get_nickname] Delete了文档：[details]',
             'status' => 1,
         ],
         [
@@ -139,19 +136,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'nav_delete',
-            'title' => '删除导航',
-            'remark' => '删除导航',
+            'title' => 'Delete导航',
+            'remark' => 'Delete导航',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了导航：[details]',
+            'log' => '[user|get_nickname] Delete了导航：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'nav_edit',
-            'title' => '编辑导航',
-            'remark' => '编辑导航',
+            'title' => 'Edit导航',
+            'remark' => 'Edit导航',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了导航：[details]',
+            'log' => '[user|get_nickname] Edit了导航：[details]',
             'status' => 1,
         ],
         [
@@ -184,19 +181,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'model_delete',
-            'title' => '删除内容模型',
-            'remark' => '删除内容模型',
+            'title' => 'Delete内容模型',
+            'remark' => 'Delete内容模型',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了内容模型：[details]',
+            'log' => '[user|get_nickname] Delete了内容模型：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'model_edit',
-            'title' => '编辑内容模型',
-            'remark' => '编辑内容模型',
+            'title' => 'Edit内容模型',
+            'remark' => 'Edit内容模型',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了内容模型：[details]',
+            'log' => '[user|get_nickname] Edit了内容模型：[details]',
             'status' => 1,
         ],
         [
@@ -229,19 +226,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'menu_delete',
-            'title' => '删除导航菜单',
-            'remark' => '删除导航菜单',
+            'title' => 'Delete导航菜单',
+            'remark' => 'Delete导航菜单',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了导航菜单：[details]',
+            'log' => '[user|get_nickname] Delete了导航菜单：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'menu_edit',
-            'title' => '编辑导航菜单',
-            'remark' => '编辑导航菜单',
+            'title' => 'Edit导航菜单',
+            'remark' => 'Edit导航菜单',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了导航菜单：[details]',
+            'log' => '[user|get_nickname] Edit了导航菜单：[details]',
             'status' => 1,
         ],
         [
@@ -274,19 +271,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'link_delete',
-            'title' => '删除友情链接',
-            'remark' => '删除友情链接',
+            'title' => 'Delete友情链接',
+            'remark' => 'Delete友情链接',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了友情链接：[details]',
+            'log' => '[user|get_nickname] Delete了友情链接：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'link_edit',
-            'title' => '编辑友情链接',
-            'remark' => '编辑友情链接',
+            'title' => 'Edit友情链接',
+            'remark' => 'Edit友情链接',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了友情链接：[details]',
+            'log' => '[user|get_nickname] Edit了友情链接：[details]',
             'status' => 1,
         ],
         [
@@ -319,19 +316,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'field_delete',
-            'title' => '删除模型字段',
-            'remark' => '删除模型字段',
+            'title' => 'Delete模型字段',
+            'remark' => 'Delete模型字段',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了模型字段：[details]',
+            'log' => '[user|get_nickname] Delete了模型字段：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'field_edit',
-            'title' => '编辑模型字段',
-            'remark' => '编辑模型字段',
+            'title' => 'Edit模型字段',
+            'remark' => 'Edit模型字段',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了模型字段：[details]',
+            'log' => '[user|get_nickname] Edit了模型字段：[details]',
             'status' => 1,
         ],
         [
@@ -364,19 +361,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'column_delete',
-            'title' => '删除栏目',
-            'remark' => '删除栏目',
+            'title' => 'Delete栏目',
+            'remark' => 'Delete栏目',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了栏目：[details]',
+            'log' => '[user|get_nickname] Delete了栏目：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'column_edit',
-            'title' => '编辑栏目',
-            'remark' => '编辑栏目',
+            'title' => 'Edit栏目',
+            'remark' => 'Edit栏目',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了栏目：[details]',
+            'log' => '[user|get_nickname] Edit了栏目：[details]',
             'status' => 1,
         ],
         [
@@ -409,19 +406,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'advert_type_delete',
-            'title' => '删除广告分类',
-            'remark' => '删除广告分类',
+            'title' => 'Delete广告分类',
+            'remark' => 'Delete广告分类',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了广告分类：[details]',
+            'log' => '[user|get_nickname] Delete了广告分类：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'advert_type_edit',
-            'title' => '编辑广告分类',
-            'remark' => '编辑广告分类',
+            'title' => 'Edit广告分类',
+            'remark' => 'Edit广告分类',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了广告分类：[details]',
+            'log' => '[user|get_nickname] Edit了广告分类：[details]',
             'status' => 1,
         ],
         [
@@ -454,19 +451,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'advert_delete',
-            'title' => '删除广告',
-            'remark' => '删除广告',
+            'title' => 'Delete广告',
+            'remark' => 'Delete广告',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了广告：[details]',
+            'log' => '[user|get_nickname] Delete了广告：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'advert_edit',
-            'title' => '编辑广告',
-            'remark' => '编辑广告',
+            'title' => 'Edit广告',
+            'remark' => 'Edit广告',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了广告：[details]',
+            'log' => '[user|get_nickname] Edit了广告：[details]',
             'status' => 1,
         ],
         [
@@ -508,10 +505,10 @@ return [
         [
             'module' => 'cms',
             'name' => 'document_edit',
-            'title' => '编辑文档',
-            'remark' => '编辑文档',
+            'title' => 'Edit文档',
+            'remark' => 'Edit文档',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了文档：[details]',
+            'log' => '[user|get_nickname] Edit了文档：[details]',
             'status' => 1,
         ],
         [
@@ -553,19 +550,19 @@ return [
         [
             'module' => 'cms',
             'name' => 'support_edit',
-            'title' => '编辑客服',
-            'remark' => '编辑客服',
+            'title' => 'Edit客服',
+            'remark' => 'Edit客服',
             'rule' => '',
-            'log' => '[user|get_nickname] 编辑了客服：[details]',
+            'log' => '[user|get_nickname] Edit了客服：[details]',
             'status' => 1,
         ],
         [
             'module' => 'cms',
             'name' => 'support_delete',
-            'title' => '删除客服',
-            'remark' => '删除客服',
+            'title' => 'Delete客服',
+            'remark' => 'Delete客服',
             'rule' => '',
-            'log' => '[user|get_nickname] 删除了客服：[details]',
+            'log' => '[user|get_nickname] Delete了客服：[details]',
             'status' => 1,
         ],
         [

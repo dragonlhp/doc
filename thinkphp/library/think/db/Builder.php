@@ -232,7 +232,7 @@ abstract class Builder
     {
         $whereStr = $this->buildWhere($where, $options);
         if (!empty($options['soft_delete'])) {
-            // 附加软删除条件
+            // 附加软Delete条件
             list($field, $condition) = $options['soft_delete'];
 
             $binds    = $this->query->getFieldsBind($options['table']);

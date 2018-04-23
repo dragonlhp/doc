@@ -165,7 +165,7 @@ class Sqlite extends Driver
     }
 
     /**
-     * 删除缓存
+     * Delete缓存
      * @access public
      * @param string $name 缓存变量名
      * @return boolean

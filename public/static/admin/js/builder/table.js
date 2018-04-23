@@ -5,7 +5,7 @@
  */
 jQuery(document).ready(function() {
     if ($.fn.editable) {
-        // 快速编辑的url提交地址
+        // 快速Edit的url提交地址
         $.fn.editable.defaults.url = dolphin.quick_edit_url;
         // 值为空时显示的信息
         $.fn.editable.defaults.emptytext = '空值';
@@ -34,15 +34,15 @@ jQuery(document).ready(function() {
             }
         };
 
-        // 可编辑单行文本
+        // 可Edit单行文本
         $('.text-edit').editable();
 
-        // 可编辑多行文本
+        // 可Edit多行文本
         $('.textarea-edit').editable({
             showbuttons: 'bottom'
         });
 
-        // 下拉编辑
+        // 下拉Edit
         $('.select-edit').editable();
         $('.select2-edit').editable({
             select2: {
@@ -237,7 +237,7 @@ jQuery(document).ready(function() {
             yes: function () {
                 var filed_index = -1;
                 if ($('#filter-check-content input[class=check-item]:checked').length == 0) {
-                    // 没有选择筛选字段，则删除原先该字段的筛选
+                    // 没有选择筛选字段，则Delete原先该字段的筛选
                     $_filter        = $_filter.split('|');
                     filed_index = $.inArray($filter, $_filter);
                     if (filed_index !== -1) {

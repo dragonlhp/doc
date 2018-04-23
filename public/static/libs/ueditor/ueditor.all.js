@@ -674,10 +674,10 @@ var utils = UE.utils = {
     },
 
     /**
-     * 删除字符串str的首尾空格
+     * Delete字符串str的首尾空格
      * @method trim
-     * @param { String } str 需要删除首尾空格的字符串
-     * @return { String } 删除了首尾的空格后的字符串
+     * @param { String } str 需要Delete首尾空格的字符串
+     * @return { String } Delete了首尾的空格后的字符串
      * @example
      * ```javascript
      *
@@ -1554,7 +1554,7 @@ EventBase.prototype = {
      *         }else{
      *             //do something
      *         }
-     *         console.log(this.getContent) // this是注册的事件的编辑器实例
+     *         console.log(this.getContent) // this是注册的事件的Edit器实例
      * })
      * ```
      * @see UE.EventBase:fireEvent(String)
@@ -1750,7 +1750,7 @@ var dtd = dom.dtd = (function() {
         //不能认为是空的元素
         $isNotEmpty : _({table:1,ul:1,ol:1,dl:1,iframe:1,area:1,base:1,col:1,hr:1,img:1,embed:1,input:1,link:1,meta:1,param:1,h1:1,h2:1,h3:1,h4:1,h5:1,h6:1}),
 
-        //如果没有子节点就可以删除的元素列表，像span,a
+        //如果没有子节点就可以Delete的元素列表，像span,a
         $removeEmpty : _({a:1,abbr:1,acronym:1,address:1,b:1,bdo:1,big:1,cite:1,code:1,del:1,dfn:1,em:1,font:1,i:1,ins:1,label:1,kbd:1,q:1,s:1,samp:1,small:1,span:1,strike:1,strong:1,sub:1,sup:1,tt:1,u:1,'var':1}),
 
         $removeEmptyBlock : _({'p':1,'div':1}),
@@ -2242,10 +2242,10 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 删除节点node及其下属的所有节点
+     * Delete节点node及其下属的所有节点
      * @method remove
-     * @param { Node } node 需要删除的节点对象
-     * @return { Node } 返回刚删除的节点对象
+     * @param { Node } node 需要Delete的节点对象
+     * @return { Node } 返回刚Delete的节点对象
      * @example
      * ```html
      * <div id="test">
@@ -2260,11 +2260,11 @@ var domUtils = dom.domUtils = {
      */
 
     /**
-     * 删除节点node，并根据keepChildren的值决定是否保留子节点
+     * Delete节点node，并根据keepChildren的值决定是否保留子节点
      * @method remove
-     * @param { Node } node 需要删除的节点对象
+     * @param { Node } node 需要Delete的节点对象
      * @param { Boolean } keepChildren 是否需要保留子节点
-     * @return { Node } 返回刚删除的节点对象
+     * @return { Node } 返回刚Delete的节点对象
      * @example
      * ```html
      * <div id="test">
@@ -2422,7 +2422,7 @@ var domUtils = dom.domUtils = {
      * 清除node节点左右连续为空的兄弟inline节点
      * @method clearEmptySibling
      * @param { Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点，
-     * 则这些兄弟节点将被删除
+     * 则这些兄弟节点将被Delete
      * @grammar UE.dom.domUtils.clearEmptySibling(node,ignoreNext)  //ignoreNext指定是否忽略右边空节点
      * @grammar UE.dom.domUtils.clearEmptySibling(node,ignoreNext,ignorePre)  //ignorePre指定是否忽略左边空节点
      * @example
@@ -2452,7 +2452,7 @@ var domUtils = dom.domUtils = {
      * @method clearEmptySibling
      * @param { Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点，
      * @param { Boolean } ignoreNext 是否忽略忽略对右边的兄弟节点的操作
-     * 则这些兄弟节点将被删除
+     * 则这些兄弟节点将被Delete
      * @see UE.dom.domUtils.clearEmptySibling(Node)
      */
 
@@ -2463,7 +2463,7 @@ var domUtils = dom.domUtils = {
      * @param { Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点，
      * @param { Boolean } ignoreNext 是否忽略忽略对右边的兄弟节点的操作
      * @param { Boolean } ignorePre 是否忽略忽略对左边的兄弟节点的操作
-     * 则这些兄弟节点将被删除
+     * 则这些兄弟节点将被Delete
      * @see UE.dom.domUtils.clearEmptySibling(Node)
      */
     clearEmptySibling:function (node, ignoreNext, ignorePre) {
@@ -2939,9 +2939,9 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 删除node节点下首尾两端的空白文本子节点
+     * Deletenode节点下首尾两端的空白文本子节点
      * @method trimWhiteTextNode
-     * @param { Element } node 需要执行删除操作的元素对象
+     * @param { Element } node 需要执行Delete操作的元素对象
      * @example
      * ```javascript
      *      var node = document.createElement("div");
@@ -3209,10 +3209,10 @@ var domUtils = dom.domUtils = {
                     node.style.KhtmlUserSelect = 'none';
     },
     /**
-     * 删除节点node上的指定属性名称的属性
+     * Delete节点node上的指定属性名称的属性
      * @method  removeAttributes
-     * @param { Node } node 需要删除属性的节点对象
-     * @param { String } attrNames 可以是空格隔开的多个属性名称，该操作将会依次删除相应的属性
+     * @param { Node } node 需要Delete属性的节点对象
+     * @param { String } attrNames 可以是空格隔开的多个属性名称，该操作将会依次Delete相应的属性
      * @example
      * ```html
      * <div id="wrap">
@@ -3231,10 +3231,10 @@ var domUtils = dom.domUtils = {
      */
 
     /**
-     * 删除节点node上的指定属性名称的属性
+     * Delete节点node上的指定属性名称的属性
      * @method  removeAttributes
-     * @param { Node } node 需要删除属性的节点对象
-     * @param { Array } attrNames 需要删除的属性名数组
+     * @param { Node } node 需要Delete属性的节点对象
+     * @param { Array } attrNames 需要Delete的属性名数组
      * @example
      * ```html
      * <div id="wrap">
@@ -3395,10 +3395,10 @@ var domUtils = dom.domUtils = {
         return utils.transUnitToPx(utils.fixColor(styleName, value));
     },
     /**
-     * 删除元素element指定的className
+     * Delete元素element指定的className
      * @method removeClasses
-     * @param { Element } ele 需要删除class的元素节点
-     * @param { String } classNames 需要删除的className， 多个className之间以空格分开
+     * @param { Element } ele 需要Deleteclass的元素节点
+     * @param { String } classNames 需要Delete的className， 多个className之间以空格分开
      * @example
      * ```html
      * <span id="test" class="test1 test2 test3">xxx</span>
@@ -3416,10 +3416,10 @@ var domUtils = dom.domUtils = {
      */
 
     /**
-     * 删除元素element指定的className
+     * Delete元素element指定的className
      * @method removeClasses
-     * @param { Element } ele 需要删除class的元素节点
-     * @param { Array } classNames 需要删除的className数组
+     * @param { Element } ele 需要Deleteclass的元素节点
+     * @param { Array } classNames 需要Delete的className数组
      * @example
      * ```html
      * <span id="test" class="test1 test2 test3">xxx</span>
@@ -3570,10 +3570,10 @@ var domUtils = dom.domUtils = {
         evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
     },
     /**
-     * 删除元素element指定的样式
+     * Delete元素element指定的样式
      * @method removeStyle
-     * @param { Element } element 需要删除样式的元素
-     * @param { String } styleName 需要删除的样式名
+     * @param { Element } element 需要Delete样式的元素
+     * @param { String } styleName 需要Delete的样式名
      * @example
      * ```html
      * <span id="test" style="color: red; background: blue;"></span>
@@ -3701,7 +3701,7 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 删除_moz_dirty属性
+     * Delete_moz_dirty属性
      * @private
      * @method removeDirtyAttr
      */
@@ -4122,7 +4122,7 @@ var domUtils = dom.domUtils = {
      * @method isCustomeNode
      * @private
      * @param { Node } node 需要检测的节点
-     * @remind 辅助节点是指编辑器要完成工作临时添加的节点， 在输出的时候将会从编辑器内移除， 不会影响最终的结果。
+     * @remind 辅助节点是指Edit器要完成工作临时添加的节点， 在输出的时候将会从Edit器内移除， 不会影响最终的结果。
      * @return { Boolean } 给定的节点是否是一个辅助节点
      */
     isCustomeNode:function (node) {
@@ -4477,7 +4477,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     };
 
     /**
-     * 删除fillData
+     * DeletefillData
      * @param doc
      * @param excludeNode
      */
@@ -4548,7 +4548,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 删除当前选区范围中的所有内容
+         * Delete当前选区范围中的所有内容
          * @method deleteContents
          * @remind 执行完该操作后， 当前Range对象变成了闭合状态
          * @return { UE.dom.Range } 当前操作的Range对象
@@ -5334,7 +5334,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         *  调整当前range的边界到书签位置，并删除该书签对象所标记的位置内的节点
+         *  调整当前range的边界到书签位置，并Delete该书签对象所标记的位置内的节点
          *  @method  moveToBookmark
          *  @param { BookMark } bookmark createBookmark所创建的标签对象
          *  @return { UE.dom.Range } 当前range对象
@@ -5746,7 +5746,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 sel = win.getSelection(),
                 txtNode;
             //FF下关闭自动长高时滚动条在关闭dialog时会跳
-            //ff下如果不body.focus将不能定位闭合光标到编辑器内
+            //ff下如果不body.focus将不能定位闭合光标到Edit器内
             browser.gecko ? this.document.body.focus() : win.focus();
             if (sel) {
                 sel.removeAllRanges();
@@ -6343,7 +6343,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 编辑器是否得到了选区
+         * Edit器是否得到了选区
          * @method isFocus
          */
         isFocus:function () {
@@ -6509,7 +6509,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
 // core/Editor.js
 /**
- * 编辑器主类，包含编辑器提供的大部分公用接口
+ * Edit器主类，包含Edit器提供的大部分公用接口
  * @file
  * @module UE
  * @class Editor
@@ -6523,7 +6523,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
  */
 
 /**
- * UEditor的核心类，为用户提供与编辑器交互的接口。
+ * UEditor的核心类，为用户提供与Edit器交互的接口。
  * @unfile
  * @module UE
  * @class Editor
@@ -6533,10 +6533,10 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     var uid = 0, _selectionChangeTimer;
 
     /**
-     * 获取编辑器的html内容，赋值到编辑器所在表单的textarea文本域里面
+     * 获取Edit器的html内容，赋值到Edit器所在表单的textarea文本域里面
      * @private
      * @method setValue
-     * @param { UE.Editor } editor 编辑器事例
+     * @param { UE.Editor } editor Edit器事例
      */
     function setValue(form, editor) {
         var textarea;
@@ -6586,7 +6586,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     }
 
     /**
-     * 编辑器准备就绪后会触发该事件
+     * Edit器准备就绪后会触发该事件
      * @module UE
      * @class Editor
      * @event ready
@@ -6595,7 +6595,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
      * @example
      * ```javascript
      * editor.addListener( 'ready', function( editor ) {
-     *     editor.execCommand( 'focus' ); //编辑器家在完成后，让编辑器拿到焦点
+     *     editor.execCommand( 'focus' ); //Edit器家在完成后，让Edit器拿到焦点
      * } );
      * ```
      */
@@ -6680,7 +6680,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
      * @see UE.Editor:setContent(String)
      */
     /**
-     * 每当编辑器内部选区发生改变时，将触发该事件
+     * 每当Edit器内部选区发生改变时，将触发该事件
      * @event selectionchange
      * @warning 该事件的触发非常频繁，不建议在该事件的处理过程中做重量级的处理
      * @example
@@ -6704,7 +6704,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
      * @see UE.Editor:selectionchange
      */
     /**
-     * 编辑器内容发生改变时会触发该事件
+     * Edit器内容发生改变时会触发该事件
      * @module UE
      * @class Editor
      * @event contentChange
@@ -6712,9 +6712,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
 
     /**
-     * 以默认参数构建一个编辑器实例
+     * 以默认参数构建一个Edit器实例
      * @constructor
-     * @remind 通过 改构造方法实例化的编辑器,不带ui层.需要render到一个容器,编辑器实例才能正常渲染到页面
+     * @remind 通过 改构造方法实例化的Edit器,不带ui层.需要render到一个容器,Edit器实例才能正常渲染到页面
      * @example
      * ```javascript
      * var editor = new UE.Editor();
@@ -6724,10 +6724,10 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
      */
 
     /**
-     * 以给定的参数集合创建一个编辑器实例，对于未指定的参数，将应用默认参数。
+     * 以给定的参数集合创建一个Edit器实例，对于未指定的参数，将应用默认参数。
      * @constructor
-     * @remind 通过 改构造方法实例化的编辑器,不带ui层.需要render到一个容器,编辑器实例才能正常渲染到页面
-     * @param { Object } setting 创建编辑器的参数
+     * @remind 通过 改构造方法实例化的Edit器,不带ui层.需要render到一个容器,Edit器实例才能正常渲染到页面
+     * @param { Object } setting 创建Edit器的参数
      * @example
      * ```javascript
      * var editor = new UE.Editor();
@@ -6775,11 +6775,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             this.commands[name] = obj;
          },
         /**
-         * 编辑器对外提供的监听ready事件的接口， 通过调用该方法，达到的效果与监听ready事件是一致的
+         * Edit器对外提供的监听ready事件的接口， 通过调用该方法，达到的效果与监听ready事件是一致的
          * @method ready
-         * @param { Function } fn 编辑器ready之后所执行的回调, 如果在注册事件之前编辑器已经ready，将会
+         * @param { Function } fn Edit器ready之后所执行的回调, 如果在注册事件之前Edit器已经ready，将会
          * 立即触发该回调。
-         * @remind 需要等待编辑器加载完成后才能执行的代码,可以使用该方法传入
+         * @remind 需要等待Edit器加载完成后才能执行的代码,可以使用该方法传入
          * @example
          * ```javascript
          * editor.ready( function( editor ) {
@@ -6799,12 +6799,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * 该方法是提供给插件里面使用，设置配置项默认值
          * @method setOpt
          * @warning 三处设置配置项的优先级: 实例化时传入参数 > setOpt()设置 > config文件里设置
-         * @warning 该方法仅供编辑器插件内部和编辑器初始化时调用，其他地方不能调用。
-         * @param { String } key 编辑器的可接受的选项名称
+         * @warning 该方法仅供Edit器插件内部和Edit器初始化时调用，其他地方不能调用。
+         * @param { String } key Edit器的可接受的选项名称
          * @param { * } val  该选项可接受的值
          * @example
          * ```javascript
-         * editor.setOpt( 'initContent', '欢迎使用编辑器' );
+         * editor.setOpt( 'initContent', '欢迎使用Edit器' );
          * ```
          */
 
@@ -6812,12 +6812,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * 该方法是提供给插件里面使用，以{key:value}集合的方式设置插件内用到的配置项默认值
          * @method setOpt
          * @warning 三处设置配置项的优先级: 实例化时传入参数 > setOpt()设置 > config文件里设置
-         * @warning 该方法仅供编辑器插件内部和编辑器初始化时调用，其他地方不能调用。
+         * @warning 该方法仅供Edit器插件内部和Edit器初始化时调用，其他地方不能调用。
          * @param { Object } options 将要设置的选项的键值对对象
          * @example
          * ```javascript
          * editor.setOpt( {
-         *     'initContent': '欢迎使用编辑器'
+         *     'initContent': '欢迎使用Edit器'
          * } );
          * ```
          */
@@ -6834,7 +6834,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             return this.options[key]
         },
         /**
-         * 销毁编辑器实例，使用textarea代替
+         * 销毁Edit器实例，使用textarea代替
          * @method destroy
          * @example
          * ```javascript
@@ -6871,7 +6871,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 渲染编辑器的DOM到指定容器
+         * 渲染Edit器的DOM到指定容器
          * @method render
          * @param { String } containerId 指定一个容器ID
          * @remind 执行该方法,会触发ready事件
@@ -6879,7 +6879,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          */
 
         /**
-         * 渲染编辑器的DOM到指定容器
+         * 渲染Edit器的DOM到指定容器
          * @method render
          * @param { Element } containerDom 直接指定容器对象
          * @remind 执行该方法,会触发ready事件
@@ -6944,7 +6944,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 setTimeout(function(){
                     if( /%$/.test(options.initialFrameWidth)){
                         options.minFrameWidth = options.initialFrameWidth = container.offsetWidth;
-                        //如果这里给定宽度，会导致ie在拖动窗口大小时，编辑区域不随着变化
+                        //如果这里给定宽度，会导致ie在拖动窗口大小时，Edit区域不随着变化
 //                        container.style.width = options.initialFrameWidth + 'px';
                     }
                     if(/%$/.test(options.initialFrameHeight)){
@@ -6956,10 +6956,10 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 编辑器初始化
+         * Edit器初始化
          * @method _setup
          * @private
-         * @param { Element } doc 编辑器Iframe中的文档对象
+         * @param { Element } doc Edit器Iframe中的文档对象
          */
         _setup: function (doc) {
 
@@ -7012,7 +7012,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     this.setContent(options.initialContent, false, true);
             }
 
-            //编辑器不能为空内容
+            //Edit器不能为空内容
 
             if (domUtils.isEmptyNode(me.body)) {
                 me.body.innerHTML = '<p>' + (browser.ie ? '' : '<br/>') + '</p>';
@@ -7087,8 +7087,8 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 同步数据到编辑器所在的form
-         * 从编辑器的容器节点向上查找form元素，若找到，就同步编辑内容到找到的form里，为提交数据做准备，主要用于是手动提交的情况
+         * 同步数据到Edit器所在的form
+         * 从Edit器的容器节点向上查找form元素，若找到，就同步Edit内容到找到的form里，为提交数据做准备，主要用于是手动提交的情况
          * 后台取得数据的键值，使用你容器上的name属性，如果没有就使用参数里的textarea项
          * @method sync
          * @example
@@ -7099,10 +7099,10 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          */
 
         /**
-         * 根据传入的formId，在页面上查找要同步数据的表单，若找到，就同步编辑内容到找到的form里，为提交数据做准备
-         * 后台取得数据的键值，该键值默认使用给定的编辑器容器的name属性，如果没有name属性则使用参数项里给定的“textarea”项
+         * 根据传入的formId，在页面上查找要同步数据的表单，若找到，就同步Edit内容到找到的form里，为提交数据做准备
+         * 后台取得数据的键值，该键值默认使用给定的Edit器容器的name属性，如果没有name属性则使用参数项里给定的“textarea”项
          * @method sync
-         * @param { String } formID 指定一个要同步数据的form的id,编辑器的数据会同步到你指定form下
+         * @param { String } formID 指定一个要同步数据的form的id,Edit器的数据会同步到你指定form下
          */
         sync: function (formId) {
             var me = this,
@@ -7114,7 +7114,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 设置编辑器高度
+         * 设置Edit器高度
          * @method setHeight
          * @remind 当配置项autoHeightEnabled为真时,该方法无效
          * @param { Number } number 设置的高度值，纯数值，不带单位
@@ -7133,7 +7133,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 为编辑器的编辑命令提供快捷键
+         * 为Edit器的Edit命令提供快捷键
          * 这个接口是为插件扩展提供的接口,主要是为新添加的插件，如果需要添加快捷键，所提供的接口
          * @method addshortcutkey
          * @param { Object } keyset 命令名和快捷键键值对对象，多个按钮的快捷键用“＋”分隔
@@ -7166,7 +7166,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 对编辑器设置keydown事件监听，绑定快捷键和命令，当快捷键组合触发成功，会响应对应的命令
+         * 对Edit器设置keydown事件监听，绑定快捷键和命令，当快捷键组合触发成功，会响应对应的命令
          * @method _bindshortcutKeys
          * @private
          */
@@ -7198,30 +7198,30 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取编辑器的内容
+         * 获取Edit器的内容
          * @method getContent
-         * @warning 该方法获取到的是经过编辑器内置的过滤规则进行过滤后得到的内容
-         * @return { String } 编辑器的内容字符串, 如果编辑器的内容为空，或者是空的标签内容（如:”&lt;p&gt;&lt;br/&gt;&lt;/p&gt;“）， 则返回空字符串
+         * @warning 该方法获取到的是经过Edit器内置的过滤规则进行过滤后得到的内容
+         * @return { String } Edit器的内容字符串, 如果Edit器的内容为空，或者是空的标签内容（如:”&lt;p&gt;&lt;br/&gt;&lt;/p&gt;“）， 则返回空字符串
          * @example
          * ```javascript
-         * //编辑器html内容:<p>1<strong>2<em>34</em>5</strong>6</p>
+         * //Edit器html内容:<p>1<strong>2<em>34</em>5</strong>6</p>
          * var content = editor.getContent(); //返回值:<p>1<strong>2<em>34</em>5</strong>6</p>
          * ```
          */
 
         /**
-         * 获取编辑器的内容。 可以通过参数定义编辑器内置的判空规则
+         * 获取Edit器的内容。 可以通过参数定义Edit器内置的判空规则
          * @method getContent
          * @param { Function } fn 自定的判空规则， 要求该方法返回一个boolean类型的值，
-         *                      代表当前编辑器的内容是否空，
-         *                      如果返回true， 则该方法将直接返回空字符串；如果返回false，则编辑器将返回
+         *                      代表当前Edit器的内容是否空，
+         *                      如果返回true， 则该方法将直接返回空字符串；如果返回false，则Edit器将返回
          *                      经过内置过滤规则处理后的内容。
          * @remind 该方法在处理包含有初始化内容的时候能起到很好的作用。
-         * @warning 该方法获取到的是经过编辑器内置的过滤规则进行过滤后得到的内容
-         * @return { String } 编辑器的内容字符串
+         * @warning 该方法获取到的是经过Edit器内置的过滤规则进行过滤后得到的内容
+         * @return { String } Edit器的内容字符串
          * @example
          * ```javascript
-         * // editor 是一个编辑器的实例
+         * // editor 是一个Edit器的实例
          * var content = editor.getContent( function ( editor ) {
          *      return editor.body.innerHTML === '欢迎使用UEditor'; //返回空字符串
          * } );
@@ -7246,7 +7246,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         /**
          * 取得完整的html代码，可以直接显示成完整的html文档
          * @method getAllHtml
-         * @return { String } 编辑器的内容html文档字符串
+         * @return { String } Edit器的内容html文档字符串
          * @eaxmple
          * ```javascript
          * editor.getAllHtml(); //返回格式大致是: <html><head>...</head><body>...</body></html>
@@ -7273,12 +7273,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 得到编辑器的纯文本内容，但会保留段落格式
+         * 得到Edit器的纯文本内容，但会保留段落格式
          * @method getPlainTxt
-         * @return { String } 编辑器带段落格式的纯文本内容字符串
+         * @return { String } Edit器带段落格式的纯文本内容字符串
          * @example
          * ```javascript
-         * //编辑器html内容:<p><strong>1</strong></p><p><strong>2</strong></p>
+         * //Edit器html内容:<p><strong>1</strong></p><p><strong>2</strong></p>
          * console.log(editor.getPlainTxt()); //输出:"1\n2\n
          * ```
          */
@@ -7296,12 +7296,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取编辑器中的纯文本内容,没有段落格式
+         * 获取Edit器中的纯文本内容,没有段落格式
          * @method getContentTxt
-         * @return { String } 编辑器不带段落格式的纯文本内容字符串
+         * @return { String } Edit器不带段落格式的纯文本内容字符串
          * @example
          * ```javascript
-         * //编辑器html内容:<p><strong>1</strong></p><p><strong>2</strong></p>
+         * //Edit器html内容:<p><strong>1</strong></p><p><strong>2</strong></p>
          * console.log(editor.getPlainTxt()); //输出:"12
          * ```
          */
@@ -7312,9 +7312,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 设置编辑器的内容，可修改编辑器当前的html内容
+         * 设置Edit器的内容，可修改Edit器当前的html内容
          * @method setContent
-         * @warning 通过该方法插入的内容，是经过编辑器内置的过滤规则进行过滤后得到的内容
+         * @warning 通过该方法插入的内容，是经过Edit器内置的过滤规则进行过滤后得到的内容
          * @warning 该方法会触发selectionchange事件
          * @param { String } html 要插入的html内容
          * @example
@@ -7324,15 +7324,15 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          */
 
         /**
-         * 设置编辑器的内容，可修改编辑器当前的html内容
+         * 设置Edit器的内容，可修改Edit器当前的html内容
          * @method setContent
-         * @warning 通过该方法插入的内容，是经过编辑器内置的过滤规则进行过滤后得到的内容
+         * @warning 通过该方法插入的内容，是经过Edit器内置的过滤规则进行过滤后得到的内容
          * @warning 该方法会触发selectionchange事件
          * @param { String } html 要插入的html内容
          * @param { Boolean } isAppendTo 若传入true，不清空原来的内容，在最后插入内容，否则，清空内容再插入
          * @example
          * ```javascript
-         * //假设设置前的编辑器内容是 <p>old text</p>
+         * //假设设置前的Edit器内容是 <p>old text</p>
          * editor.setContent('<p>new text</p>', true); //插入的结果是<p>old text</p><p>new text</p>
          * ```
          */
@@ -7399,7 +7399,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 让编辑器获得焦点，默认focus到编辑器头部
+         * 让Edit器获得焦点，默认focus到Edit器头部
          * @method focus
          * @example
          * ```javascript
@@ -7408,9 +7408,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          */
 
         /**
-         * 让编辑器获得焦点，toEnd确定focus位置
+         * 让Edit器获得焦点，toEnd确定focus位置
          * @method focus
-         * @param { Boolean } toEnd 默认focus到编辑器头部，toEnd为true时focus到内容尾部
+         * @param { Boolean } toEnd 默认focus到Edit器头部，toEnd为true时focus到内容尾部
          * @example
          * ```javascript
          * editor.focus(true)
@@ -7568,7 +7568,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 执行编辑命令
+         * 执行Edit命令
          * @method _callCmdFn
          * @private
          * @param { String } fnName 函数名称
@@ -7589,7 +7589,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 执行编辑命令cmdName，完成富文本编辑效果
+         * 执行Edit命令cmdName，完成富文本Edit效果
          * @method execCommand
          * @param { String } cmdName 需要执行的命令
          * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
@@ -7628,7 +7628,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 根据传入的command命令，查选编辑器当前的选区，返回命令的状态
+         * 根据传入的command命令，查选Edit器当前的选区，返回命令的状态
          * @method  queryCommandState
          * @param { String } cmdName 需要查询的命令名称
          * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
@@ -7644,7 +7644,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 根据传入的command命令，查选编辑器当前的选区，根据命令返回相关的值
+         * 根据传入的command命令，查选Edit器当前的选区，根据命令返回相关的值
          * @method queryCommandValue
          * @param { String } cmdName 需要查询的命令名称
          * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
@@ -7658,7 +7658,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 检查编辑区域中是否有内容
+         * 检查Edit区域中是否有内容
          * @method  hasContents
          * @remind 默认有文本内容，或者有以下节点都不认为是空
          * table,ul,ol,dl,iframe,area,base,col,hr,img,embed,input,link,meta,param
@@ -7670,7 +7670,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          */
 
         /**
-         * 检查编辑区域中是否有内容，若包含参数tags中的节点类型，直接返回true
+         * 检查Edit区域中是否有内容，若包含参数tags中的节点类型，直接返回true
          * @method  hasContents
          * @param { Array } tags 传入数组判断时用到的节点类型
          * @return { Boolean } 若文档中包含tags数组里对应的tag，返回true，否则返回false
@@ -7704,9 +7704,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 重置编辑器，可用来做多个tab使用同一个编辑器实例
+         * 重置Edit器，可用来做多个tab使用同一个Edit器实例
          * @method  reset
-         * @remind 此方法会清空编辑器内容，清空回退列表，会触发reset事件
+         * @remind 此方法会清空Edit器内容，清空回退列表，会触发reset事件
          * @example
          * ```javascript
          * editor.reset()
@@ -7717,7 +7717,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 设置当前编辑区域可以编辑
+         * 设置当前Edit区域可以Edit
          * @method setEnabled
          * @example
          * ```javascript
@@ -7752,11 +7752,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             return this.setEnabled();
         },
 
-        /** 设置当前编辑区域不可编辑
+        /** 设置当前Edit区域不可Edit
          * @method setDisabled
          */
 
-        /** 设置当前编辑区域不可编辑,except中的命令除外
+        /** 设置当前Edit区域不可Edit,except中的命令除外
          * @method setDisabled
          * @param { String } except 例外命令的字符串
          * @remind 即使设置了disable，此处配置的例外命令仍然可以执行
@@ -7766,7 +7766,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * ```
          */
 
-        /** 设置当前编辑区域不可编辑,except中的命令除外
+        /** 设置当前Edit区域不可Edit,except中的命令除外
          * @method setDisabled
          * @param { Array } except 例外命令的字符串数组，数组中的命令仍然可以执行
          * @remind 即使设置了disable，此处配置的例外命令仍然可以执行
@@ -7832,7 +7832,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         }(),
 
         /**
-         * 显示编辑器
+         * 显示Edit器
          * @method setShow
          * @example
          * ```javascript
@@ -7861,7 +7861,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             return this.setShow();
         },
         /**
-         * 隐藏编辑器
+         * 隐藏Edit器
          * @method setHide
          * @example
          * ```javascript
@@ -7886,7 +7886,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * @return { Object | String } 根据路径返回语言资源的Json格式对象或者语言字符串
          * @example
          * ```javascript
-         * editor.getLang('contextMenu.delete'); //如果当前是中文，那返回是的是'删除'
+         * editor.getLang('contextMenu.delete'); //如果当前是中文，那返回是的是'Delete'
          * ```
          */
         getLang: function (path) {
@@ -7903,23 +7903,23 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 计算编辑器html内容字符串的长度
+         * 计算Edit器html内容字符串的长度
          * @method  getContentLength
          * @return { Number } 返回计算的长度
          * @example
          * ```javascript
-         * //编辑器html内容<p><strong>132</strong></p>
+         * //Edit器html内容<p><strong>132</strong></p>
          * editor.getContentLength() //返回27
          * ```
          */
         /**
-         * 计算编辑器当前纯文本内容的长度
+         * 计算Edit器当前纯文本内容的长度
          * @method  getContentLength
          * @param { Boolean } ingoneHtml 传入true时，只按照纯文本来计算
          * @return { Number } 返回计算的长度，内容中有hr/img/iframe标签，长度加1
          * @example
          * ```javascript
-         * //编辑器html内容<p><strong>132</strong></p>
+         * //Edit器html内容<p><strong>132</strong></p>
          * editor.getContentLength() //返回3
          * ```
          */
@@ -7987,7 +7987,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 根据输出过滤规则，过滤编辑器内容
+         * 根据输出过滤规则，过滤Edit器内容
          * @method  filterOutputRule
          * @remind 执行editor.getContent方法的时候，会先运行该过滤函数
          * @param { UE.uNode } root 要过滤的uNode节点
@@ -8038,7 +8038,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
 
 // core/Editor.defaultoptions.js
-//维护编辑器一下默认的不在插件中的配置项
+//维护Edit器一下默认的不在插件中的配置项
 UE.Editor.defaultOptions = function(editor){
 
     var _url = editor.options.UEDITOR_HOME_URL;
@@ -8597,7 +8597,7 @@ var filterWord = UE.filterWord = function () {
 
 // core/node.js
 /**
- * 编辑器模拟的节点类
+ * Edit器模拟的节点类
  * @file
  * @module UE
  * @class uNode
@@ -8613,7 +8613,7 @@ var filterWord = UE.filterWord = function () {
 (function () {
 
     /**
-     * 编辑器模拟的节点类
+     * Edit器模拟的节点类
      * @unfile
      * @module UE
      * @class uNode
@@ -9643,7 +9643,7 @@ var filterNode = UE.filterNode = function () {
                        }
                    }
                 }else{
-                    //如果不在名单里扣出子节点并删除该节点,cdata除外
+                    //如果不在名单里扣出子节点并Delete该节点,cdata除外
                     if(dtd.$cdata[node.tagName]){
                         node.parentNode.removeChild(node)
                     }else{
@@ -9962,7 +9962,7 @@ var LocalStorage = UE.LocalStorage = (function () {
 
 // plugins/defaultfilter.js
 ///import core
-///plugin 编辑器默认的过滤转换机制
+///plugin Edit器默认的过滤转换机制
 
 UE.plugins['defaultfilter'] = function () {
     var me = this;
@@ -9971,7 +9971,7 @@ UE.plugins['defaultfilter'] = function () {
         'disabledTableInTable':true
     });
     //默认的过滤处理
-    //进入编辑器的内容处理
+    //进入Edit器的内容处理
     me.addInputRule(function (root) {
         var allowDivTransToP = this.options.allowDivTransToP;
         var val;
@@ -10134,7 +10134,7 @@ UE.plugins['defaultfilter'] = function () {
 
     });
 
-    //从编辑器出去的内容处理
+    //从Edit器出去的内容处理
     me.addOutputRule(function (root) {
 
         var val;
@@ -10431,7 +10431,7 @@ UE.commands['inserthtml'] = {
                 }
 
             }
-            //加上true因为在删除表情等时会删两次，第一次是删的fillData
+            //加上true因为在Delete表情等时会删两次，第一次是删的fillData
             try{
                 range.select(true);
             }catch(e){}
@@ -10457,7 +10457,7 @@ UE.commands['inserthtml'] = {
  */
 
 /**
- * 对当前编辑器的内容执行自动排版， 排版的行为根据config配置文件里的“autotypeset”选项进行控制。
+ * 对当前Edit器的内容执行自动排版， 排版的行为根据config配置文件里的“autotypeset”选项进行控制。
  * @command autotypeset
  * @method execCommand
  * @param { String } cmd 命令字符串
@@ -10476,8 +10476,8 @@ UE.plugins['autotypeset'] = function(){
         textAlign:"left",               //段落的排版方式，可以是 left,right,center,justify 去掉这个属性表示不执行排版
         imageBlockLine: 'center',       //图片的浮动方式，独占一行剧中,左右浮动，默认: center,left,right,none 去掉这个属性表示不执行排版
         pasteFilter: false,             //根据规则过滤没事粘贴进来的内容
-        clearFontSize: false,           //去掉所有的内嵌字号，使用编辑器默认的字号
-        clearFontFamily: false,         //去掉所有的内嵌字体，使用编辑器默认的字体
+        clearFontSize: false,           //去掉所有的内嵌字号，使用Edit器默认的字号
+        clearFontFamily: false,         //去掉所有的内嵌字体，使用Edit器默认的字体
         removeEmptyNode: false,         // 去掉空节点
         //可以去掉的标签
         removeTagNames: utils.extend({div:1},dtd.$removeEmpty),
@@ -11318,7 +11318,7 @@ UE.plugins['justify']=function(){
 
 // plugins/font.js
 /**
- * 字体颜色,背景色,字号,字体,下划线,删除线
+ * 字体颜色,背景色,字号,字体,下划线,Delete线
  * @file
  * @since 1.2.6.1
  */
@@ -11416,7 +11416,7 @@ UE.plugins['justify']=function(){
  */
 
 /**
- * 字体下划线,与删除线互斥
+ * 字体下划线,与Delete线互斥
  * @command underline
  * @method execCommand
  * @param { String } cmd 命令字符串
@@ -11427,7 +11427,7 @@ UE.plugins['justify']=function(){
  */
 
 /**
- * 字体删除线,与下划线互斥
+ * 字体Delete线,与下划线互斥
  * @command strikethrough
  * @method execCommand
  * @param { String } cmd 命令字符串
@@ -12683,7 +12683,7 @@ UE.plugins['paragraph'] = function() {
                     tmpRange.insertNode( para );
 
                     var parent = para.parentNode;
-                    //如果para上一级是一个block元素且不是body,td就删除它
+                    //如果para上一级是一个block元素且不是body,td就Delete它
                     if ( block( parent ) && !domUtils.isBody( para.parentNode ) && utils.indexOf(notExchange,parent.tagName)==-1) {
                         //存储dir,style
                         if(!(sourceCmdName && sourceCmdName == 'customstyle')){
@@ -12696,7 +12696,7 @@ UE.plugins['paragraph'] = function() {
                             parent.style.padding && !para.style.padding && (para.style.padding = parent.style.padding);
                         }
 
-                        //trace:1706 选择的就是h1-6要删除
+                        //trace:1706 选择的就是h1-6要Delete
                         if(attrs && /h\d/i.test(parent.tagName) && !/h\d/i.test(para.tagName) ){
                             domUtils.setAttributes(parent,attrs);
                             if(sourceCmdName && sourceCmdName == 'customstyle' && attrs.style){
@@ -13718,7 +13718,7 @@ UE.plugins['insertcode'] = function() {
  * @param { String } cmd 命令字符串
  * @example
  * ```javascript
- * //editor 是编辑器实例
+ * //editor 是Edit器实例
  * editor.execCommand('cleardoc');
  * ```
  */
@@ -13799,7 +13799,7 @@ UE.plugin.register('anchor', function (){
             * @param { String } name 锚点名称字符串
             * @example
             * ```javascript
-            * //editor 是编辑器实例
+            * //editor 是Edit器实例
             * editor.execCommand('anchor', 'anchor1');
             * ```
             */
@@ -13925,7 +13925,7 @@ UE.plugins['pagebreak'] = function () {
      * @method execCommand
      * @param { String } cmd 命令字符串
      * @remind 在表格中插入分页符会把表格切分成两部分
-     * @remind 获取编辑器内的数据时， 编辑器会把分页符转换成“_ueditor_page_break_tag_”字符串，
+     * @remind 获取Edit器内的数据时， Edit器会把分页符转换成“_ueditor_page_break_tag_”字符串，
      *          以便于提交数据到服务器端后处理分页。
      * @example
      * ```javascript
@@ -14845,7 +14845,7 @@ UE.plugins['pasteplain'] = function(){
                 node.parentNode.removeChild(node,true)
             }
             return {
-                //直接删除及其字节点内容
+                //直接Delete及其字节点内容
                 '-' : 'script style object iframe embed input select',
                 'p': {$:{}},
                 'br':{$:{}},
@@ -15154,7 +15154,7 @@ UE.plugins['list'] = function () {
             }
         });
     });
-    //进入编辑器的li要套p标签
+    //进入Edit器的li要套p标签
     me.addInputRule(function(root){
         utils.each(root.getNodesByTagName('li'),function(li){
             var tmpP = UE.uNode.createElement('p');
@@ -15943,7 +15943,7 @@ UE.plugins['list'] = function () {
                         if (startParent.tagName.toLowerCase() == tag && nodeStyle == style) {
                             for (var i = 0, ci, tmpFrag = me.document.createDocumentFragment(); ci = frag.firstChild;) {
                                 if(domUtils.isTagNode(ci,'ol ul')){
-//                                  删除时，子列表不处理
+//                                  Delete时，子列表不处理
 //                                  utils.each(domUtils.getElementsByTagName(ci,'li'),function(li){
 //                                        while(li.firstChild){
 //                                            tmpFrag.appendChild(li.firstChild);
@@ -16176,7 +16176,7 @@ UE.plugins['list'] = function () {
 
 // plugins/source.js
 /**
- * 源码编辑插件
+ * 源码Edit插件
  * @file
  * @since 1.2.6.1
  */
@@ -16279,7 +16279,7 @@ UE.plugins['list'] = function () {
             bakAddress;
 
         /**
-         * 切换源码模式和编辑模式
+         * 切换源码模式和Edit模式
          * @command source
          * @method execCommand
          * @param { String } cmd 命令字符串
@@ -16290,11 +16290,11 @@ UE.plugins['list'] = function () {
          */
 
         /**
-         * 查询当前编辑区域的状态是源码模式还是可视化模式
+         * 查询当前Edit区域的状态是源码模式还是可视化模式
          * @command source
          * @method queryCommandState
          * @param { String } cmd 命令字符串
-         * @return { int } 如果当前是源码编辑模式，返回1，否则返回0
+         * @return { int } 如果当前是源码Edit模式，返回1，否则返回0
          * @example
          * ```javascript
          * editor.queryCommandState( 'source' );
@@ -16389,7 +16389,7 @@ UE.plugins['list'] = function () {
                     //还原getContent方法
                     me.getContent = oldGetContent;
                     var first = me.body.firstChild;
-                    //trace:1106 都删除空了，下边会报错，所以补充一个p占位
+                    //trace:1106 都Delete空了，下边会报错，所以补充一个p占位
                     if(!first){
                         me.body.innerHTML = '<p>'+(browser.ie?'':'<br/>')+'</p>';
                         first = me.body.firstChild;
@@ -16713,7 +16713,7 @@ UE.plugins['keystrokes'] = function() {
                 return;
             }
             var start,end;
-            //避免按两次删除才能生效的问题
+            //避免按两次Delete才能生效的问题
             if(rng.collapsed && rng.inFillChar()){
                 start = rng.startContainer;
 
@@ -16727,7 +16727,7 @@ UE.plugins['keystrokes'] = function() {
                 }
             }
 
-            //解决选中control元素不能删除的问题
+            //解决选中control元素不能Delete的问题
             if (start = rng.getClosedNode()) {
                 me.fireEvent('saveScene');
                 rng.setStartBefore(start);
@@ -16737,7 +16737,7 @@ UE.plugins['keystrokes'] = function() {
                 domUtils.preventDefault(evt);
                 return;
             }
-            //阻止在table上的删除
+            //阻止在table上的Delete
             if (!browser.ie) {
                 start = domUtils.findParentByTagName(rng.startContainer, 'table', true);
                 end = domUtils.findParentByTagName(rng.endContainer, 'table', true);
@@ -16796,7 +16796,7 @@ UE.plugins['keystrokes'] = function() {
             domUtils.preventDefault(evt)
         }
         //trace:1634
-        //ff的del键在容器空的时候，也会删除
+        //ff的del键在容器空的时候，也会Delete
         if(browser.gecko && keyCode == 46){
             range = me.selection.getRange();
             if(range.collapsed){
@@ -16842,7 +16842,7 @@ UE.plugins['keystrokes'] = function() {
                         }
                     }
                 }
-                //处理当删除到body时，要重新给p标签展位
+                //处理当Delete到body时，要重新给p标签展位
                 if(domUtils.isBody(rng.startContainer)){
                     var tmpNode = domUtils.createElement(me.document,'p',{
                         'innerHTML' : browser.ie ? domUtils.fillChar : '<br/>'
@@ -16852,7 +16852,7 @@ UE.plugins['keystrokes'] = function() {
             }
 
 
-            //chrome下如果删除了inline标签，浏览器会有记忆，在输入文字还是会套上刚才删除的标签，所以这里再选一次就不会了
+            //chrome下如果Delete了inline标签，浏览器会有记忆，在输入文字还是会套上刚才Delete的标签，所以这里再选一次就不会了
             if( !collapsed && (rng.startContainer.nodeType == 3 || rng.startContainer.nodeType == 1 && domUtils.isEmptyBlock(rng.startContainer))){
                 if(browser.ie){
                     var span = rng.document.createElement('span');
@@ -17368,7 +17368,7 @@ UE.plugin.register('autolink',function(){
 
 // plugins/autoheight.js
 ///import core
-///commands 当输入内容超过编辑器高度时，编辑器自动增高
+///commands 当输入内容超过Edit器高度时，Edit器自动增高
 ///commandsName  AutoHeight,autoHeightEnabled
 ///commandsTitle  自动增高
 /**
@@ -17581,7 +17581,7 @@ UE.plugins['autofloat'] = function() {
 
     me.addListener('ready', function(){
         if(checkHasUI(me)){
-            //加载了ui组件，但在new时，没有加载ui，导致编辑器实例上没有ui类，所以这里做判断
+            //加载了ui组件，但在new时，没有加载ui，导致Edit器实例上没有ui类，所以这里做判断
             if(!me.ui){
                 return;
             }
@@ -17710,8 +17710,8 @@ UE.plugins['video'] = function (){
      *      height: 100
      * };
      *
-     * //editor 是编辑器实例
-     * //向编辑器插入单个视频
+     * //editor 是Edit器实例
+     * //向Edit器插入单个视频
      * editor.execCommand( 'insertvideo', videoAttr );
      * ```
      */
@@ -17740,8 +17740,8 @@ UE.plugins['video'] = function (){
      *      height: 100
      * }
      *
-     * //editor 是编辑器实例
-     * //该方法将会向编辑器内插入两个视频
+     * //editor 是Edit器实例
+     * //该方法将会向Edit器内插入两个视频
      * editor.execCommand( 'insertvideo', [ videoAttr1, videoAttr2 ] );
      * ```
      */
@@ -17755,7 +17755,7 @@ UE.plugins['video'] = function (){
      * @example
      * ```javascript
      *
-     * //editor 是编辑器实例
+     * //editor 是Edit器实例
      * editor.queryCommandState( 'insertvideo' );
      * ```
      */
@@ -18208,7 +18208,7 @@ UE.plugins['video'] = function (){
                     }
                 }
             }
-            //当框选后删除行或者列后撤销，需要重建选区。
+            //当框选后Delete行或者列后撤销，需要重建选区。
             var tds = domUtils.getElementsByTagName(this.table, "td"),
                 selectTds = [];
             utils.each(tds, function (td) {
@@ -18260,7 +18260,7 @@ UE.plugins['video'] = function (){
             return rowIndex < this.rowsNum && this.table.rows[rowIndex].cells[cellIndex] || null;
         },
         /**
-         * 删除单元格
+         * Delete单元格
          */
         deleteCell:function (cell, rowIndex) {
             rowIndex = typeof rowIndex == 'number' ? rowIndex : cell.parentNode.rowIndex;
@@ -18515,7 +18515,7 @@ UE.plugins['video'] = function (){
                 range = this.getCellsRange(leftTopCell, this.getCell(index[this.rowsNum - 1][info.colIndex].rowIndex, index[this.rowsNum - 1][info.colIndex].cellIndex));
             }
 
-            // 删除剩余的Cells
+            // Delete剩余的Cells
             var cells = this.getCells(range);
             for(var i= 0,ci;ci=cells[i++];){
                 if (ci !== leftTopCell) {
@@ -18609,7 +18609,7 @@ UE.plugins['video'] = function (){
             return row;
         },
         /**
-         * 删除一行单元格
+         * Delete一行单元格
          * @param rowIndex
          */
         deleteRow:function (rowIndex) {
@@ -18665,7 +18665,7 @@ UE.plugins['video'] = function (){
                 td.rowSpan--;
             });
             row.parentNode.removeChild(row);
-            //浏览器方法本身存在bug,采用自定义方法删除
+            //浏览器方法本身存在bug,采用自定义方法Delete
             //this.table.deleteRow(rowIndex);
             this.update();
         },
@@ -20509,7 +20509,7 @@ UE.plugins['table'] = function () {
         me.addListener("getAllHtml", function () {
             removeSelectedClass(me.document.getElementsByTagName("td"));
         });
-        //修正全屏状态下插入的表格宽度在非全屏状态下撑开编辑器的情况
+        //修正全屏状态下插入的表格宽度在非全屏状态下撑开Edit器的情况
         me.addListener("fullscreenchanged", function (type, fullscreen) {
             if (!fullscreen) {
                 var ratio = this.body.offsetWidth / document.body.offsetWidth,
@@ -20583,7 +20583,7 @@ UE.plugins['table'] = function () {
 
     });
     /**
-     * 删除obj的宽高style，改成属性宽高
+     * Deleteobj的宽高style，改成属性宽高
      * @param obj
      * @param replaceToProperty
      */
@@ -22511,7 +22511,7 @@ UE.plugins['basestyle'] = function(){
      * @method execCommand
      * @example
      * ```javascript
-     * //editor是编辑器实例
+     * //editor是Edit器实例
      * //对当前选中的文本内容执行加粗操作
      * //第一次执行， 文本内容加粗
      * editor.execCommand( 'bold' );
@@ -22530,7 +22530,7 @@ UE.plugins['basestyle'] = function(){
      * @remind 对已倾斜的文本内容执行该命令， 将取消倾斜
      * @example
      * ```javascript
-     * //editor是编辑器实例
+     * //editor是Edit器实例
      * //对当前选中的文本内容执行斜体操作
      * //第一次操作， 文本内容将变成斜体
      * editor.execCommand( 'italic' );
@@ -22548,7 +22548,7 @@ UE.plugins['basestyle'] = function(){
      * @param { String } cmd 命令字符串
      * @example
      * ```javascript
-     * //editor是编辑器实例
+     * //editor是Edit器实例
      * //对当前选中的文本内容执行下标操作
      * //第一次操作， 文本内容将变成下标文本
      * editor.execCommand( 'subscript' );
@@ -22566,7 +22566,7 @@ UE.plugins['basestyle'] = function(){
      * @param { String } cmd 命令字符串
      * @example
      * ```javascript
-     * //editor是编辑器实例
+     * //editor是Edit器实例
      * //对当前选中的文本内容执行上标操作
      * //第一次操作， 文本内容将变成上标文本
      * editor.execCommand( 'superscript' );
@@ -22706,7 +22706,7 @@ UE.plugins['elementpath'] = function(){
  * @param { String } cmd 命令字符串
  * @example
  * ```javascript
- * //editor是编辑器实例
+ * //editor是Edit器实例
  * //获取格式刷
  * editor.execCommand( 'formatmatch' );
  * ```
@@ -23401,7 +23401,7 @@ UE.plugin.register('snapscreen', function (){
  * @param { String } cmd 命令字符串
  * @example
  * ```javascript
- * //editor是编辑器实例
+ * //editor是Edit器实例
  * editor.execCommand( 'insertparagraph' );
  * ```
  */
@@ -23451,8 +23451,8 @@ UE.commands['insertparagraph'] = {
  * height=>应用容器高度，logo=>应用logo，url=>应用地址
  * @example
  * ```javascript
- * //editor是编辑器实例
- * //在编辑器里插入一个“植物大战僵尸”的APP
+ * //editor是Edit器实例
+ * //在Edit器里插入一个“植物大战僵尸”的APP
  * editor.execCommand( 'webapp' , {
  *     title: '植物大战僵尸',
  *     width: 560,
@@ -23571,8 +23571,8 @@ UE.plugin.register('webapp', function (){
              * height=>应用容器高度，logo=>应用logo，url=>应用地址
              * @example
              * ```javascript
-             * //editor是编辑器实例
-             * //在编辑器里插入一个“植物大战僵尸”的APP
+             * //editor是Edit器实例
+             * //在Edit器里插入一个“植物大战僵尸”的APP
              * editor.execCommand( 'webapp' , {
              *     title: '植物大战僵尸',
              *     width: 560,
@@ -23698,8 +23698,8 @@ UE.plugin.register('music', function (){
              * width=>音乐容器宽度；height=>音乐容器高度；align=>音乐文件的对齐方式， 可选值有: left, center, right, none
              * @example
              * ```javascript
-             * //editor是编辑器实例
-             * //在编辑器里插入一个“植物大战僵尸”的APP
+             * //editor是Edit器实例
+             * //在Edit器里插入一个“植物大战僵尸”的APP
              * editor.execCommand( 'music' , {
              *     width: 400,
              *     height: 95,
@@ -23728,7 +23728,7 @@ UE.plugin.register('music', function (){
 // plugins/autoupload.js
 /**
  * @description
- * 1.拖放文件到编辑区域，自动上传并插入到选区
+ * 1.拖放文件到Edit区域，自动上传并插入到选区
  * 2.插入粘贴板的图片，自动上传并插入到选区
  * @author Jinqn
  * @date 2013-10-14
@@ -23926,7 +23926,7 @@ UE.plugin.register('autosave', function (){
         }
 
         if ( !editor.hasContents() ) {
-            //这里不能调用命令来删除， 会造成事件死循环
+            //这里不能调用命令来Delete， 会造成事件死循环
             saveKey && me.removePreferences( saveKey );
             return;
         }
@@ -23968,7 +23968,7 @@ UE.plugin.register('autosave', function (){
                     key = ( me.container.parentNode.id || 'ue-common' ) + _suffix;
                 }
 
-                //页面地址+编辑器ID 保持唯一
+                //页面地址+Edit器ID 保持唯一
                 saveKey = ( location.protocol + location.host + location.pathname ).replace( /[.:\/]/g, '_' ) + key;
 
             },
@@ -24651,14 +24651,14 @@ UE.plugin.register('serverparam', function (){
              * ```
              */
             /**
-             * 修改服务器提交的额外参数列表,删除指定项
+             * 修改服务器提交的额外参数列表,Delete指定项
              * @command serverparam
              * @method execCommand
              * @param { String } cmd 命令字符串
              * @param { String } key 要清除的属性
              * @example
              * ```javascript
-             * editor.execCommand('serverparam', 'name'); //删除属性name
+             * editor.execCommand('serverparam', 'name'); //Delete属性name
              * ```
              */
             /**
@@ -24947,7 +24947,7 @@ UE.ui = baidu.editor.ui = {};
         },
         getClientRect: function (element){
             var bcr;
-            //trace  IE6下在控制编辑器显隐时可能会报错，catch一下
+            //trace  IE6下在控制Edit器显隐时可能会报错，catch一下
             try{
                 bcr = element.getBoundingClientRect();
             }catch(e){
@@ -26338,7 +26338,7 @@ UE.ui = baidu.editor.ui = {};
         UIBase = baidu.editor.ui.UIBase;
 
     /**
-     * 该参数将新增一个参数： selected， 参数类型为一个Object， 形如{ 'align': 'center', 'valign': 'top' }， 表示单元格的初始
+     * 该参数将Create一个参数： selected， 参数类型为一个Object， 形如{ 'align': 'center', 'valign': 'top' }， 表示单元格的初始
      * 对齐状态为： 竖直居上，水平居中; 其中 align的取值为：'center', 'left', 'right'; valign的取值为: 'top', 'middle', 'bottom'
      * @update 2013/4/2 hancong03@baidu.com
      */
@@ -26601,7 +26601,7 @@ UE.ui = baidu.editor.ui = {};
             return menuSeparator;
         },
         createItem:function (item) {
-            //新增一个参数menu, 该参数存储了menuItem所对应的menu引用
+            //Create一个参数menu, 该参数存储了menuItem所对应的menu引用
             item.menu = this;
             return new MenuItem(item);
         },
@@ -26672,7 +26672,7 @@ UE.ui = baidu.editor.ui = {};
     utils.inherits(Menu, Popup);
 
     /**
-     * @update 2013/04/03 hancong03 新增一个参数menu, 该参数存储了menuItem所对应的menu引用
+     * @update 2013/04/03 hancong03 Create一个参数menu, 该参数存储了menuItem所对应的menu引用
      * @type {Function}
      */
     var MenuItem = baidu.editor.ui.MenuItem = function (options) {
@@ -27273,7 +27273,7 @@ UE.ui = baidu.editor.ui = {};
             if (this._hidden) {
                 this.getDom().style.display = '';
 
-                //要高过编辑器的zindxe
+                //要高过Edit器的zindxe
                 this.editor.container.style.zIndex && (this.getDom().style.zIndex = this.editor.container.style.zIndex * 1 + 10);
                 this._hidden = false;
                 this.fireEvent('show');
@@ -27766,9 +27766,9 @@ UE.ui = baidu.editor.ui = {};
 
 
 // adapter/editorui.js
-//ui跟编辑器的适配層
+//ui跟Edit器的适配層
 //那个按钮弹出是dialog，是下拉筐等都是在这个js中配置
-//自己写的ui也要在这里配置，放到baidu.editor.ui下边，当编辑器实例化的时候会根据ueditor.config中的toolbars找到相应的进行实例化
+//自己写的ui也要在这里配置，放到baidu.editor.ui下边，当Edit器实例化的时候会根据ueditor.config中的toolbars找到相应的进行实例化
 (function () {
     var utils = baidu.editor.utils;
     var editorui = baidu.editor.ui;
@@ -28657,7 +28657,7 @@ UE.ui = baidu.editor.ui = {};
                 domUtils.on(editor.window, 'scroll', function (evt) {
                     baidu.editor.ui.Popup.postHide(evt);
                 });
-                //提供编辑器实时宽高(全屏时宽高不变化)
+                //提供Edit器实时宽高(全屏时宽高不变化)
                 editor.ui._actualFrameWidth = editor.options.initialFrameWidth;
 
                 UE.browser.ie && UE.browser.version === 6 && editor.container.ownerDocument.execCommand("BackgroundImageCache", false, true);
@@ -29389,7 +29389,7 @@ UE.ui = baidu.editor.ui = {};
                     domUtils.addClass(holder, "edui-" + editor.options.theme);
                     editor.ui.render(holder);
                     var opt = editor.options;
-                    //给实例添加一个编辑器的容器引用
+                    //给实例添加一个Edit器的容器引用
                     editor.container = editor.ui.getDom();
                     var parents = domUtils.findParents(holder,true);
                     var displays = [];
@@ -29414,7 +29414,7 @@ UE.ui = baidu.editor.ui = {};
                     for(var i = 0 ,ci;ci=parents[i];i++){
                         ci.style.display =  displays[i]
                     }
-                    //编辑器最外容器设置了高度，会导致，编辑器不占位
+                    //Edit器最外容器设置了高度，会导致，Edit器不占位
                     //todo 先去掉，没有找到原因
                     if(holder.style.height){
                         holder.style.height = ''
@@ -29440,12 +29440,12 @@ UE.ui = baidu.editor.ui = {};
      * @name getEditor
      * @since 1.2.4+
      * @grammar UE.getEditor(id,[opt])  =>  Editor实例
-     * @desc 提供一个全局的方法得到编辑器实例
+     * @desc 提供一个全局的方法得到Edit器实例
      *
-     * * ''id''  放置编辑器的容器id, 如果容器下的编辑器已经存在，就直接返回
-     * * ''opt'' 编辑器的可选参数
+     * * ''id''  放置Edit器的容器id, 如果容器下的Edit器已经存在，就直接返回
+     * * ''opt'' Edit器的可选参数
      * @example
-     *  UE.getEditor('containerId',{onready:function(){//创建一个编辑器实例
+     *  UE.getEditor('containerId',{onready:function(){//创建一个Edit器实例
      *      this.setContent('hello')
      *  }});
      *  UE.getEditor('containerId'); //返回刚创建的实例

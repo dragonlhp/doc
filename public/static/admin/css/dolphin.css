@@ -200,7 +200,7 @@ div.tagsinput {
     display: inline-block;
 }
 
-/* markdown编辑器 */
+/* markdownEdit器 */
 .editormd-fullscreen {
     z-index: 9999;
 }

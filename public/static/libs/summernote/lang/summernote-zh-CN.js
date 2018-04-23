@@ -8,7 +8,7 @@
         clear: '清除格式',
         height: '行高',
         name: '字体',
-        strikethrough: '删除线',
+        strikethrough: 'Delete线',
         subscript: '下标',
         superscript: '上标',
         size: '字号'
@@ -44,7 +44,7 @@
         link: '链接',
         insert: '插入链接',
         unlink: '去除链接',
-        edit: '编辑链接',
+        edit: 'Edit链接',
         textToDisplay: '显示文本',
         url: '链接地址',
         openInNewWindow: '在新窗口打开'

@@ -303,7 +303,7 @@ if (!function_exists('session')) {
             // 判断或获取
             return 0 === strpos($name, '?') ? Session::has(substr($name, 1), $prefix) : Session::get($name, $prefix);
         } elseif (is_null($value)) {
-            // 删除
+            // Delete
             return Session::delete($name, $prefix);
         } else {
             // 设置
@@ -332,7 +332,7 @@ if (!function_exists('cookie')) {
             // 获取
             return 0 === strpos($name, '?') ? Cookie::has(substr($name, 1), $option) : Cookie::get($name, $option);
         } elseif (is_null($value)) {
-            // 删除
+            // Delete
             return Cookie::delete($name);
         } else {
             // 设置
@@ -368,7 +368,7 @@ if (!function_exists('cache')) {
             // 获取缓存
             return 0 === strpos($name, '?') ? $cache->has(substr($name, 1)) : $cache->get($name);
         } elseif (is_null($value)) {
-            // 删除缓存
+            // Delete缓存
             return $cache->rm($name);
         } elseif (0 === strpos($name, '?') && '' !== $value) {
             $expire = is_numeric($options) ? $options : null;

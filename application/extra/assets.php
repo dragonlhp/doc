@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 // 资源路径配置
 return [
@@ -81,10 +81,10 @@ return [
     'validate_js' => [ // 验证
         "__LIBS__/jquery-validation/jquery.validate.min.js",
     ],
-    'editable_js' => [ // 快速编辑
+    'editable_js' => [ // 快速Edit
         "__LIBS__/bootstrap3-editable/js/bootstrap-editable.js",
     ],
-    'editable_css' => [ // 快速编辑
+    'editable_css' => [ // 快速Edit
         "__LIBS__/bootstrap3-editable/css/bootstrap-editable.css",
     ],
     'colorpicker_js' => [ // 取色器
@@ -93,7 +93,7 @@ return [
     'colorpicker_css' => [ // 取色器
         "__LIBS__/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css",
     ],
-    'editormd_js' => [ // markdown编辑器
+    'editormd_js' => [ // markdownEdit器
         "__LIBS__/editormd/editormd.min.js",
     ],
     'jcrop_js' => [ // 图片裁剪
@@ -118,17 +118,17 @@ return [
     'nestable_css' => [ // 拖拽排序
         "__LIBS__/jquery-nestable/jquery.nestable.css",
     ],
-    'wangeditor_js' => [ // wang编辑器
+    'wangeditor_js' => [ // wangEdit器
         "__LIBS__/wang-editor/js/wangEditor.min.js",
     ],
-    'wangeditor_css' => [ // wang编辑器
+    'wangeditor_css' => [ // wangEdit器
         "__LIBS__/wang-editor/css/wangEditor.min.css",
     ],
-    'summernote_js' => [ // summernote编辑器
+    'summernote_js' => [ // summernoteEdit器
         "__LIBS__/summernote/summernote.min.js",
         "__LIBS__/summernote/lang/summernote-zh-CN.js",
     ],
-    'summernote_css' => [ // summernote编辑器
+    'summernote_css' => [ // summernoteEdit器
         "__LIBS__/summernote/summernote.min.css",
     ],
     'jqueryui_js' => [ // jqueryui

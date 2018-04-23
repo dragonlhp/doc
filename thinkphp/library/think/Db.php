@@ -34,7 +34,7 @@ use think\db\Query;
  * @method integer insertGetId(array $data, boolean $replace = false, string $sequence = null) static 插入一条记录并返回自增ID
  * @method integer insertAll(array $dataSet) static 插入多条记录
  * @method integer update(array $data) static 更新记录
- * @method integer delete(mixed $data = null) static 删除记录
+ * @method integer delete(mixed $data = null) static Delete记录
  * @method boolean chunk(integer $count, callable $callback, string $column = null) static 分块获取数据
  * @method mixed query(string $sql, array $bind = [], boolean $master = false, bool $pdo = false) static SQL查询
  * @method integer execute(string $sql, array $bind = [], boolean $fetch = false, boolean $getLastInsID = false, string $sequence = null) static SQL执行

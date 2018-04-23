@@ -177,7 +177,7 @@ class Cache
     }
 
     /**
-     * 删除缓存
+     * Delete缓存
      * @access public
      * @param  string $name 缓存标识
      * @return boolean
@@ -203,7 +203,7 @@ class Cache
     }
 
     /**
-     * 读取缓存并删除
+     * 读取缓存并Delete
      * @access public
      * @param  string $name 缓存变量名
      * @return mixed

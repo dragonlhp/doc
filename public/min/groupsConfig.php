@@ -88,10 +88,10 @@ return [
     'validate_js' => [ // 验证
         $libs_path. "jquery-validation/jquery.validate.min.js",
     ],
-    'editable_js' => [ // 快速编辑
+    'editable_js' => [ // 快速Edit
         $libs_path. "bootstrap3-editable/js/bootstrap-editable.js",
     ],
-    'editable_css' => [ // 快速编辑
+    'editable_css' => [ // 快速Edit
         $libs_path. "bootstrap3-editable/css/bootstrap-editable.css",
     ],
     'colorpicker_js' => [ // 取色器
@@ -100,7 +100,7 @@ return [
     'colorpicker_css' => [ // 取色器
         $libs_path. "bootstrap-colorpicker/css/bootstrap-colorpicker.min.css",
     ],
-    'editormd_js' => [ // markdown编辑器
+    'editormd_js' => [ // markdownEdit器
         $libs_path. "editormd/editormd.min.js",
     ],
     'jcrop_js' => [ // 图片裁剪
@@ -125,17 +125,17 @@ return [
     'nestable_css' => [ // 拖拽排序
         $libs_path. "jquery-nestable/jquery.nestable.css",
     ],
-    'wangeditor_js' => [ // wang编辑器
+    'wangeditor_js' => [ // wangEdit器
         $libs_path. "wang-editor/js/wangEditor.min.js",
     ],
-    'wangeditor_css' => [ // wang编辑器
+    'wangeditor_css' => [ // wangEdit器
         $libs_path. "wang-editor/css/wangEditor.min.css",
     ],
-    'summernote_js' => [ // summernote编辑器
+    'summernote_js' => [ // summernoteEdit器
         $libs_path. "summernote/summernote.min.js",
         $libs_path. "summernote/lang/summernote-zh-CN.js",
     ],
-    'summernote_css' => [ // summernote编辑器
+    'summernote_css' => [ // summernoteEdit器
         $libs_path. "summernote/summernote.min.css",
     ],
     'jqueryui_js' => [ // jqueryui

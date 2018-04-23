@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\cms\admin;
 
@@ -25,7 +25,7 @@ class Recycle extends Admin
     /**
      * 文档列表
      * @param string $model 内容模型id
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function index($model = '')
     {
@@ -65,9 +65,9 @@ class Recycle extends Admin
                     ['right_button', '操作', 'btn']
                 ])
                 ->addTopButton('enable', $btnRestoreAll) // 批量添加顶部按钮
-                ->addTopButton('delete', ['title' => '批量删除', 'href' => url('delete'), 'data-tips' => '删除后不可回复！']) // 批量添加顶部按钮
+                ->addTopButton('delete', ['title' => '批量Delete', 'href' => url('delete'), 'data-tips' => 'Delete后不可回复！']) // 批量添加顶部按钮
                 ->addRightButton('custom', $btnRestore) // 添加右侧按钮
-                ->addRightButton('delete', ['href' => url('delete', ['ids' => '__id__']), 'data-tips' => '删除后不可回复！']) // 添加右侧按钮
+                ->addRightButton('delete', ['href' => url('delete', ['ids' => '__id__']), 'data-tips' => 'Delete后不可回复！']) // 添加右侧按钮
                 ->addOrder('id,title,column_name,view,username,update_time')
                 ->addFilter(['column_name' => 'cms_column.name', 'username' => 'admin_user'])
                 ->setRowList($data_list) // 设置表格数据
@@ -116,9 +116,9 @@ class Recycle extends Admin
                     ['right_button', '操作', 'btn']
                 ])
                 ->addTopButton('enable', $btnRestoreAll) // 添加顶部按钮
-                ->addTopButton('delete', ['title' => '批量删除', 'href' => url('delete', ['table' => $table_name]), 'data-tips' => '删除后不可回复！']) // 添加顶部按钮
+                ->addTopButton('delete', ['title' => '批量Delete', 'href' => url('delete', ['table' => $table_name]), 'data-tips' => 'Delete后不可回复！']) // 添加顶部按钮
                 ->addRightButton('custom', $btnRestore) // 添加右侧按钮
-                ->addRightButton('delete', ['href' => url('delete', ['ids' => '__id__', 'table' => $table_name]), 'data-tips' => '删除后不可回复！']) // 添加右侧按钮
+                ->addRightButton('delete', ['href' => url('delete', ['ids' => '__id__', 'table' => $table_name]), 'data-tips' => 'Delete后不可回复！']) // 添加右侧按钮
                 ->addOrder('id,title,column_name,view,username,update_time')
                 ->addFilter(['column_name' => 'cms_column.name', 'username' => 'admin_user'])
                 ->setRowList($data_list) // 设置表格数据
@@ -130,7 +130,7 @@ class Recycle extends Admin
      * 还原文档
      * @param null $ids 文档id
      * @param string $table 表名
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function restore($ids = null, $table = '')
     {
@@ -145,16 +145,16 @@ class Recycle extends Admin
             $this->error('还原失败');
         }
 
-        // 删除并记录日志
+        // Delete并记录日志
         action_log('document_restore', $table, $document_id, UID, implode('、', $document_title));
         $this->success('还原成功');
     }
 
     /**
-     * 彻底删除文档
+     * 彻底Delete文档
      * @param null $ids 文档id
      * @param string $table 表名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($ids = null, $table = '')
@@ -170,14 +170,14 @@ class Recycle extends Admin
                 // 附加表名
                 $extra_table = get_model_table($document['model']);
 
-                // 删除附加表文档
+                // Delete附加表文档
                 if (false === Db::table($extra_table)->where('aid', $document['id'])->delete()) {
-                    $this->error('删除文档：'. $document['title']. ' 失败');
+                    $this->error('Delete文档：'. $document['title']. ' 失败');
                 }
 
-                // 删除主表文档
+                // Delete主表文档
                 if (false === Db::name('cms_document')->where('id', $document['id'])->delete()) {
-                    $this->error('删除失败');
+                    $this->error('Delete失败');
                 }
 
                 // 记录行为
@@ -187,14 +187,14 @@ class Recycle extends Admin
             // 文档标题
             $document_title = Db::table($table)->where('id', 'in', $ids)->column('title');
 
-            // 删除独立文档
+            // Delete独立文档
             if (false === Db::table($table)->where('id', 'in', $ids)->delete()) {
-                $this->error('删除失败');
+                $this->error('Delete失败');
             }
 
             // 记录行为
             action_log('document_delete', $table, 0, UID, '表('.$table.'),文档('.implode('、', $document_title).')');
         }
-        $this->success('删除成功');
+        $this->success('Delete成功');
     }
 }

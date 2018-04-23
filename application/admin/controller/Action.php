@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\admin\controller;
 
@@ -23,7 +23,7 @@ class Action extends Admin
 {
     /**
      * 首页
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function index()
@@ -35,7 +35,7 @@ class Action extends Admin
         // 所有模块的名称和标题
         $list_module = ModuleModel::getModule();
 
-        // 新增或编辑页面的字段
+        // Create或Edit页面的字段
         $fields = [
             ['hidden', 'id'],
             ['select', 'module', '所属模块', '', $list_module],
@@ -62,8 +62,8 @@ class Action extends Admin
                 ['status', '状态', 'switch'],
                 ['right_button', '操作', 'btn']
             ])
-            ->autoAdd($fields, '', true, true) // 添加自动新增按钮
-            ->autoEdit($fields, '', true, true) // 添加自动编辑按钮
+            ->autoAdd($fields, '', true, true) // 添加自动Create按钮
+            ->autoEdit($fields, '', true, true) // 添加自动Edit按钮
             ->addTopButtons('enable,disable,delete') // 批量添加顶部按钮
             ->addRightButtons('delete') // 批量添加右侧按钮
             ->addFilter('module', $list_module)
