@@ -46,8 +46,10 @@
 			return $value != 0 ? date('Y-m-d', $value) : '';
 		}
 
-		static public function getList()
+		static public function getList($map)
 		{
-			return self::where(['status' => 1, 'user_id' => session('user_auth')['uid']])->column('id,address');
+			return self::where($map)->column('user_id as id,address');
 		}
+
+
 	}

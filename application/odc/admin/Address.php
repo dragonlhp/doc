@@ -15,7 +15,8 @@
 	use app\common\builder\ZBuilder;
 
 	use app\odc\model\AddressModel;
-	use app\user\model\User;
+    use app\odc\model\RegionUserModel;
+    use app\user\model\User;
 	use think\Validate;
 
 	/**
@@ -54,7 +55,7 @@
 			$ZBuilder = ZBuilder::make('table');
 			if ($this->user['type'] != 0)
 			{
-				//$addColumns[0] = ['user_id', 'User', 'select', static::userlist()];
+				$addColumns[0] = ['user_id', 'User', 'text', '',static::userlist()];
 				$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
 			}
 			$ZBuilder_ = $ZBuilder->setSearch(['region_name' => 'Address Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
@@ -80,6 +81,7 @@
 				$data = $this->request->post();
 				if ($advert = AddressModel::create($data))
 				{
+				    RegionUserModel::updated($advert->user_id,session('user_auth')['uid']);
 					$this->success('Create Success', 'index');
 				} else
 				{

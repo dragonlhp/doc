@@ -50,4 +50,8 @@
 		{
 			return self::where([])->column('id,region_name');
 		}
+
+        static public function updated($id,$user_id){
+            RegionUserModel::update(['address_id'=>$id],['user_id'=>$user_id]);
+        }
 	}

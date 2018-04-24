@@ -45,21 +45,25 @@
 				->order($order)->paginate();
 
 			// 使用ZBuilder快速创建数据表格
+            $maps=[];
+            if ($this->user['type'] != 1)
+            {
+                $maps['user_id'] = session('user_auth')['uid'];
+            }
+
+          //  dump([AddressModel::getList($maps)]);die;
 			return ZBuilder::make('table')
 				//->setSearch(['region_name' => 'Region Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
 				->addColumns([ // 批量添加数据列
 							   ['id', 'ID'],
 							   ['username', 'User Name'],
 							   ['nickname', 'Nick Name'],
-							   ['region_id', 'Region Name', 'select', RegionModel::where([])->column('id,region_name')],
-							   ['address_id', 'Default Address', 'select', AddressModel::getList()],
-							   ['email', 'E-Mail'],
+							   ['region_id', 'Region Name', 'text','', RegionModel::where([])->column('id,region_name')],
+							   ['address_id', 'Default Address', 'text','',AddressModel::getList($maps)],
+ 							   ['email', 'E-Mail'],
 							   ['mobile', 'Phone'],
-							   ['type', 'IS Manager', 'switch'],
-							   ['create_time', 'create_time', 'date'],
-							   ['create_time', 'update_time', 'date'],
-
-				])
+							   ['type', 'IS Manager', 'text','',["1"=>'Manager',"0"=>'User']],
+ 				])
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.']])// 批量添加右侧按钮
 				->addOrder('id,name')
 				->setRowList($data_list)// 设置表格数据
