@@ -86,7 +86,7 @@ jQuery(document).ready(function() {
             var self = $(this);
             if (self.data('field') === search_field) {
                 $('#search-btn').html(self.text() + ' <span class="caret"></span>');
-                if (self.text() === '不限') {
+                if (self.text() === 'Unlimited') {
                     $('#search-input').attr('placeholder', search_input_placeholder);
                 } else {
                     $('#search-input').attr('placeholder', '请输入'+self.text());
@@ -100,7 +100,7 @@ jQuery(document).ready(function() {
         var field = $(this).data('field') || '';
         $('#search-field').val(field);
         $('#search-btn').html($(this).text() + ' <span class="caret"></span>');
-        if ($(this).text() === '不限') {
+        if ($(this).text() === 'Unlimited') {
             $('#search-input').attr('placeholder', search_input_placeholder);
         } else {
             $('#search-input').attr('placeholder', '请输入'+$(this).text());

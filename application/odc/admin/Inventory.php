@@ -78,10 +78,10 @@
 				$data = $this->request->post();
 				if ($advert = InventoryModel::create($data))
 				{
-					$this->success('Create成功', 'index');
+					$this->success('Create success', 'index');
 				} else
 				{
-					$this->error('Create失败');
+					$this->error('Create failure');
 				}
 			}
 			// 显示添加页面
@@ -119,10 +119,10 @@
 				if (InventoryModel::update($data, ['id' => $id]))
 				{
 					// 记录行为
-					$this->success('Edit成功', 'index');
+					$this->success('Edit success', 'index');
 				} else
 				{
-					$this->error('Edit失败');
+					$this->error('Edit failure');
 				}
 			}
 

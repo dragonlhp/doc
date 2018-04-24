@@ -39,11 +39,9 @@
 			return self::where('id>0')->where(['status' => 1, 'user_id' => session('user_auth')['uid']])->column('id,name');
 		}
 
-		static public function getParentTrue($id = null)
+		static public function getParentTrue($pam,$id = null)
 		{
-
-
-			$data_list = self::where('id > 0');
+			$data_list = self::where('id > 0')->where($pam);
 			if ($id)
 			{
 				$data_list->whereNotIn('id', $id);

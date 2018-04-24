@@ -97,17 +97,24 @@
 				$data = $this->request->post();
 				if ($advert = CategoryModel::create($data))
 				{
-					$this->success('Create成功', 'index');
+					$this->success('Create success', 'index');
 				} else
 				{
-					$this->error('Create失败');
+					$this->error('Create failure');
 				}
 			}
 			// 显示添加页面
+            //->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
+            $map['id'] = ['>', 0];
+            $map['status'] = 1;
+            if ($this->user['type'] != 1)
+            {
+                $map['user_id'] = $this->user['uid'];
+            }
 			return ZBuilder::make('form')
-				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
+
 				->addFormItems([
-					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue()],
+					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue($map)],
 					['text', 'name', 'CategoryName'],
 					['text', 'wh_name', 'whName'],
 					['text', 'wh_address', 'whAddress'],
@@ -144,20 +151,25 @@
 				if (CategoryModel::update($data, ['id' => $id]))
 				{
 					// 记录行为
-					$this->success('Edit成功', 'index');
+					$this->success('Edit success', 'index');
 				} else
 				{
-					$this->error('Edit失败');
+					$this->error('Edit failure');
 				}
 			}
 
 			$info = CategoryModel::get($id);
-
+            $map['id'] = ['>', 0];
+            $map['status'] = 1;
+            if ($this->user['type'] != 1)
+            {
+                $map['user_id'] = $this->user['uid'];
+            }
 			// 显示Edit页面
 			return ZBuilder::make('form')
 				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
-					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue($id)],
+					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue($map,$id)],
 					['text', 'name', 'CategoryName'],
 					['text', 'wh_name', 'whName'],
 					['text', 'wh_address', 'whAddress'],
@@ -290,10 +302,10 @@
 				// 记录行为
 				$details = '节点ID(' . $id . '),节点标题(' . $menu['title'] . '),节点链接(' . $menu['url_value'] . ')';
 				action_log('menu_delete', 'admin_menu', $id, UID, $details);
-				$this->success('Delete成功');
+				$this->success('Delete success');
 			} else
 			{
-				$this->error('Delete失败');
+				$this->error('Delete failure');
 			}
 		}
 
@@ -319,7 +331,7 @@
 						CategoryModel::update($menu);
 					}
 					Cache::clear();
-					$this->success('保存成功');
+					$this->success('保存 success');
 				} else
 				{
 					$this->error('没有需要保存的节点');
@@ -508,10 +520,10 @@
 				{
 					call_user_func_array('action_log', $record);
 				}
-				$this->success('操作成功');
+				$this->success('操作 success');
 			} else
 			{
-				$this->error('操作失败');
+				$this->error('操作 failure');
 			}
 		}
 	}
