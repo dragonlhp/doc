@@ -6335,7 +6335,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 清空缓存
+         * Clear Cache
          * @method clear
          */
         clear:function () {

@@ -79,8 +79,8 @@ class Admin extends Common
             session($table_token, $data);
             $settings = [
                 [
-                    'title'   => '站点开关',
-                    'tips'    => '站点关闭后将不能访问',
+                    'title'   => 'Site switch',
+                    'tips'    => 'The site will not be accessed after the site is closed',
                     'checked' => Db::name('admin_config')->where('id', 1)->value('value'),
                     'table'   => $table_token,
                     'id'      => 1,
@@ -88,7 +88,7 @@ class Admin extends Common
                 ]
             ];
             ZBuilder::make('aside')
-                ->addBlock('switch', '系统设置', $settings);
+                ->addBlock('switch', 'System setup', $settings);
         }
     }
 

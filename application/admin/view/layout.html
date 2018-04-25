@@ -270,25 +270,25 @@
                         <li class="dropdown-header">{:session('user_auth.username')} ({:session('user_auth.role_name')})</li>
                         <li>
                             <a tabindex="-1" href="{:url('admin/index/profile')}">
-                                <i class="si si-settings pull-right"></i>个人设置
+                                <i class="si si-settings pull-right"></i>Porfile
                             </a>
                         </li>
                         <li>
                             <a tabindex="-1" href="{:url('admin/message/index')}">
-                                <i class="si si-envelope-open pull-right"></i><span class="badge badge-primary pull-right">{$_message|default=0}</span>消息中心
+                                <i class="si si-envelope-open pull-right"></i><span class="badge badge-primary pull-right">{$_message|default=0}</span>Massage
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a tabindex="-1" href="{:url('user/publics/signout')}">
-                                <i class="si si-logout pull-right"></i>退出帐号
+                                <i class="si si-logout pull-right"></i>Logout
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li>
-                <a class="btn btn-default ajax-get" href="{:url('admin/index/wipeCache')}" data-toggle="tooltip" data-placement="bottom" data-original-title="清空缓存">
+                <a class="btn btn-default ajax-get" href="{:url('admin/index/wipeCache')}" data-toggle="tooltip" data-placement="bottom" data-original-title="Clear Cache">
                     <i class="fa fa-trash"></i>
                 </a>
             </li>
@@ -374,7 +374,7 @@
         <div class="pull-right">
          </div>
         <div class="pull-left">
-            <a class="font-w600" href="{:config('dolphin.product_website')}" target="_blank">{:config('dolphin.product_name')} {:config('dolphin.product_version')}</a> &copy; <span class="js-year-copy"></span>
+            <!--<a class="font-w600" href="{:config('dolphin.product_website')}" target="_blank">{:config('dolphin.product_name')} {:config('dolphin.product_version')}</a> &copy; <span class="js-year-copy"></span>-->
         </div>
     </footer>
     {/empty}

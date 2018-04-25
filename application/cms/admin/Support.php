@@ -41,7 +41,7 @@ class Support extends Admin
 
         // 使用ZBuilder快速创建数据表格
         return ZBuilder::make('table')
-            ->setPageTips('添加的QQ需要到【shang.qq.com】登录后在【商家沟通组建—设置】开启QQ的在线状态，否则将显示“未启用”<br>开启和关闭在线客服功能，以及更多设置，请在 <a class="alert-link link-effect" href="'.url('admin/system/index', ['group' => 'cms']).'">系统设置</a> 中操作。')
+            ->setPageTips('添加的QQ需要到【shang.qq.com】登录后在【商家沟通组建—设置】开启QQ的在线状态，否则将显示“未启用”<br>开启和关闭在线客服功能，以及更多设置，请在 <a class="alert-link link-effect" href="'.url('admin/system/index', ['group' => 'cms']).'">System setup</a> 中操作。')
             ->setSearch($search) // 设置搜索框
             ->addColumns([ // 批量添加数据列
                ['id', 'ID'],

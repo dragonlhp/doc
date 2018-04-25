@@ -21,7 +21,7 @@ use app\user\model\Message as MessageModel;
 class Message extends Admin
 {
     /**
-     * 消息中心
+     * Massage
 
      * @return mixed
      */

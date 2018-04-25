@@ -198,7 +198,7 @@ class Template
             ob_implicit_flush(0);
             // 读取编译存储
             $this->storage->read($cacheFile, $this->data);
-            // 获取并清空缓存
+            // 获取并Clear Cache
             $content = ob_get_clean();
             if (!empty($this->config['cache_id']) && $this->config['display_cache']) {
                 // 缓存页面输出
