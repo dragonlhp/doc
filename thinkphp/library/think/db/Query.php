@@ -659,7 +659,7 @@ class Query
             Cache::set($guid . '_time', $_SERVER['REQUEST_TIME'], 0);
             Cache::$type($guid, $step);
         } elseif ($_SERVER['REQUEST_TIME'] > Cache::get($guid . '_time') + $lazyTime) {
-            // 删除缓存
+            // Delete缓存
             $value = Cache::$type($guid, $step);
             Cache::rm($guid);
             Cache::rm($guid . '_time');
@@ -1125,7 +1125,7 @@ class Query
     }
 
     /**
-     * 设置软删除字段及条件
+     * 设置软Delete字段及条件
      * @access public
      * @param false|string  $field     查询字段
      * @param mixed         $condition 查询条件
@@ -1394,7 +1394,7 @@ class Query
     }
 
     /**
-     * USING支持 用于多表删除
+     * USING支持 用于多表Delete
      * @access public
      * @param mixed $using
      * @return $this
@@ -2247,7 +2247,7 @@ class Query
         } else {
             // 检测缓存
             if (isset($key) && Cache::get($key)) {
-                // 删除缓存
+                // Delete缓存
                 Cache::rm($key);
             } elseif (!empty($options['cache']['tag'])) {
                 Cache::clear($options['cache']['tag']);
@@ -2671,9 +2671,9 @@ class Query
     }
 
     /**
-     * 删除记录
+     * Delete记录
      * @access public
-     * @param mixed $data 表达式 true 表示强制删除
+     * @param mixed $data 表达式 true 表示强制Delete
      * @return int
      * @throws Exception
      * @throws PDOException
@@ -2699,10 +2699,10 @@ class Query
         }
 
         if (true !== $data && empty($options['where'])) {
-            // 如果条件为空 不进行删除操作 除非设置 1=1
+            // 如果条件为空 不进行Delete操作 除非设置 1=1
             throw new Exception('delete without condition');
         }
-        // 生成删除SQL语句
+        // 生成DeleteSQL语句
         $sql = $this->builder->delete($options);
         // 获取参数绑定
         $bind = $this->getBind();
@@ -2713,7 +2713,7 @@ class Query
 
         // 检测缓存
         if (isset($key) && Cache::get($key)) {
-            // 删除缓存
+            // Delete缓存
             Cache::rm($key);
         } elseif (!empty($options['cache']['tag'])) {
             Cache::clear($options['cache']['tag']);

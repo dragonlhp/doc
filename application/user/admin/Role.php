@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\user\admin;
 
@@ -26,7 +26,7 @@ class Role extends Admin
 {
     /**
      * 角色列表页
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function index()
@@ -68,8 +68,8 @@ class Role extends Admin
     }
 
     /**
-     * 新增
-     * @author 蔡伟明 <314013107@qq.com>
+     * Create
+
      * @return mixed
      */
     public function add()
@@ -90,9 +90,9 @@ class Role extends Admin
             if ($role = RoleModel::create($data)) {
                 // 记录行为
                 action_log('role_add', 'admin_role', $role['id'], UID, $data['name']);
-                $this->success('新增成功', url('index'));
+                $this->success('Create成功', url('index'));
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
@@ -110,7 +110,7 @@ class Role extends Admin
             }
         }
 
-        $this->assign('page_title', '新增');
+        $this->assign('page_title', 'Create');
         $this->assign('role_list', RoleModel::getTree());
         $this->assign('module_list', MenuModel::where('pid', 0)->column('id,title'));
         $this->assign('menus', $menus);
@@ -118,9 +118,9 @@ class Role extends Admin
     }
 
     /**
-     * 编辑
+     * Edit
      * @param null $id 角色id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function edit($id = null)
@@ -145,9 +145,9 @@ class Role extends Admin
                 role_auth();
                 // 记录行为
                 action_log('role_edit', 'admin_role', $id, UID, $data['name']);
-                $this->success('编辑成功', url('index'));
+                $this->success('Edit成功', url('index'));
             } else {
-                $this->error('编辑失败');
+                $this->error('Edit失败');
             }
         }
 
@@ -159,7 +159,7 @@ class Role extends Admin
         $menus      = Tree::toLayer($menus);
         $menus      = $this->buildJsTree($menus, $info);
 
-        $this->assign('page_title', '编辑');
+        $this->assign('page_title', 'Edit');
         $this->assign('role_list', $role_list);
         $this->assign('module_list', MenuModel::where('pid', 0)->column('id,title'));
         $this->assign('menus', $menus);
@@ -171,7 +171,7 @@ class Role extends Admin
      * 构建jstree代码
      * @param array $menus 菜单节点
      * @param array $user 用户信息
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     private function buildJsTree($menus = [], $user = [])
@@ -200,9 +200,9 @@ class Role extends Admin
     }
 
     /**
-     * 删除角色
+     * Delete角色
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($record = [])
@@ -213,7 +213,7 @@ class Role extends Admin
     /**
      * 启用角色
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function enable($record = [])
@@ -224,7 +224,7 @@ class Role extends Admin
     /**
      * 禁用角色
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function disable($record = [])
@@ -233,10 +233,10 @@ class Role extends Admin
     }
 
     /**
-     * 设置角色状态：删除、禁用、启用
+     * 设置角色状态：Delete、禁用、启用
      * @param string $type 类型：delete/enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function setStatus($type = '', $record = [])
@@ -248,9 +248,9 @@ class Role extends Admin
     }
 
     /**
-     * 快速编辑
+     * 快速Edit
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function quickEdit($record = [])

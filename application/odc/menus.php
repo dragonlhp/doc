@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 	/**
 	 * 菜单信息
@@ -196,7 +196,7 @@
 							'sort'        => 100,
 							'child'       => [
 								[
-									'title'       => '新增',
+									'title'       => 'Create',
 									'icon'        => '',
 									'url_type'    => 'module_admin',
 									'url_value'   => 'odc/product/add',
@@ -205,7 +205,7 @@
 									'sort'        => 100,
 								],
 								[
-									'title'       => '编辑',
+									'title'       => 'Edit',
 									'icon'        => '',
 									'url_type'    => 'module_admin',
 									'url_value'   => 'odc/product/edit',
@@ -214,7 +214,7 @@
 									'sort'        => 100,
 								],
 								[
-									'title'       => '删除',
+									'title'       => 'Delete',
 									'icon'        => '',
 									'url_type'    => 'module_admin',
 									'url_value'   => 'odc/product/delete',
@@ -235,7 +235,7 @@
 							'sort'        => 100,
 							'child'       => [
 								[
-									'title'       => '新增',
+									'title'       => 'Create',
 									'icon'        => '',
 									'url_type'    => 'module_admin',
 									'url_value'   => 'odc/inventory/add',
@@ -244,7 +244,7 @@
 									'sort'        => 100,
 								],
 								[
-									'title'       => '编辑',
+									'title'       => 'Edit',
 									'icon'        => '',
 									'url_type'    => 'module_admin',
 									'url_value'   => 'odc/inventory/edit',
@@ -253,7 +253,7 @@
 									'sort'        => 100,
 								],
 								[
-									'title'       => '删除',
+									'title'       => 'Delete',
 									'icon'        => '',
 									'url_type'    => 'module_admin',
 									'url_value'   => 'odc/inventory/delete',

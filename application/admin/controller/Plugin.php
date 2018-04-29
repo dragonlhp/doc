@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\admin\controller;
 
@@ -29,7 +29,7 @@ class Plugin extends Admin
      * 首页
      * @param string $group 分组
      * @param string $type 显示类型
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function index($group = 'local', $type = '')
@@ -82,7 +82,7 @@ class Plugin extends Admin
     /**
      * 安装插件
      * @param string $name 插件标识
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function install($name = '')
     {
@@ -149,7 +149,7 @@ class Plugin extends Admin
     /**
      * 卸载插件
      * @param string $name 插件标识
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function uninstall($name = '')
     {
@@ -190,7 +190,7 @@ class Plugin extends Admin
             }
         }
 
-        // 删除插件信息
+        // Delete插件信息
         if (PluginModel::where('name', $plug_name)->delete()) {
             cache('plugin_all', null);
             $this->success('插件卸载成功');
@@ -202,7 +202,7 @@ class Plugin extends Admin
     /**
      * 插件管理
      * @param string $name 插件名
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function manage($name = '')
@@ -290,14 +290,14 @@ class Plugin extends Admin
     }
 
     /**
-     * 插件新增方法
+     * 插件Create方法
      * @param string $plugin_name 插件名称
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function add($plugin_name = '')
     {
-        // 如果存在自定义的新增方法，则优先执行
+        // 如果存在自定义的Create方法，则优先执行
         if (plugin_action_exists($plugin_name, 'Admin', 'add')) {
             $params = $this->request->param();
             return plugin_action($plugin_name, 'Admin', 'add', $params);
@@ -319,9 +319,9 @@ class Plugin extends Admin
             // 实例化模型并添加数据
             $PluginModel = get_plugin_model($plugin_name);
             if ($PluginModel->data($data)->save()) {
-                $this->success('新增成功', cookie('__forward__'));
+                $this->success('Create成功', cookie('__forward__'));
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
@@ -334,26 +334,26 @@ class Plugin extends Admin
         // 实例化插件
         $plugin = new $class;
         if (!isset($plugin->fields)) {
-            $this->error('插件新增、编辑字段不存在！');
+            $this->error('插件Create、Edit字段不存在！');
         }
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('新增')
+            ->setPageTitle('Create')
             ->addFormItems($plugin->fields)
             ->fetch();
     }
 
     /**
-     * 编辑插件方法
+     * Edit插件方法
      * @param string $id 数据id
      * @param string $plugin_name 插件名称
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function edit($id = '', $plugin_name = '')
     {
-        // 如果存在自定义的编辑方法，则优先执行
+        // 如果存在自定义的Edit方法，则优先执行
         if (plugin_action_exists($plugin_name, 'Admin', 'edit')) {
             $params = $this->request->param();
             return plugin_action($plugin_name, 'Admin', 'edit', $params);
@@ -375,9 +375,9 @@ class Plugin extends Admin
             // 实例化模型并添加数据
             $PluginModel = get_plugin_model($plugin_name);
             if (false !== $PluginModel->isUpdate(true)->save($data)) {
-                $this->success('编辑成功', cookie('__forward__'));
+                $this->success('Edit成功', cookie('__forward__'));
             } else {
-                $this->error('编辑失败');
+                $this->error('Edit失败');
             }
         }
 
@@ -390,7 +390,7 @@ class Plugin extends Admin
         // 实例化插件
         $plugin = new $class;
         if (!isset($plugin->fields)) {
-            $this->error('插件新增、编辑字段不存在！');
+            $this->error('插件Create、Edit字段不存在！');
         }
 
         // 获取数据
@@ -402,7 +402,7 @@ class Plugin extends Admin
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('编辑')
+            ->setPageTitle('Edit')
             ->addHidden('id')
             ->addFormItems($plugin->fields)
             ->setFormData($info)
@@ -412,7 +412,7 @@ class Plugin extends Admin
     /**
      * 插件参数设置
      * @param string $name 插件名称
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function config($name = '')
     {
@@ -453,7 +453,7 @@ class Plugin extends Admin
      * 设置状态
      * @param string $type 状态类型:enable/disable
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return void
      */
     public function setStatus($type = '', $record = [])
@@ -483,7 +483,7 @@ class Plugin extends Admin
     /**
      * 禁用插件/禁用插件数据
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return void
      */
     public function disable($record = [])
@@ -494,7 +494,7 @@ class Plugin extends Admin
     /**
      * 启用插件/启用插件数据
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return void
      */
     public function enable($record = [])
@@ -503,9 +503,9 @@ class Plugin extends Admin
     }
 
     /**
-     * 删除插件数据
+     * Delete插件数据
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return void
      */
     public function delete($record = [])
@@ -515,7 +515,7 @@ class Plugin extends Admin
 
     /**
      * 执行插件内部方法
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function execute()
@@ -538,7 +538,7 @@ class Plugin extends Admin
     /**
      * 分析后台字段信息
      * @param array $data 字段信息
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array
      */
     private function parseAdmin($data = [])
@@ -577,7 +577,7 @@ class Plugin extends Admin
      * 解析按钮链接
      * @param string $button 按钮名称
      * @param array $data 字段信息
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array
      */
     private function parseButton($button = '', &$data)

@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
+// | PHP框架 [ PHP ]
 // +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
+// | 版权所有 2016~2017  [ http://www.zrthink.com ]
 // +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
+// | 官方网站: http://PHP.com
 // +----------------------------------------------------------------------
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -37,7 +37,7 @@ class HelloWorld extends Plugin
         // 插件作者[必填]
         'author'      => '蔡伟明',
         // 作者主页[选填]
-        'author_url'  => 'http://www.dolphinphp.com',
+        'author_url'  => '',
         // 插件版本[必填],格式采用三段式：主版本号.次版本号.修订版本号
         'version'     => '1.0.0',
         // 是否有后台管理功能
@@ -70,10 +70,10 @@ class HelloWorld extends Plugin
 
         // 右侧按钮
         'right_buttons' => [
-            'edit',          // 使用系统自带的编辑按钮
+            'edit',          // 使用系统自带的Edit按钮
             'enable',       // 使用系统自带的启用按钮
             'disable',      // 使用系统自带的禁用按钮
-            'delete',        // 使用系统自带的删除按钮
+            'delete',        // 使用系统自带的Delete按钮
 
             // 自定义按钮，可定义多个
             'customs' => [
@@ -114,7 +114,7 @@ class HelloWorld extends Plugin
             'add',    // 使用系统自带的添加按钮
             'enable', // 使用系统自带的启用按钮
             'disable',// 使用系统自带的禁用按钮
-            'delete', // 使用系统自带的删除按钮
+            'delete', // 使用系统自带的Delete按钮
 
             // 自定义按钮，可定义多个
             'customs' => [
@@ -147,7 +147,7 @@ class HelloWorld extends Plugin
     ];
 
     /**
-     * @var array 新增或编辑的字段
+     * @var array Create或Edit的字段
      */
     public $fields = [
         [

@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 /**
  * 菜单信息
@@ -59,7 +59,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/document/edit',
@@ -68,7 +68,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => '',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/document/delete',
@@ -95,7 +95,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/document/quickedit',
@@ -115,7 +115,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '新增',
+                                'title'       => 'Create',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/page/add',
@@ -124,7 +124,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/page/edit',
@@ -133,7 +133,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/page/delete',
@@ -160,7 +160,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/page/quickedit',
@@ -180,7 +180,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/recycle/delete',
@@ -230,7 +230,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '新增',
+                                'title'       => 'Create',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/advert/add',
@@ -239,7 +239,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/advert/edit',
@@ -248,7 +248,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/advert/delete',
@@ -275,7 +275,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/advert/quickedit',
@@ -293,7 +293,7 @@ return [
                                 'sort'        => 100,
                                 'child'       => [
                                     [
-                                        'title'       => '新增',
+                                        'title'       => 'Create',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/advert_type/add',
@@ -302,7 +302,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '编辑',
+                                        'title'       => 'Edit',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/advert_type/edit',
@@ -311,7 +311,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '删除',
+                                        'title'       => 'Delete',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/advert_type/delete',
@@ -338,7 +338,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '快速编辑',
+                                        'title'       => '快速Edit',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/advert_type/quickedit',
@@ -360,7 +360,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '新增',
+                                'title'       => 'Create',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/slider/add',
@@ -369,7 +369,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/slider/edit',
@@ -378,7 +378,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/slider/delete',
@@ -405,7 +405,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/slider/quickedit',
@@ -425,7 +425,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '新增',
+                                'title'       => 'Create',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/link/add',
@@ -434,7 +434,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/link/edit',
@@ -443,7 +443,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/link/delete',
@@ -470,7 +470,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/link/quickedit',
@@ -490,7 +490,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '新增',
+                                'title'       => 'Create',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/support/add',
@@ -499,7 +499,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/support/edit',
@@ -508,7 +508,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/support/delete',
@@ -535,7 +535,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/support/quickedit',
@@ -566,7 +566,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '新增',
+                                'title'       => 'Create',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/column/add',
@@ -575,7 +575,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/column/edit',
@@ -584,7 +584,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/column/delete',
@@ -611,7 +611,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/column/quickedit',
@@ -631,7 +631,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '新增',
+                                'title'       => 'Create',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/model/add',
@@ -640,7 +640,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/model/edit',
@@ -649,7 +649,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/model/delete',
@@ -676,7 +676,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/model/quickedit',
@@ -694,7 +694,7 @@ return [
                                 'sort'        => 100,
                                 'child'       => [
                                     [
-                                        'title'       => '新增',
+                                        'title'       => 'Create',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/field/add',
@@ -703,7 +703,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '编辑',
+                                        'title'       => 'Edit',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/field/edit',
@@ -712,7 +712,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '删除',
+                                        'title'       => 'Delete',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/field/delete',
@@ -739,7 +739,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '快速编辑',
+                                        'title'       => '快速Edit',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/field/quickedit',
@@ -761,7 +761,7 @@ return [
                         'sort'        => 100,
                         'child'       => [
                             [
-                                'title'       => '新增',
+                                'title'       => 'Create',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/nav/add',
@@ -770,7 +770,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '编辑',
+                                'title'       => 'Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/nav/edit',
@@ -779,7 +779,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '删除',
+                                'title'       => 'Delete',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/nav/delete',
@@ -806,7 +806,7 @@ return [
                                 'sort'        => 100,
                             ],
                             [
-                                'title'       => '快速编辑',
+                                'title'       => '快速Edit',
                                 'icon'        => '',
                                 'url_type'    => 'module_admin',
                                 'url_value'   => 'cms/nav/quickedit',
@@ -824,7 +824,7 @@ return [
                                 'sort'        => 100,
                                 'child'       => [
                                     [
-                                        'title'       => '新增',
+                                        'title'       => 'Create',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/menu/add',
@@ -833,7 +833,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '编辑',
+                                        'title'       => 'Edit',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/menu/edit',
@@ -842,7 +842,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '删除',
+                                        'title'       => 'Delete',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/menu/delete',
@@ -869,7 +869,7 @@ return [
                                         'sort'        => 100,
                                     ],
                                     [
-                                        'title'       => '快速编辑',
+                                        'title'       => '快速Edit',
                                         'icon'        => '',
                                         'url_type'    => 'module_admin',
                                         'url_value'   => 'cms/menu/quickedit',

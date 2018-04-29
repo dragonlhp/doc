@@ -154,7 +154,7 @@ class Memcached extends Driver
     }
 
     /**
-     * 删除缓存
+     * Delete缓存
      * @param    string  $name 缓存变量名
      * @param bool|false $ttl
      * @return bool

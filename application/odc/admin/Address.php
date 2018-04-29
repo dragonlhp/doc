@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 	namespace app\odc\admin;
 
@@ -15,7 +15,8 @@
 	use app\common\builder\ZBuilder;
 
 	use app\odc\model\AddressModel;
-	use app\user\model\User;
+    use app\odc\model\RegionUserModel;
+    use app\user\model\User;
 	use think\Validate;
 
 	/**
@@ -35,6 +36,10 @@
 			// 排序
 			$order = $this->getOrder('id asc');
 			// 数据列表
+            if ($this->user['type'] != 1)
+            {
+                $map['user_id'] = session('user_auth')['uid'];
+            }
 			$data_list = AddressModel::where($map)->order($order)->paginate();
 
 			// 使用ZBuilder快速创建数据表格
@@ -50,7 +55,7 @@
 			$ZBuilder = ZBuilder::make('table');
 			if ($this->user['type'] != 0)
 			{
-				//$addColumns[0] = ['user_id', 'User', 'select', static::userlist()];
+				$addColumns[0] = ['user_id', 'User', 'text', '',static::userlist()];
 				$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
 			}
 			$ZBuilder_ = $ZBuilder->setSearch(['region_name' => 'Address Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
@@ -76,6 +81,7 @@
 				$data = $this->request->post();
 				if ($advert = AddressModel::create($data))
 				{
+				    RegionUserModel::updated($advert->user_id,session('user_auth')['uid']);
 					$this->success('Create Success', 'index');
 				} else
 				{
@@ -122,7 +128,7 @@
 
 			$info = AddressModel::get($id);
 
-			// 显示编辑页面
+			// 显示Edit页面
 			return ZBuilder::make('form')
 				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([

@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\user\admin;
 
@@ -25,7 +25,7 @@ class Message extends Admin
 {
     /**
      * 消息列表
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function index()
@@ -58,8 +58,8 @@ class Message extends Admin
     }
 
     /**
-     * 新增
-     * @author 蔡伟明 <314013107@qq.com>
+     * Create
+
      * @return mixed
      */
     public function add()
@@ -91,9 +91,9 @@ class Message extends Admin
 
             $MessageModel = new MessageModel;
             if (false !== $MessageModel->saveAll($list)) {
-                $this->success('新增成功', 'index');
+                $this->success('Create成功', 'index');
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 

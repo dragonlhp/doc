@@ -1,10 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
+// | PHP框架 [ PHP ]
 // +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
+// | 版权所有 2016~2017  [ http://www.zrthink.com ]
 // +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
+// | 官方网站: http://PHP.com
 // +----------------------------------------------------------------------
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -87,7 +87,7 @@ class Admin extends Common
     }
 
     /**
-     * 新增
+     * Create
      * @author 蔡伟明 <314013107@qq.com>
      */
     public function add()
@@ -106,22 +106,22 @@ class Admin extends Common
 
             // 插入数据
             if (HelloWorld::create($data)) {
-                return $this->success('新增成功', cookie('__forward__'));
+                return $this->success('Create成功', cookie('__forward__'));
             } else {
-                return $this->error('新增失败');
+                return $this->error('Create失败');
             }
         }
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('新增')
+            ->setPageTitle('Create')
             ->addFormItem('text', 'name', '出处')
             ->addFormItem('text', 'said', '名言')
             ->fetch();
     }
 
     /**
-     * 编辑
+     * Edit
      * @author 蔡伟明 <314013107@qq.com>
      */
     public function edit()
@@ -138,9 +138,9 @@ class Admin extends Common
 
             // 更新数据
             if (HelloWorld::update($data)) {
-                return $this->success('编辑成功', cookie('__forward__'));
+                return $this->success('Edit成功', cookie('__forward__'));
             } else {
-                return $this->error('编辑失败');
+                return $this->error('Edit失败');
             }
         }
 
@@ -151,7 +151,7 @@ class Admin extends Common
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('编辑')
+            ->setPageTitle('Edit')
             ->addFormItem('hidden', 'id')
             ->addFormItem('text', 'name', '出处')
             ->addFormItem('text', 'said', '名言')

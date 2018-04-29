@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\admin\controller;
 
@@ -23,7 +23,7 @@ class Log extends Admin
 {
     /**
      * 日志列表
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function index()
@@ -62,7 +62,7 @@ class Log extends Admin
     /**
      * 日志详情
      * @param null $id 日志id
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function details($id = null)
     {
@@ -73,7 +73,7 @@ class Log extends Admin
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('编辑') // 设置页面标题
+            ->setPageTitle('Edit') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
                  ['hidden', 'id'],
                  ['static', 'title', '行为名称'],

@@ -133,7 +133,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     }
 
     /**
-     * 返回并删除数据中的的最后一个元素（出栈）
+     * 返回并Delete数据中的的最后一个元素（出栈）
      * @access public
      * @return mixed
      */
@@ -143,7 +143,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     }
 
     /**
-     * 返回并删除数据中首个元素
+     * 返回并Delete数据中首个元素
      * @access public
      * @return mixed
      */
@@ -383,7 +383,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     }
 
     /**
-     * 删除指定键值
+     * Delete指定键值
      * @access public
      * @param  mixed $offset 键名
      * @return void

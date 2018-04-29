@@ -5,7 +5,7 @@
  * User: taoqili
  * Date: 12-7-18
  * Time: 上午11: 32
- * UEditor编辑器通用上传类
+ * UEditorEdit器通用上传类
  */
 class Uploader
 {

@@ -186,7 +186,7 @@ class Session
     }
 
     /**
-     * session获取并删除
+     * session获取并Delete
      * @param string        $name session名称
      * @param string|null   $prefix 作用域（前缀）
      * @return mixed
@@ -239,7 +239,7 @@ class Session
     }
 
     /**
-     * 删除session数据
+     * Deletesession数据
      * @param string|array  $name session名称
      * @param string|null   $prefix 作用域（前缀）
      * @return void
@@ -345,7 +345,7 @@ class Session
 
     /**
      * 重新生成session_id
-     * @param bool $delete 是否删除关联会话文件
+     * @param bool $delete 是否Delete关联会话文件
      * @return void
      */
     public static function regenerate($delete = false)

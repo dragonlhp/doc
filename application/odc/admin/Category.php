@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 	namespace app\odc\admin;
 
@@ -97,17 +97,24 @@
 				$data = $this->request->post();
 				if ($advert = CategoryModel::create($data))
 				{
-					$this->success('新增成功', 'index');
+					$this->success('Create success', 'index');
 				} else
 				{
-					$this->error('新增失败');
+					$this->error('Create failure');
 				}
 			}
 			// 显示添加页面
+            //->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
+            $map['id'] = ['>', 0];
+            $map['status'] = 1;
+            if ($this->user['type'] != 1)
+            {
+                $map['user_id'] = $this->user['uid'];
+            }
 			return ZBuilder::make('form')
-				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
+
 				->addFormItems([
-					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue()],
+					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue($map)],
 					['text', 'name', 'CategoryName'],
 					['text', 'wh_name', 'whName'],
 					['text', 'wh_address', 'whAddress'],
@@ -144,20 +151,25 @@
 				if (CategoryModel::update($data, ['id' => $id]))
 				{
 					// 记录行为
-					$this->success('编辑成功', 'index');
+					$this->success('Edit success', 'index');
 				} else
 				{
-					$this->error('编辑失败');
+					$this->error('Edit failure');
 				}
 			}
 
 			$info = CategoryModel::get($id);
-
-			// 显示编辑页面
+            $map['id'] = ['>', 0];
+            $map['status'] = 1;
+            if ($this->user['type'] != 1)
+            {
+                $map['user_id'] = $this->user['uid'];
+            }
+			// 显示Edit页面
 			return ZBuilder::make('form')
 				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
-					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue($id)],
+					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue($map,$id)],
 					['text', 'name', 'CategoryName'],
 					['text', 'wh_name', 'whName'],
 					['text', 'wh_address', 'whAddress'],
@@ -175,7 +187,7 @@
 		 * 设置角色权限
 		 * @param string $role_id 角色id
 		 * @param array $roles 角色id
-		 * @author 蔡伟明 <314013107@qq.com>
+
 		 */
 		private function setRoleMenu($role_id = '', $roles = [])
 		{
@@ -203,7 +215,7 @@
 				// 新节点角色权限
 				$role_new_auth = RoleModel::getAuthWithRole($roles);
 
-				// 删除原先角色的该节点权限
+				// Delete原先角色的该节点权限
 				if ($role_diff)
 				{
 					$role_del_auth = [];
@@ -222,7 +234,7 @@
 					}
 				}
 
-				// 新增权限角色
+				// Create权限角色
 				if ($role_diff_new)
 				{
 					$role_update_auth = [];
@@ -264,9 +276,9 @@
 		}
 
 		/**
-		 * 删除节点
+		 * Delete节点
 		 * @param array $record 行为日志内容
-		 * @author 蔡伟明 <314013107@qq.com>
+
 		 * @return mixed
 		 */
 		public function delete($record = [])
@@ -275,31 +287,31 @@
 			$menu = CategoryModel::where('id', $id)->find();
 
 			if ($menu['system_menu'] == '1')
-				$this->error('系统节点，禁止删除');
+				$this->error('系统节点，禁止Delete');
 
 			// 获取该节点的所有后辈节点id
 			$menu_childs = CategoryModel::getChildsId($id);
 
-			// 要删除的所有节点id
+			// 要Delete的所有节点id
 			$all_ids = array_merge([(int)$id], $menu_childs);
 
-			// 删除节点
+			// Delete节点
 			if (CategoryModel::destroy($all_ids))
 			{
 				Cache::clear();
 				// 记录行为
 				$details = '节点ID(' . $id . '),节点标题(' . $menu['title'] . '),节点链接(' . $menu['url_value'] . ')';
 				action_log('menu_delete', 'admin_menu', $id, UID, $details);
-				$this->success('删除成功');
+				$this->success('Delete success');
 			} else
 			{
-				$this->error('删除失败');
+				$this->error('Delete failure');
 			}
 		}
 
 		/**
 		 * 保存节点排序
-		 * @author 蔡伟明 <314013107@qq.com>
+
 		 * @return mixed
 		 */
 		public function save()
@@ -319,7 +331,7 @@
 						CategoryModel::update($menu);
 					}
 					Cache::clear();
-					$this->success('保存成功');
+					$this->success('保存 success');
 				} else
 				{
 					$this->error('没有需要保存的节点');
@@ -332,7 +344,7 @@
 		 * 添加子节点
 		 * @param array $data 节点数据
 		 * @param string $pid 父节点id
-		 * @author 蔡伟明 <314013107@qq.com>
+
 		 */
 		private function createChildNode($data = [], $pid = '')
 		{
@@ -345,13 +357,13 @@
 				switch ($item)
 				{
 					case 'add':
-						$data['title'] = '新增';
+						$data['title'] = 'Create';
 						break;
 					case 'edit':
-						$data['title'] = '编辑';
+						$data['title'] = 'Edit';
 						break;
 					case 'delete':
-						$data['title'] = '删除';
+						$data['title'] = 'Delete';
 						break;
 					case 'enable':
 						$data['title'] = '启用';
@@ -360,7 +372,7 @@
 						$data['title'] = '禁用';
 						break;
 					case 'quickedit':
-						$data['title'] = '快速编辑';
+						$data['title'] = '快速Edit';
 						break;
 				}
 				$data['url_value'] = $url_value . $item;
@@ -380,7 +392,7 @@
 		 * 递归解析节点
 		 * @param array $menus 节点数据
 		 * @param int $pid 上级节点id
-		 * @author 蔡伟明 <314013107@qq.com>
+
 		 * @return array 解析成可以写入数据库的格式
 		 */
 		private function parseMenu($menus = [], $pid = 0)
@@ -409,7 +421,7 @@
 		 * @param int $pid 父级id
 		 * @param int $max_level 最多返回多少层，0为不限制
 		 * @param int $curr_level 当前层数
-		 * @author 蔡伟明 <314013107@qq.com>
+
 		 * @return string
 		 */
 		private function getNestMenu($lists = [], $max_level = 0, $pid = 0, $curr_level = 1)
@@ -429,7 +441,7 @@
 						$result .= '<span class="link"><i class="fa fa-link"></i> ' . $value['url_value'] . '</span>';
 					}
 					$result .= '<div class="action">';
-					$result .= '<a href="' . url('add', ['module' => $value['module'], 'pid' => $value['id']]) . '" data-toggle="tooltip" data-original-title="新增子节点"><i class="list-icon fa fa-plus fa-fw"></i></a><a href="' . url('edit', ['id' => $value['id']]) . '" data-toggle="tooltip" data-original-title="编辑"><i class="list-icon fa fa-pencil fa-fw"></i></a>';
+					$result .= '<a href="' . url('add', ['module' => $value['module'], 'pid' => $value['id']]) . '" data-toggle="tooltip" data-original-title="Create子节点"><i class="list-icon fa fa-plus fa-fw"></i></a><a href="' . url('edit', ['id' => $value['id']]) . '" data-toggle="tooltip" data-original-title="Edit"><i class="list-icon fa fa-pencil fa-fw"></i></a>';
 					if ($value['status'] == 0)
 					{
 						// 启用
@@ -439,7 +451,7 @@
 						// 禁用
 						$result .= '<a href="javascript:void(0);" data-ids="' . $value['id'] . '" class="disable" data-toggle="tooltip" data-original-title="禁用"><i class="list-icon fa fa-ban fa-fw"></i></a>';
 					}
-					$result .= '<a href="' . url('delete', ['id' => $value['id'], 'table' => 'admin_menu']) . '" data-toggle="tooltip" data-original-title="删除" class="ajax-get confirm"><i class="list-icon fa fa-times fa-fw"></i></a></div>';
+					$result .= '<a href="' . url('delete', ['id' => $value['id'], 'table' => 'admin_menu']) . '" data-toggle="tooltip" data-original-title="Delete" class="ajax-get confirm"><i class="list-icon fa fa-times fa-fw"></i></a></div>';
 					$result .= '</div>';
 
 					if ($max_level == 0 || $curr_level != $max_level)
@@ -462,7 +474,7 @@
 		/**
 		 * 启用节点
 		 * @param array $record 行为日志
-		 * @author 蔡伟明 <314013107@qq.com>
+
 		 * @return void
 		 */
 		public function enable($record = [])
@@ -476,7 +488,7 @@
 		/**
 		 * 禁用节点
 		 * @param array $record 行为日志
-		 * @author 蔡伟明 <314013107@qq.com>
+
 		 * @return void
 		 */
 		public function disable($record = [])
@@ -508,10 +520,10 @@
 				{
 					call_user_func_array('action_log', $record);
 				}
-				$this->success('操作成功');
+				$this->success('操作 success');
 			} else
 			{
-				$this->error('操作失败');
+				$this->error('操作 failure');
 			}
 		}
 	}

@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\cms\model;
 
@@ -31,7 +31,7 @@ class Document extends ThinkModel
      * 获取文档列表
      * @param array $map 筛选条件
      * @param array $order 排序
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public static function getList($map = [], $order = [])
@@ -50,7 +50,7 @@ class Document extends ThinkModel
      * @param string $id 文档id
      * @param string $model 独立模型id
      * @param array $map 查询条件
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public static function getOne($id = '', $model = '', $map = [])
@@ -80,8 +80,8 @@ class Document extends ThinkModel
     }
 
     /**
-     * 新增或更新文档
-     * @author 蔡伟明 <314013107@qq.com>
+     * Create或更新文档
+
      * @return bool
      */
     public function saveData()
@@ -145,12 +145,12 @@ class Document extends ThinkModel
 
         if (empty($data['id'])) {
             if ($model['type'] == 2) {
-                // 新增独立模型文档
+                // Create独立模型文档
                 $data['create_time'] = request()->time();
                 $data['update_time'] = request()->time();
                 $insert_id = Db::table($model['table'])->insertGetId($data);
                 if (false === $insert_id) {
-                    $this->error = '新增失败';
+                    $this->error = 'Create失败';
                     return false;
                 } else {
                     // 记录行为
@@ -158,15 +158,15 @@ class Document extends ThinkModel
                     return true;
                 }
             } else {
-                // 新增文档基础内容
+                // Create文档基础内容
                 if ($document = self::create($data)) {
-                    // 新增文档扩展内容
+                    // Create文档扩展内容
                     if ($model['table'] != '') {
                         $data['aid'] = $document['id'];
                         if (false === Db::table($model['table'])->insert($data)) {
-                            // 删除已添加的基础内容
+                            // Delete已添加的基础内容
                             self::destroy($document['id']);
-                            $this->error = '新增扩展内容出错';
+                            $this->error = 'Create扩展内容出错';
                             return false;
                         }
                     }
@@ -174,17 +174,17 @@ class Document extends ThinkModel
                     action_log('document_add', 'cms_document', $document['id'], UID, $document['title']);
                     return true;
                 } else {
-                    $this->error = '新增基础内容出错';
+                    $this->error = 'Create基础内容出错';
                     return false;
                 }
             }
         } else {
             // 更新独立模型文档
             if ($model['type'] == 2) {
-                // 新增独立模型文档
+                // Create独立模型文档
                 $data['update_time'] = request()->time();
                 if (false === Db::table($model['table'])->update($data)) {
-                    $this->error = '编辑失败';
+                    $this->error = 'Edit失败';
                     return false;
                 } else {
                     // 记录行为

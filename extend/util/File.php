@@ -81,7 +81,7 @@ class File {
     }
 
     /**
-     * 删除目录
+     * Delete目录
      * @param $dirName      原目录
      * @return boolean true 成功, false 失败
      */
@@ -228,7 +228,7 @@ class File {
         $filename       = $path . $name . '.php';
         if ('' !== $value) {
             if (is_null($value)) {
-                // 删除缓存
+                // Delete缓存
                 return false !== strpos($name,'*')?array_map("unlink", glob($filename)):unlink($filename);
             } else {
                 // 缓存数据

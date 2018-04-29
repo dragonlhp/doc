@@ -40,7 +40,7 @@ GitHub 提供了 Issue 功能，该功能可以用于：
 
 ## 快速修改
 
-**GitHub 提供了快速编辑文件的功能**
+**GitHub 提供了快速Edit文件的功能**
 
 1. 登录 GitHub 帐号；
 2. 浏览项目文件，找到要进行修改的文件；
@@ -91,7 +91,7 @@ GitHub 提供了 Issue 功能，该功能可以用于：
 
 *Linux 用户自行配置环境， Mac 用户推荐使用内置 Apache 配合 Homebrew 安装 PHP 和 MariaDB*
 
-### 编辑器
+### Edit器
 
 Sublime Text 3 + phpfmt 插件
 
@@ -109,7 +109,7 @@ phpfmt 插件参数
 }
 ```
 
-或其他 编辑器 / IDE 配合 PSR2 自动格式化工具
+或其他 Edit器 / IDE 配合 PSR2 自动格式化工具
 
 ### Git GUI
 

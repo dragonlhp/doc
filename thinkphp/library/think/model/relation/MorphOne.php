@@ -192,7 +192,7 @@ class MorphOne extends Relation
     }
 
     /**
-     * 保存（新增）当前关联数据对象
+     * 保存（Create）当前关联数据对象
      * @access public
      * @param mixed $data 数据 可以使用数组 关联模型对象 和 关联对象的主键
      * @return Model|false

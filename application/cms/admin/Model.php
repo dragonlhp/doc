@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\cms\admin;
 
@@ -26,7 +26,7 @@ class Model extends Admin
 {
     /**
      * 内容模型列表
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function index()
     {
@@ -59,14 +59,14 @@ class Model extends Admin
             ])
             ->addFilter('type', ['系统', '普通', '独立'])
             ->addTopButtons('add,enable,disable') // 批量添加顶部按钮
-            ->addRightButtons(['edit', 'custom' => $btnField, 'delete' => ['data-tips' => '删除模型将同时删除该模型下的所有字段，且无法恢复。']]) // 批量添加右侧按钮
+            ->addRightButtons(['edit', 'custom' => $btnField, 'delete' => ['data-tips' => 'Delete模型将同时Delete该模型下的所有字段，且无法恢复。']]) // 批量添加右侧按钮
             ->setRowList($data_list) // 设置表格数据
             ->fetch(); // 渲染模板
     }
 
     /**
-     * 新增内容模型
-     * @author 蔡伟明 <314013107@qq.com>
+     * Create内容模型
+
      * @return mixed
      */
     public function add()
@@ -115,13 +115,13 @@ class Model extends Admin
                 // 记录行为
                 action_log('model_add', 'cms_model', $model['id'], UID, $data['title']);
                 Cache::clear();
-                $this->success('新增成功', 'index');
+                $this->success('Create成功', 'index');
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
-        $type_tips = '此选项添加后不可更改。如果为 <code>系统模型</code> 将禁止删除，对于 <code>独立模型</code>，将强制创建字段id,cid,uid,model,title,create_time,update_time,sort,status,trash,view';
+        $type_tips = '此选项添加后不可更改。如果为 <code>系统模型</code> 将禁止Delete，对于 <code>独立模型</code>，将强制创建字段id,cid,uid,model,title,create_time,update_time,sort,status,trash,view';
 
         // 显示添加页面
         return ZBuilder::make('form')
@@ -138,9 +138,9 @@ class Model extends Admin
     }
 
     /**
-     * 编辑内容模型
+     * Edit内容模型
      * @param null $id 模型id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function edit($id = null) {
@@ -159,9 +159,9 @@ class Model extends Admin
                 cache('cms_model_title_list', null);
                 // 记录行为
                 action_log('model_edit', 'cms_model', $id, UID, "ID({$id}),标题({$data['title']})");
-                $this->success('编辑成功', 'index');
+                $this->success('Edit成功', 'index');
             } else {
-                $this->error('编辑失败');
+                $this->error('Edit失败');
             }
         }
 
@@ -171,7 +171,7 @@ class Model extends Admin
         $info = DocumentModel::get($id);
         $info['type'] = $list_model_type[$info['type']];
 
-        // 显示编辑页面
+        // 显示Edit页面
         return ZBuilder::make('form')
             ->addFormItems([
                 ['hidden', 'id'],
@@ -189,9 +189,9 @@ class Model extends Admin
     }
 
     /**
-     * 删除内容模型
+     * Delete内容模型
      * @param null $ids 内容模型id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed|void
      */
     public function delete($ids = null)
@@ -200,33 +200,33 @@ class Model extends Admin
 
         $model = DocumentModel::where('id', $ids)->find();
         if ($model['type'] == 0) {
-            $this->error('禁止删除系统模型');
+            $this->error('禁止Delete系统模型');
         }
 
-        // 删除表和字段信息
+        // Delete表和字段信息
         if (DocumentModel::deleteTable($ids)) {
-            // 删除主表中的文档
+            // Delete主表中的文档
             if (false === Db::name('cms_document')->where('model', $ids)->delete()) {
-                $this->error('删除主表文档失败');
+                $this->error('Delete主表文档失败');
             }
-            // 删除菜单节点
+            // Delete菜单节点
             $map = [
                 'module'    => 'cms',
                 'url_value' => "cms/content/{$model['name']}"
             ];
             if (false === Db::name('admin_menu')->where($map)->delete()) {
-                $this->error('删除菜单节点失败');
+                $this->error('Delete菜单节点失败');
             }
-            // 删除字段数据
+            // Delete字段数据
             if (false !== Db::name('cms_field')->where('model', $ids)->delete()) {
                 cache('cms_model_list', null);
                 cache('cms_model_title_list', null);
                 return parent::delete();
             } else {
-                return $this->error('删除内容模型字段失败');
+                return $this->error('Delete内容模型字段失败');
             }
         } else {
-            return $this->error('删除内容模型表失败');
+            return $this->error('Delete内容模型表失败');
         }
     }
 }

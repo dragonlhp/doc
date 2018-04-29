@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\admin\controller;
 
@@ -26,7 +26,7 @@ class Menu extends Admin
     /**
      * 节点首页
      * @param string $group 分组
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function index($group = 'admin')
@@ -80,10 +80,10 @@ class Menu extends Admin
     }
 
     /**
-     * 新增节点
+     * Create节点
      * @param string $module 所属模块
      * @param string $pid 所属节点id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function add($module = 'admin', $pid = '')
@@ -117,15 +117,15 @@ class Menu extends Admin
                 // 记录行为
                 $details = '所属模块('.$data['module'].'),所属节点ID('.$data['pid'].'),节点标题('.$data['title'].'),节点链接('.$data['url_value'].')';
                 action_log('menu_add', 'admin_menu', $menu['id'], UID, $details);
-                $this->success('新增成功', cookie('__forward__'));
+                $this->success('Create成功', cookie('__forward__'));
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('新增节点')
+            ->setPageTitle('Create节点')
             ->addLinkage('module', '所属模块', '', ModuleModel::getModule(), $module, url('ajax/getModuleMenus'), 'pid')
             ->addFormItems([
                 ['select', 'pid', '所属节点', '所属上级节点', MenuModel::getMenuTree(0, '', $module), $pid],
@@ -136,12 +136,12 @@ class Menu extends Admin
                 'text',
                 'url_value',
                 '节点链接',
-                "可留空，如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.dolphinphp.com</code>"
+                "可留空，如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code></code>"
             )
             ->addText('params', '参数', '如：a=1&b=2')
             ->addSelect('role', '角色', '除超级管理员外，拥有该节点权限的角色', RoleModel::where('id', 'neq', 1)->column('id,name'), '', 'multiple')
             ->addRadio('auto_create', '自动添加子节点', '选择【是】则自动添加指定的子节点', ['否', '是'], 0)
-            ->addCheckbox('child_node', '子节点', '仅上面选项为【是】时起作用', ['add' => '新增', 'edit' => '编辑', 'delete' => '删除', 'enable' => '启用', 'disable' => '禁用', 'quickedit' => '快速编辑'], 'add,edit,delete,enable,disable,quickedit')
+            ->addCheckbox('child_node', '子节点', '仅上面选项为【是】时起作用', ['add' => 'Create', 'edit' => 'Edit', 'delete' => 'Delete', 'enable' => '启用', 'disable' => '禁用', 'quickedit' => '快速Edit'], 'add,edit,delete,enable,disable,quickedit')
             ->addRadio('url_target', '打开方式', '', ['_self' => '当前窗口', '_blank' => '新窗口'], '_self')
             ->addIcon('icon', '图标', '导航图标')
             ->addRadio('online_hide', '网站上线后隐藏', '关闭开发模式后，则隐藏该菜单节点', ['否', '是'], 0)
@@ -151,9 +151,9 @@ class Menu extends Admin
     }
 
     /**
-     * 编辑节点
+     * Edit节点
      * @param int $id 节点ID
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function edit($id = 0)
@@ -189,9 +189,9 @@ class Menu extends Admin
                 // 记录行为
                 $details = '节点ID('.$id.')';
                 action_log('menu_edit', 'admin_menu', $id, UID, $details);
-                $this->success('编辑成功', cookie('__forward__'));
+                $this->success('Edit成功', cookie('__forward__'));
             } else {
-                $this->error('编辑失败');
+                $this->error('Edit失败');
             }
         }
 
@@ -202,7 +202,7 @@ class Menu extends Admin
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('编辑节点')
+            ->setPageTitle('Edit节点')
             ->addFormItem('hidden', 'id')
             ->addLinkage('module', '所属模块', '', ModuleModel::getModule(), '', url('ajax/getModuleMenus'), 'pid')
             ->addFormItem('select', 'pid', '所属节点', '所属上级节点', MenuModel::getMenuTree(0, '', $info['module']))
@@ -212,7 +212,7 @@ class Menu extends Admin
                 'text',
                 'url_value',
                 '节点链接',
-                "可留空，如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code>http://www.dolphinphp.com</code>"
+                "可留空，如果是模块链接，请填写<code>模块/控制器/操作</code>，如：<code>admin/menu/add</code>。如果是普通链接，则直接填写url地址，如：<code></code>"
             )
             ->addText('params', '参数', '如：a=1&b=2')
             ->addSelect('role', '角色', '除超级管理员外，拥有该节点权限的角色', RoleModel::where('id', 'neq', 1)->column('id,name'), '', 'multiple')
@@ -228,7 +228,7 @@ class Menu extends Admin
      * 设置角色权限
      * @param string $role_id 角色id
      * @param array $roles 角色id
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     private function setRoleMenu($role_id = '', $roles = [])
     {
@@ -255,7 +255,7 @@ class Menu extends Admin
             // 新节点角色权限
             $role_new_auth = RoleModel::getAuthWithRole($roles);
 
-            // 删除原先角色的该节点权限
+            // Delete原先角色的该节点权限
             if ($role_diff) {
                 $role_del_auth = [];
                 foreach ($role_diff as $role) {
@@ -271,7 +271,7 @@ class Menu extends Admin
                 }
             }
 
-            // 新增权限角色
+            // Create权限角色
             if ($role_diff_new) {
                 $role_update_auth = [];
                 foreach ($role_new_auth as $role => $auth) {
@@ -306,9 +306,9 @@ class Menu extends Admin
     }
 
     /**
-     * 删除节点
+     * Delete节点
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($record = [])
@@ -316,29 +316,29 @@ class Menu extends Admin
         $id = $this->request->param('id');
         $menu = MenuModel::where('id', $id)->find();
 
-        if ($menu['system_menu'] == '1') $this->error('系统节点，禁止删除');
+        if ($menu['system_menu'] == '1') $this->error('系统节点，禁止Delete');
 
         // 获取该节点的所有后辈节点id
         $menu_childs = MenuModel::getChildsId($id);
 
-        // 要删除的所有节点id
+        // 要Delete的所有节点id
         $all_ids = array_merge([(int)$id], $menu_childs);
 
-        // 删除节点
+        // Delete节点
         if (MenuModel::destroy($all_ids)) {
             Cache::clear();
             // 记录行为
             $details = '节点ID('.$id.'),节点标题('.$menu['title'].'),节点链接('.$menu['url_value'].')';
             action_log('menu_delete', 'admin_menu', $id, UID, $details);
-            $this->success('删除成功');
+            $this->success('Delete成功');
         } else {
-            $this->error('删除失败');
+            $this->error('Delete失败');
         }
     }
 
     /**
      * 保存节点排序
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function save()
@@ -366,7 +366,7 @@ class Menu extends Admin
      * 添加子节点
      * @param array $data 节点数据
      * @param string $pid 父节点id
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     private function createChildNode($data = [], $pid = '')
     {
@@ -377,13 +377,13 @@ class Menu extends Admin
         foreach ($data['child_node'] as $item) {
             switch ($item) {
                 case 'add':
-                    $data['title'] = '新增';
+                    $data['title'] = 'Create';
                     break;
                 case 'edit':
-                    $data['title'] = '编辑';
+                    $data['title'] = 'Edit';
                     break;
                 case 'delete':
-                    $data['title'] = '删除';
+                    $data['title'] = 'Delete';
                     break;
                 case 'enable':
                     $data['title'] = '启用';
@@ -392,7 +392,7 @@ class Menu extends Admin
                     $data['title'] = '禁用';
                     break;
                 case 'quickedit':
-                    $data['title'] = '快速编辑';
+                    $data['title'] = '快速Edit';
                     break;
             }
             $data['url_value']   = $url_value.$item;
@@ -411,7 +411,7 @@ class Menu extends Admin
      * 递归解析节点
      * @param array $menus 节点数据
      * @param int $pid 上级节点id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return array 解析成可以写入数据库的格式
      */
     private function parseMenu($menus = [], $pid = 0)
@@ -438,7 +438,7 @@ class Menu extends Admin
      * @param int $pid 父级id
      * @param int $max_level 最多返回多少层，0为不限制
      * @param int $curr_level 当前层数
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return string
      */
     private function getNestMenu($lists = [], $max_level = 0, $pid = 0, $curr_level = 1)
@@ -455,7 +455,7 @@ class Menu extends Admin
                     $result .= '<span class="link"><i class="fa fa-link"></i> '.$value['url_value'].'</span>';
                 }
                 $result .= '<div class="action">';
-                $result .= '<a href="'.url('add', ['module' => $value['module'], 'pid' => $value['id']]).'" data-toggle="tooltip" data-original-title="新增子节点"><i class="list-icon fa fa-plus fa-fw"></i></a><a href="'.url('edit', ['id' => $value['id']]).'" data-toggle="tooltip" data-original-title="编辑"><i class="list-icon fa fa-pencil fa-fw"></i></a>';
+                $result .= '<a href="'.url('add', ['module' => $value['module'], 'pid' => $value['id']]).'" data-toggle="tooltip" data-original-title="Create子节点"><i class="list-icon fa fa-plus fa-fw"></i></a><a href="'.url('edit', ['id' => $value['id']]).'" data-toggle="tooltip" data-original-title="Edit"><i class="list-icon fa fa-pencil fa-fw"></i></a>';
                 if ($value['status'] == 0) {
                     // 启用
                     $result .= '<a href="javascript:void(0);" data-ids="'.$value['id'].'" class="enable" data-toggle="tooltip" data-original-title="启用"><i class="list-icon fa fa-check-circle-o fa-fw"></i></a>';
@@ -463,7 +463,7 @@ class Menu extends Admin
                     // 禁用
                     $result .= '<a href="javascript:void(0);" data-ids="'.$value['id'].'" class="disable" data-toggle="tooltip" data-original-title="禁用"><i class="list-icon fa fa-ban fa-fw"></i></a>';
                 }
-                $result .= '<a href="'.url('delete', ['id' => $value['id'], 'table' => 'admin_menu']).'" data-toggle="tooltip" data-original-title="删除" class="ajax-get confirm"><i class="list-icon fa fa-times fa-fw"></i></a></div>';
+                $result .= '<a href="'.url('delete', ['id' => $value['id'], 'table' => 'admin_menu']).'" data-toggle="tooltip" data-original-title="Delete" class="ajax-get confirm"><i class="list-icon fa fa-times fa-fw"></i></a></div>';
                 $result .= '</div>';
 
                 if ($max_level == 0 || $curr_level != $max_level) {
@@ -484,7 +484,7 @@ class Menu extends Admin
     /**
      * 启用节点
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return void
      */
     public function enable($record = [])
@@ -498,7 +498,7 @@ class Menu extends Admin
     /**
      * 禁用节点
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return void
      */
     public function disable($record = [])

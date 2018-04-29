@@ -78,7 +78,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     // 保存自动完成列表
     protected $auto = [];
-    // 新增自动完成列表
+    // Create自动完成列表
     protected $insert = [];
     // 更新自动完成列表
     protected $update = [];
@@ -1160,7 +1160,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
             // 标记为更新
             $this->isUpdate = true;
 
-            // 新增回调
+            // Create回调
             $this->trigger('after_insert', $this);
         }
         // 写入回调
@@ -1292,7 +1292,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
      */
     protected function getWhere()
     {
-        // 删除条件
+        // Delete条件
         $pk = $this->getPk();
 
         if (is_string($pk) && isset($this->data[$pk])) {
@@ -1434,7 +1434,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * 删除当前的记录
+     * Delete当前的记录
      * @access public
      * @return integer
      */
@@ -1444,13 +1444,13 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
             return false;
         }
 
-        // 删除条件
+        // Delete条件
         $where = $this->getWhere();
 
-        // 删除当前模型数据
+        // Delete当前模型数据
         $result = $this->getQuery()->where($where)->delete();
 
-        // 关联删除
+        // 关联Delete
         if (!empty($this->relationWrite)) {
             foreach ($this->relationWrite as $key => $name) {
                 $name  = is_numeric($key) ? $name : $key;
@@ -1707,10 +1707,10 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
     }
 
     /**
-     * 删除记录
+     * Delete记录
      * @access public
      * @param mixed $data 主键列表 支持闭包查询条件
-     * @return integer 成功删除的记录数
+     * @return integer 成功Delete的记录数
      */
     public static function destroy($data)
     {

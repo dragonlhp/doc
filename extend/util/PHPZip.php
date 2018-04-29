@@ -160,8 +160,8 @@ class PHPZip {
             $content  = @fread($fd, filesize($file));
             fclose($fd);
 
-            // 1.删除$dir的字符(./folder/file.txt删除./folder/)
-            // 2.如果存在/就删除(/file.txt删除/)
+            // 1.Delete$dir的字符(./folder/file.txtDelete./folder/)
+            // 2.如果存在/就Delete(/file.txtDelete/)
             $file = substr($file, strlen($dir));
             if(substr($file, 0, 1) == "\\" || substr($file, 0, 1) == "/"){ $file = substr($file, 1); }
 
@@ -196,8 +196,8 @@ class PHPZip {
             $content  = @fread($fd, filesize($file));
             fclose($fd);
 
-            // 1.删除$dir的字符(./folder/file.txt删除./folder/)
-            // 2.如果存在/就删除(/file.txt删除/)
+            // 1.Delete$dir的字符(./folder/file.txtDelete./folder/)
+            // 2.如果存在/就Delete(/file.txtDelete/)
             $file = substr($file, strlen($dir));
             if(substr($file, 0, 1) == "\\" || substr($file, 0, 1) == "/"){ $file = substr($file, 1); }
 

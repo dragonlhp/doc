@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\user\admin;
 
@@ -76,8 +76,8 @@ class Index extends Admin
     }
 
     /**
-     * 新增
-     * @author 蔡伟明 <314013107@qq.com>
+     * Create
+
      * @return mixed
      */
     public function add()
@@ -94,15 +94,15 @@ class Index extends Admin
                 Hook::listen('user_add', $user);
                 // 记录行为
                 action_log('user_add', 'admin_user', $user['id'], UID);
-                $this->success('新增成功', url('index'));
+                $this->success('Create成功', url('index'));
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('新增') // 设置页面标题
+            ->setPageTitle('Create') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
                 ['text', 'username', '用户名', '必填，可由英文字母、数字组成'],
                 ['text', 'nickname', '昵称', '可以是中文'],
@@ -117,9 +117,9 @@ class Index extends Admin
     }
 
     /**
-     * 编辑
+     * Edit
      * @param null $id 用户id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function edit($id = null)
@@ -155,9 +155,9 @@ class Index extends Admin
                 Hook::listen('user_edit', $user);
                 // 记录行为
                 action_log('user_edit', 'admin_user', $user['id'], UID, get_nickname($user['id']));
-                $this->success('编辑成功', cookie('__forward__'));
+                $this->success('Edit成功', cookie('__forward__'));
             } else {
-                $this->error('编辑失败');
+                $this->error('Edit失败');
             }
         }
 
@@ -166,7 +166,7 @@ class Index extends Admin
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('编辑') // 设置页面标题
+            ->setPageTitle('Edit') // 设置页面标题
             ->addFormItems([ // 批量添加表单项
                 ['hidden', 'id'],
                 ['static', 'username', '用户名', '不可更改'],
@@ -186,7 +186,7 @@ class Index extends Admin
      * 授权
      * @param string $tab tab分组名
      * @param int $uid 用户id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function access($tab = '', $uid = 0)
@@ -198,7 +198,7 @@ class Index extends Admin
             $post = $this->request->post();
             list($module, $group) = explode('_', $post['tab_name']);
 
-            // 先删除原有授权
+            // 先Delete原有授权
             $map['module'] = $module;
             $map['group']  = $group;
             $map['uid']    = $post['uid'];
@@ -326,9 +326,9 @@ class Index extends Admin
     }
 
     /**
-     * 删除用户
+     * Delete用户
      * @param array $ids 用户id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($ids = [])
@@ -340,7 +340,7 @@ class Index extends Admin
     /**
      * 启用用户
      * @param array $ids 用户id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function enable($ids = [])
@@ -352,7 +352,7 @@ class Index extends Admin
     /**
      * 禁用用户
      * @param array $ids 用户id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function disable($ids = [])
@@ -362,10 +362,10 @@ class Index extends Admin
     }
 
     /**
-     * 设置用户状态：删除、禁用、启用
+     * 设置用户状态：Delete、禁用、启用
      * @param string $type 类型：delete/enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function setStatus($type = '', $record = [])
@@ -380,9 +380,9 @@ class Index extends Admin
     }
 
     /**
-     * 快速编辑
+     * 快速Edit
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function quickEdit($record = [])

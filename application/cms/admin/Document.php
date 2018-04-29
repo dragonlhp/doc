@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\cms\admin;
 
@@ -27,7 +27,7 @@ class Document extends Admin
 {
     /**
      * 文档列表
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function index()
     {
@@ -67,7 +67,7 @@ class Document extends Admin
      * 添加文档
      * @param int $cid 栏目id
      * @param string $model 模型id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function add($cid = 0, $model = '')
@@ -78,7 +78,7 @@ class Document extends Admin
             if (false === $DocumentModel->saveData()) {
                 $this->error($DocumentModel->getError());
             }
-            $this->success('新增成功', cookie('__forward__'));
+            $this->success('Create成功', cookie('__forward__'));
         }
 
         // 第二步，填写文档信息
@@ -159,10 +159,10 @@ class Document extends Admin
     }
 
     /**
-     * 编辑文档
+     * Edit文档
      * @param null $id 文档id
      * @param string $model 模型id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function edit($id = null, $model = '')
@@ -176,7 +176,7 @@ class Document extends Admin
             if (false === $result) {
                 $this->error($DocumentModel->getError());
             }
-            $this->success('编辑成功', cookie('__forward__'));
+            $this->success('Edit成功', cookie('__forward__'));
         }
 
         // 获取数据
@@ -240,10 +240,10 @@ class Document extends Admin
     }
 
     /**
-     * 删除文档(不是彻底删除，而是移动到回收站)
+     * Delete文档(不是彻底Delete，而是移动到回收站)
      * @param null $ids 文档id
      * @param string $table 数据表
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($ids = null, $table = '')
@@ -255,18 +255,18 @@ class Document extends Admin
 
         // 移动文档到回收站
         if (false === Db::name($table)->where('id', 'in', $ids)->setField('trash', 1)) {
-            $this->error('删除失败');
+            $this->error('Delete失败');
         }
 
-        // 删除并记录日志
+        // Delete并记录日志
         action_log('document_trash', $table, $document_id, UID, implode('、', $document_title));
-        return $this->success('删除成功');
+        return $this->success('Delete成功');
     }
 
     /**
      * 启用文档
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function enable($record = [])
@@ -277,7 +277,7 @@ class Document extends Admin
     /**
      * 禁用文档
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function disable($record = [])
@@ -286,10 +286,10 @@ class Document extends Admin
     }
 
     /**
-     * 设置文档状态：删除、禁用、启用
+     * 设置文档状态：Delete、禁用、启用
      * @param string $type 类型：enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function setStatus($type = '', $record = [])
@@ -302,9 +302,9 @@ class Document extends Admin
     }
 
     /**
-     * 快速编辑
+     * 快速Edit
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function quickEdit($record = [])

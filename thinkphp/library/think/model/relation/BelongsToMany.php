@@ -402,7 +402,7 @@ class BelongsToMany extends Relation
     }
 
     /**
-     * 保存（新增）当前关联数据对象
+     * 保存（Create）当前关联数据对象
      * @access public
      * @param mixed $data  数据 可以使用数组 关联模型对象 和 关联对象的主键
      * @param array $pivot 中间表额外数据
@@ -488,7 +488,7 @@ class BelongsToMany extends Relation
      * 解除关联的一个中间表数据
      * @access public
      * @param integer|array $data        数据 可以使用关联对象的主键
-     * @param bool          $relationDel 是否同时删除关联表数据
+     * @param bool          $relationDel 是否同时Delete关联表数据
      * @return integer
      */
     public function detach($data = null, $relationDel = false)
@@ -503,14 +503,14 @@ class BelongsToMany extends Relation
             $relationFk = $data->getPk();
             $id         = $data->$relationFk;
         }
-        // 删除中间表数据
+        // Delete中间表数据
         $pk                     = $this->parent->getPk();
         $pivot[$this->localKey] = $this->parent->$pk;
         if (isset($id)) {
             $pivot[$this->foreignKey] = is_array($id) ? ['in', $id] : $id;
         }
         $this->pivot->where($pivot)->delete();
-        // 删除关联表数据
+        // Delete关联表数据
         if (isset($id) && $relationDel) {
             $model = $this->model;
             $model::destroy($id);

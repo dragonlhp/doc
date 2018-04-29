@@ -66,7 +66,7 @@ abstract class Driver
     abstract public function dec($name, $step = 1);
 
     /**
-     * 删除缓存
+     * Delete缓存
      * @access public
      * @param string $name 缓存变量名
      * @return boolean
@@ -93,7 +93,7 @@ abstract class Driver
     }
 
     /**
-     * 读取缓存并删除
+     * 读取缓存并Delete
      * @access public
      * @param string $name 缓存变量名
      * @return mixed

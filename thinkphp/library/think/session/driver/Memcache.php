@@ -95,7 +95,7 @@ class Memcache extends SessionHandler
     }
 
     /**
-     * 删除Session
+     * DeleteSession
      * @access public
      * @param string $sessID
      * @return bool

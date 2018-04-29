@@ -54,7 +54,7 @@ return [
     'miss update condition'                                     => '缺少更新条件',
     'model data Not Found'                                      => '模型数据不存在',
     'table data not Found'                                      => '表数据不存在',
-    'delete without condition'                                  => '没有条件不会执行删除操作',
+    'delete without condition'                                  => '没有条件不会执行Delete操作',
     'miss relation data'                                        => '缺少关联表数据',
     'tag attr must'                                             => '模板标签属性必须',
     'tag error'                                                 => '模板标签错误',

@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\cms\admin;
 
@@ -26,7 +26,7 @@ class Field extends Admin
     /**
      * 字段列表
      * @param null $id 文档模型id
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function index($id = null)
     {
@@ -42,7 +42,7 @@ class Field extends Admin
         // 使用ZBuilder快速创建数据表格
         return ZBuilder::make('table')
             ->setSearch(['name' => '名称', 'title' => '标题']) // 设置搜索框
-            ->setPageTips('【显示】表示新增或编辑文档时是否显示该字段<br>【启用】表示前台是否显示')
+            ->setPageTips('【显示】表示Create或Edit文档时是否显示该字段<br>【启用】表示前台是否显示')
             ->addColumns([ // 批量添加数据列
                ['id', 'ID'],
                ['name', '名称'],
@@ -64,9 +64,9 @@ class Field extends Admin
     }
 
     /**
-     * 新增字段
+     * Create字段
      * @param string $model 文档模型id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function add($model = '')
@@ -80,7 +80,7 @@ class Field extends Admin
 
             // 非独立模型需验证字段名称是否为aid
             if ($model_type != 2) {
-                // 非独立模型需验证新增的字段是否被系统占用
+                // 非独立模型需验证Create的字段是否被系统占用
                 if ($data['name'] == 'aid' || is_default_field($data['name'])) {
                     $this->error('字段名称已存在');
                 }
@@ -114,14 +114,14 @@ class Field extends Admin
                     action_log('field_add', 'cms_field', $field['id'], UID, $details);
                     // 清除缓存
                     cache('cms_system_fields', null);
-                    $this->success('新增成功', cookie('__forward__'));
+                    $this->success('Create成功', cookie('__forward__'));
                 } else {
-                    // 添加失败，删除新增的数据
+                    // 添加失败，DeleteCreate的数据
                     FieldModel::destroy($field['id']);
                     $this->error($FieldModel->getError());
                 }
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
@@ -151,11 +151,11 @@ class Field extends Admin
                 ['text', 'pid', '父级id字段名', '即表中的父级ID字段名，如果表中的主键字段名为pid则可不填写'],
                 ['text', 'key', '键字段名', '即表中的主键字段名，如果表中的主键字段名为id则可不填写'],
                 ['text', 'option', '值字段名', '下拉菜单显示的字段名，如果表中的该字段名为name则可不填写'],
-                ['text', 'ak', 'APPKEY', '百度编辑器APPKEY'],
+                ['text', 'ak', 'APPKEY', '百度Edit器APPKEY'],
                 ['text', 'format', '格式'],
                 ['textarea', 'tips', '字段说明', '字段补充说明'],
                 ['radio', 'fixed', '是否为固定字段', '如果为 <code>固定字段</code> 则添加后不可修改', ['否', '是'], 0],
-                ['radio', 'show', '是否显示', '新增或编辑时是否显示该字段', ['否', '是'], 1],
+                ['radio', 'show', '是否显示', 'Create或Edit时是否显示该字段', ['否', '是'], 1],
                 ['radio', 'status', '立即启用', '', ['否', '是'], 1],
                 ['text', 'sort', '排序', '', 100],
             ])
@@ -170,9 +170,9 @@ class Field extends Admin
     }
 
     /**
-     * 编辑字段
+     * Edit字段
      * @param null $id 字段id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function edit($id = null)
@@ -215,7 +215,7 @@ class Field extends Admin
         // 获取数据
         $info = FieldModel::get($id);
 
-        // 显示编辑页面
+        // 显示Edit页面
         return ZBuilder::make('form')
             ->addFormItems([
                 ['hidden', 'id'],
@@ -234,10 +234,10 @@ class Field extends Admin
                 ['text', 'pid', '父级id字段名', '即表中的父级ID字段名，如果表中的主键字段名为pid则可不填写'],
                 ['text', 'key', '键字段名', '即表中的主键字段名，如果表中的主键字段名为id则可不填写'],
                 ['text', 'option', '值字段名', '下拉菜单显示的字段名，如果表中的该字段名为name则可不填写'],
-                ['text', 'ak', 'APPKEY', '百度编辑器APPKEY'],
+                ['text', 'ak', 'APPKEY', '百度Edit器APPKEY'],
                 ['text', 'format', '格式'],
                 ['textarea', 'tips', '字段说明', '字段补充说明'],
-                ['radio', 'show', '是否显示', '新增或编辑时是否显示该字段', ['否', '是']],
+                ['radio', 'show', '是否显示', 'Create或Edit时是否显示该字段', ['否', '是']],
                 ['radio', 'status', '立即启用', '', ['否', '是']],
                 ['text', 'sort', '排序'],
             ])
@@ -253,9 +253,9 @@ class Field extends Admin
     }
 
     /**
-     * 删除字段
+     * Delete字段
      * @param null $ids 字段id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($ids = null)
@@ -270,16 +270,16 @@ class Field extends Admin
                 // 记录行为
                 $details = '详情：文档模型('.get_model_title($field['model']).')、字段名称('.$field['name'].')、字段标题('.$field['title'].')、字段类型('.$field['type'].')';
                 action_log('field_delete', 'cms_field', $ids, UID, $details);
-                $this->success('删除成功', cookie('__forward__'));
+                $this->success('Delete成功', cookie('__forward__'));
             }
         }
-        return $this->error('删除失败');
+        return $this->error('Delete失败');
     }
 
     /**
      * 启用字段
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function enable($record = [])
@@ -290,7 +290,7 @@ class Field extends Admin
     /**
      * 禁用字段
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function disable($record = [])
@@ -299,10 +299,10 @@ class Field extends Admin
     }
 
     /**
-     * 设置字段状态：删除、禁用、启用
+     * 设置字段状态：Delete、禁用、启用
      * @param string $type 类型：enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function setStatus($type = '', $record = [])
@@ -314,9 +314,9 @@ class Field extends Admin
     }
 
     /**
-     * 快速编辑
+     * 快速Edit
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function quickEdit($record = [])

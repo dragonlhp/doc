@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\admin\controller;
 
@@ -23,7 +23,7 @@ class Config extends Admin
     /**
      * 配置首页
      * @param string $group 分组
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function index($group = 'base')
@@ -61,7 +61,7 @@ class Config extends Admin
                 ['sort', '排序', 'text.edit'],
                 ['right_button', '操作', 'btn']
             ])
-            ->addValidate('Config', 'name,title') // 添加快捷编辑的验证器
+            ->addValidate('Config', 'name,title') // 添加快捷Edit的验证器
             ->addOrder('name,title,status') // 添加标题字段排序
             ->addFilter('name,title') // 添加标题字段筛选
             ->addFilter('type', config('form_item_type')) // 添加标题字段筛选
@@ -75,9 +75,9 @@ class Config extends Admin
     }
 
     /**
-     * 新增配置项
+     * Create配置项
      * @param string $group 分组
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function add($group = '')
@@ -105,15 +105,15 @@ class Config extends Admin
                 // 记录行为
                 $details = '详情：分组('.$data['group'].')、类型('.$data['type'].')、标题('.$data['title'].')、名称('.$data['name'].')';
                 action_log('config_add', 'admin_config', $config['id'], UID, $details);
-                $this->success('新增成功', $forward);
+                $this->success('Create成功', $forward);
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('新增')
+            ->setPageTitle('Create')
             ->addRadio('group', '配置分组', '', config('config_group'), $group)
             ->addSelect('type', '配置类型', '', config('form_item_type'))
             ->addText('title', '配置标题', '一般由中文组成，仅用于显示')
@@ -128,7 +128,7 @@ class Config extends Admin
             ->addText('pid', '父级id字段名', '即表中的父级ID字段名，如果表中的主键字段名为pid则可不填写')
             ->addText('key', '键字段名', '即表中的主键字段名，如果表中的主键字段名为id则可不填写')
             ->addText('option', '值字段名', '下拉菜单显示的字段名，如果表中的该字段名为name则可不填写')
-            ->addText('ak', 'APPKEY', '百度编辑器APPKEY')
+            ->addText('ak', 'APPKEY', '百度Edit器APPKEY')
             ->addText('format', '格式')
             ->addText('tips', '配置说明', '该配置的具体说明')
             ->addText('sort', '排序', '', 100)
@@ -140,9 +140,9 @@ class Config extends Admin
     }
 
     /**
-     * 编辑
+     * Edit
      * @param int $id
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function edit($id = 0)
@@ -175,9 +175,9 @@ class Config extends Admin
                 $forward = $this->request->param('_pop') == 1 ? null : cookie('__forward__');
                 // 记录行为
                 action_log('config_edit', 'admin_config', $config['id'], UID, $details);
-                $this->success('编辑成功', $forward, '_parent_reload');
+                $this->success('Edit成功', $forward, '_parent_reload');
             } else {
-                $this->error('编辑失败');
+                $this->error('Edit失败');
             }
         }
 
@@ -186,7 +186,7 @@ class Config extends Admin
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('编辑')
+            ->setPageTitle('Edit')
             ->addHidden('id')
             ->addRadio('group', '配置分组', '', config('config_group'))
             ->addSelect('type', '配置类型', '', config('form_item_type'))
@@ -202,7 +202,7 @@ class Config extends Admin
             ->addText('pid', '父级id字段名', '即表中的父级ID字段名，如果表中的主键字段名为pid则可不填写')
             ->addText('key', '键字段名', '即表中的主键字段名，如果表中的主键字段名为id则可不填写')
             ->addText('option', '值字段名', '下拉菜单显示的字段名，如果表中的该字段名为name则可不填写')
-            ->addText('ak', 'APPKEY', '百度编辑器APPKEY')
+            ->addText('ak', 'APPKEY', '百度Edit器APPKEY')
             ->addText('format', '格式')
             ->addText('tips', '配置说明', '该配置的具体说明')
             ->addText('sort', '排序', '', 100)
@@ -215,9 +215,9 @@ class Config extends Admin
     }
 
     /**
-     * 删除配置
+     * Delete配置
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($record = [])
@@ -228,7 +228,7 @@ class Config extends Admin
     /**
      * 启用配置
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function enable($record = [])
@@ -239,7 +239,7 @@ class Config extends Admin
     /**
      * 禁用配置
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function disable($record = [])
@@ -248,10 +248,10 @@ class Config extends Admin
     }
 
     /**
-     * 设置配置状态：删除、禁用、启用
+     * 设置配置状态：Delete、禁用、启用
      * @param string $type 类型：delete/enable/disable
      * @param array $record
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function setStatus($type = '', $record = [])
@@ -263,9 +263,9 @@ class Config extends Admin
     }
 
     /**
-     * 快速编辑
+     * 快速Edit
      * @param array $record 行为日志
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function quickEdit($record = [])

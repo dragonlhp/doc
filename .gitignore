@@ -6,3 +6,5 @@ composer.lock
 /.buildpath
 /.project
 *.log
+/application/database.php
+install.lock

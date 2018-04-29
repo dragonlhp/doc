@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 	namespace app\odc\admin;
 
@@ -45,21 +45,25 @@
 				->order($order)->paginate();
 
 			// 使用ZBuilder快速创建数据表格
+            $maps=[];
+            if ($this->user['type'] != 1)
+            {
+                $maps['user_id'] = session('user_auth')['uid'];
+            }
+
+          //  dump([AddressModel::getList($maps)]);die;
 			return ZBuilder::make('table')
 				//->setSearch(['region_name' => 'Region Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
 				->addColumns([ // 批量添加数据列
 							   ['id', 'ID'],
 							   ['username', 'User Name'],
 							   ['nickname', 'Nick Name'],
-							   ['region_id', 'Region Name', 'select', RegionModel::where([])->column('id,region_name')],
-							   ['address_id', 'Default Address', 'select', AddressModel::getList()],
-							   ['email', 'E-Mail'],
+							   ['region_id', 'Region Name', 'text','', RegionModel::where([])->column('id,region_name')],
+							   ['address_id', 'Default Address', 'text','',AddressModel::getList($maps)],
+ 							   ['email', 'E-Mail'],
 							   ['mobile', 'Phone'],
-							   ['type', 'IS Manager', 'switch'],
-							   ['create_time', 'create_time', 'date'],
-							   ['create_time', 'update_time', 'date'],
-
-				])
+							   ['type', 'IS Manager', 'text','',["1"=>'Manager',"0"=>'User']],
+ 				])
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.']])// 批量添加右侧按钮
 				->addOrder('id,name')
 				->setRowList($data_list)// 设置表格数据
@@ -95,7 +99,7 @@
 
 			$info = RegionModel::get($id);
 
-			// 显示编辑页面
+			// 显示Edit页面
 			return ZBuilder::make('form')
 				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([

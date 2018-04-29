@@ -49,7 +49,7 @@
     /**
      * editormd
      * 
-     * @param   {String} id           编辑器的ID
+     * @param   {String} id           Edit器的ID
      * @param   {Object} options      配置选项 Key/Value
      * @returns {Object} editormd     返回editormd对象
      */
@@ -228,13 +228,13 @@
         
         lang : {
             name        : "zh-cn",
-            description : "开源在线Markdown编辑器<br/>Open source online Markdown editor.",
+            description : "开源在线MarkdownEdit器<br/>Open source online Markdown editor.",
             tocTitle    : "目录",
             toolbar     : {
                 undo             : "撤销（Ctrl+Z）",
                 redo             : "重做（Ctrl+Y）",
                 bold             : "粗体",
-                del              : "删除线",
+                del              : "Delete线",
                 italic           : "斜体",
                 quote            : "引用",
                 ucwords          : "将每个单词首字母转成大写",
@@ -349,7 +349,7 @@
          * 构造函数/实例初始化
          * Constructor / instance initialization
          * 
-         * @param   {String}   id            编辑器的ID
+         * @param   {String}   id            Edit器的ID
          * @param   {Object}   [options={}]  配置选项 Key/Value
          * @returns {editormd}               返回editormd的实例对象
          */
@@ -622,7 +622,7 @@
         },
         
         /**
-         * 设置 CodeMirror（编辑区）的主题
+         * 设置 CodeMirror（Edit区）的主题
          * Setting CodeMirror (Editor area) theme
          * 
          * @returns {editormd}  返回editormd的实例对象
@@ -1427,7 +1427,7 @@
         },
         
         /**
-         * 编辑器界面重建，用于动态语言包或模块加载等
+         * Edit器界面重建，用于动态语言包或模块加载等
          * Recreate editor
          * 
          * @returns {editormd}  返回editormd的实例对象
@@ -1788,7 +1788,7 @@
          * 加载队列完成之后的显示处理
          * Display handle of the module queues loaded after.
          * 
-         * @param   {Boolean}   recreate   是否为重建编辑器
+         * @param   {Boolean}   recreate   是否为重建Edit器
          * @returns {editormd}             返回editormd的实例对象
          */
         
@@ -1831,10 +1831,10 @@
         },
         
         /**
-         * 设置编辑器的宽度
+         * 设置Edit器的宽度
          * Set editor width
          * 
-         * @param   {Number|String} width  编辑器宽度值
+         * @param   {Number|String} width  Edit器宽度值
          * @returns {editormd}             返回editormd的实例对象
          */
         
@@ -1847,10 +1847,10 @@
         },
         
         /**
-         * 设置编辑器的高度
+         * 设置Edit器的高度
          * Set editor height
          * 
-         * @param   {Number|String} height  编辑器高度值
+         * @param   {Number|String} height  Edit器高度值
          * @returns {editormd}              返回editormd的实例对象
          */
         
@@ -1863,11 +1863,11 @@
         },
         
         /**
-         * 调整编辑器的尺寸和布局
+         * 调整Edit器的尺寸和布局
          * Resize editor layout
          * 
-         * @param   {Number|String} [width=null]  编辑器宽度值
-         * @param   {Number|String} [height=null] 编辑器高度值
+         * @param   {Number|String} [width=null]  Edit器宽度值
+         * @param   {Number|String} [height=null] Edit器高度值
          * @returns {editormd}                    返回editormd的实例对象
          */
         
@@ -2237,7 +2237,7 @@
         },
         
         /**
-         * 设置和传入编辑器的markdown源文档
+         * 设置和传入Edit器的markdown源文档
          * Set Markdown source document
          * 
          * @param   {String}    md     要传入的markdown源文档
@@ -2251,7 +2251,7 @@
         },
         
         /**
-         * 获取编辑器的markdown源文档
+         * 获取Edit器的markdown源文档
          * Set Editor.md markdown/CodeMirror value
          * 
          * @returns {editormd}         返回editormd的实例对象
@@ -2262,7 +2262,7 @@
         },
         
         /**
-         * 获取编辑器的源文档
+         * 获取Edit器的源文档
          * Get CodeMirror value
          * 
          * @returns {editormd}         返回editormd的实例对象
@@ -2273,7 +2273,7 @@
         },
         
         /**
-         * 设置编辑器的源文档
+         * 设置Edit器的源文档
          * Set CodeMirror value
          * 
          * @param   {String}     value   set code/value/string/text
@@ -2287,7 +2287,7 @@
         },
         
         /**
-         * 清空编辑器
+         * 清空Edit器
          * Empty CodeMirror editor container
          * 
          * @returns {editormd}         返回editormd的实例对象
@@ -2427,7 +2427,7 @@
         },
         
         /**
-         * 显示编辑器
+         * 显示Edit器
          * Show editor
          * 
          * @param   {Function} [callback=function()] 回调函数
@@ -2446,7 +2446,7 @@
         },
         
         /**
-         * 隐藏编辑器
+         * 隐藏Edit器
          * Hide editor
          * 
          * @param   {Function} [callback=function()] 回调函数
@@ -2465,7 +2465,7 @@
         },
         
         /**
-         * 隐藏编辑器部分，只预览HTML
+         * 隐藏Edit器部分，只预览HTML
          * Enter preview html state
          * 
          * @returns {editormd}         返回editormd的实例对象
@@ -2543,7 +2543,7 @@
         },
         
         /**
-         * 显示编辑器部分，退出只预览HTML
+         * 显示Edit器部分，退出只预览HTML
          * Exit preview html state
          * 
          * @returns {editormd}         返回editormd的实例对象
@@ -2594,7 +2594,7 @@
         },
         
         /**
-         * 编辑器全屏显示
+         * Edit器全屏显示
          * Fullscreen show
          * 
          * @returns {editormd}         返回editormd的实例对象
@@ -2651,7 +2651,7 @@
         },
         
         /**
-         * 编辑器退出全屏显示
+         * Edit器退出全屏显示
          * Exit fullscreen state
          * 
          * @returns {editormd}         返回editormd的实例对象

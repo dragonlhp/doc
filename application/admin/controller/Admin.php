@@ -1,13 +1,13 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 namespace app\admin\controller;
 
@@ -31,7 +31,7 @@ class Admin extends Common
 {
     /**
      * 初始化
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     protected function _initialize()
     {
@@ -94,7 +94,7 @@ class Admin extends Common
 
     /**
      * 获取当前操作模型
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return object|\think\db\Query
      */
     final protected function getCurrModel()
@@ -132,7 +132,7 @@ class Admin extends Common
 
     /**
      * 设置分页参数
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     final protected function setPageParam()
     {
@@ -144,7 +144,7 @@ class Admin extends Common
 
     /**
      * 检查是否登录，没有登录则跳转到登录页面
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return int
      */
     final protected function isLogin()
@@ -162,7 +162,7 @@ class Admin extends Common
     /**
      * 禁用
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function disable($record = [])
@@ -173,7 +173,7 @@ class Admin extends Common
     /**
      * 启用
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function enable($record = [])
@@ -184,7 +184,7 @@ class Admin extends Common
     /**
      * 启用
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function delete($record = [])
@@ -193,9 +193,9 @@ class Admin extends Common
     }
 
     /**
-     * 快速编辑
+     * 快速Edit
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      */
     public function quickEdit($record = [])
     {
@@ -275,7 +275,7 @@ class Admin extends Common
         $cache_name = strtolower($cache_name);
         $form       = Cache::get($cache_name, []);
         if (!$form) {
-            $this->error('自动新增数据不存在，请重新打开此页面');
+            $this->error('自动Create数据不存在，请重新打开此页面');
         }
 
         // 保存数据
@@ -306,12 +306,12 @@ class Admin extends Common
             // 插入数据
             if (Db::name($form['table'])->insert($data)) {
                 if ($_pop == 1) {
-                    $this->success('新增成功', null, '_parent_reload');
+                    $this->success('Create成功', null, '_parent_reload');
                 } else {
-                    $this->success('新增成功', $form['go_back']);
+                    $this->success('Create成功', $form['go_back']);
                 }
             } else {
-                $this->error('新增失败');
+                $this->error('Create失败');
             }
         }
 
@@ -322,7 +322,7 @@ class Admin extends Common
     }
 
     /**
-     * 自动创建编辑页面
+     * 自动创建Edit页面
      * @param string $id 主键值
      * @author caiweiming <314013107@qq.com>
      */
@@ -335,7 +335,7 @@ class Admin extends Common
         $cache_name = strtolower($cache_name);
         $form       = Cache::get($cache_name, []);
         if (!$form) {
-            $this->error('自动编辑数据不存在，请重新打开此页面');
+            $this->error('自动Edit数据不存在，请重新打开此页面');
         }
 
         // 保存数据
@@ -366,12 +366,12 @@ class Admin extends Common
             // 更新数据
             if (false !== Db::name($form['table'])->update($data)) {
                 if ($_pop == 1) {
-                    $this->success('编辑成功', null, '_parent_reload');
+                    $this->success('Edit成功', null, '_parent_reload');
                 } else {
-                    $this->success('编辑成功', $form['go_back']);
+                    $this->success('Edit成功', $form['go_back']);
                 }
             } else {
-                $this->error('编辑失败');
+                $this->error('Edit失败');
             }
         }
 
@@ -380,7 +380,7 @@ class Admin extends Common
 
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
-            ->setPageTitle('编辑')
+            ->setPageTitle('Edit')
             ->addFormItems($form['items'])
             ->setFormData($info)
             ->fetch();
@@ -388,10 +388,10 @@ class Admin extends Common
 
     /**
      * 设置状态
-     * 禁用、启用、删除都是调用这个内部方法
+     * 禁用、启用、Delete都是调用这个内部方法
      * @param string $type 操作类型：enable,disable,delete
      * @param array $record 行为日志内容
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function setStatus($type = '', $record = [])
@@ -429,7 +429,7 @@ class Admin extends Common
             case 'enable': // 启用
                 $result = $Model->where($map)->setField($field, 1);
                 break;
-            case 'delete': // 删除
+            case 'delete': // Delete
                 $result = $Model->where($map)->delete();
                 break;
             default:
@@ -451,7 +451,7 @@ class Admin extends Common
 
     /**
      * 模块设置
-     * @author 蔡伟明 <314013107@qq.com>
+
      * @return mixed
      */
     public function moduleConfig()
