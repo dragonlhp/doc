@@ -176,7 +176,7 @@ class Handle
         ob_start();
         extract($data);
         include Config::get('exception_tmpl');
-        // 获取并清空缓存
+        // 获取并Clear Cache
         $content  = ob_get_clean();
         $response = new Response($content, 'html');
 

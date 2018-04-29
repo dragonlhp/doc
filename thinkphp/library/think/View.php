@@ -166,7 +166,7 @@ class View
             throw $e;
         }
 
-        // 获取并清空缓存
+        // 获取并Clear Cache
         $content = ob_get_clean();
         // 内容过滤标签
         Hook::listen('view_filter', $content);

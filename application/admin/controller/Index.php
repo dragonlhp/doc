@@ -59,12 +59,12 @@ class Index extends Admin
             Cache::clear();
             $this->success('清空成功');
         } else {
-            $this->error('请在系统设置中选择需要清除的缓存类型');
+            $this->error('请在System setup中选择需要清除的缓存类型');
         }
     }
 
     /**
-     * 个人设置
+     * Porfile
 
      */
     public function profile()

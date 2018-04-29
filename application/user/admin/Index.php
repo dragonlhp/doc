@@ -58,16 +58,16 @@ class Index extends Admin
             ->setSearch(['id' => 'ID', 'username' => '用户名', 'email' => '邮箱']) // 设置搜索参数
             ->addColumns([ // 批量添加列
                 ['id', 'ID'],
-                ['username', '用户名'],
-                ['nickname', '昵称'],
-                ['role', '角色', 'select', RoleModel::getTree(null, false)],
-                ['email', '邮箱'],
-                ['mobile', '手机号'],
-                ['create_time', '创建时间', 'datetime'],
-                ['status', '状态', 'switch'],
-                ['right_button', '操作', 'btn']
+                ['username', 'UserName'],
+                ['nickname', 'NikeName'],
+                ['role', 'Role', 'select', RoleModel::getTree(null, false)],
+                ['email', 'E-Mail'],
+                ['mobile', 'Mobil'],
+                ['create_time', 'CreateName', 'datetime'],
+                ['status', 'Status', 'switch'],
+                ['right_button', 'Options', 'btn']
             ])
-            ->addTopButtons('add,enable,disable,delete') // 批量添加顶部按钮
+            ->addTopButtons('add,delete') // 批量添加顶部按钮
             ->addRightButton('custom', $btn_access) // 添加授权按钮
             ->addRightButtons('edit,delete') // 批量添加右侧按钮
             ->setRowList($data_list) // 设置表格数据

@@ -22,7 +22,7 @@ use app\admin\model\Module as ModuleModel;
 class System extends Admin
 {
     /**
-     * 系统设置
+     * System setup
      * @param string $group 分组
 
      * @return mixed
@@ -125,7 +125,7 @@ class System extends Admin
 
                 // 使用ZBuilder快速创建表单
                 return ZBuilder::make('form')
-                    ->setPageTitle('系统设置')
+                    ->setPageTitle('System setup')
                     ->setTabNav($tab_list, $group)
                     ->setFormItems($data_list)
                     ->fetch();
