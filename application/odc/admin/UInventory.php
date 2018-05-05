@@ -80,7 +80,7 @@
 			return ZBuilder::make('form')
 				->setPageTips($this->user['All'])
 				->addFormItems([
-					['select', 'product_id', 'product', '', ProductModel::getList()],
+					['select', 'product_id', 'product', '', ProductModel::getMyList($this->user['uid'])],
 					//					['select', 'region_id', 'region', '', RegionModel::getList()],
 					['text', 'max_quantity', 'Quantity'],
 					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],

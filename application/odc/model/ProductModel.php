@@ -50,4 +50,8 @@
 		{
 			return self::where([])->column('id,name');
 		}
+		static public function getMyList($user_id)
+		{
+			return self::where(['user_id'=>$user_id])->column('id,name');
+		}
 	}
