@@ -28,7 +28,7 @@
 			// 排序
 			$order = $this->getOrder('admin_user.id asc');
 			// 数据列表
-			$map['admin_user.id'] = ['>', 1];
+//			$map['admin_user.id'] = ['>', 1];
 			$data_list = RegionUserModel::where($map);
 			if ($this->CheckManager() && !$this->CheckAdmin())
 			{
