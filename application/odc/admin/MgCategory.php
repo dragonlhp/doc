@@ -55,7 +55,6 @@
 							//['sort', 'sort', 'text'],
  							['status', 'status', 'switch'],
 							['description', 'description', 'text'],
-
 							['right_button', 'Options', 'btn']
 			];
 

@@ -37,6 +37,9 @@
 		static public function getList()
 		{
 			return self::where('id>0')->where(['status' => 1, 'user_id' => session('user_auth')['uid']])->column('id,name');
+		}static public function getListMg()
+		{
+			return self::where('id>0')->where(['status' => 1])->column('id,name');
 		}
 
 		static public function getParentTrue($pam,$id = null)
