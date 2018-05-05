@@ -95,7 +95,7 @@
 			{
 				$data = $this->request->post();
 
-				$data['order_id'] = time() . uniqid(mt_rand());
+				$data['order_id'] = time().$this->generate_code(5);
 				$data['product_id'] = $id;
 				$Product = ProductModel::get($id);
 				$Inventory = InventoryModel::get($id);
@@ -125,7 +125,7 @@
 				{
 					$this->error('钱包金额不足！', '', [$BuyerInfo, $data]);
 				}
-
+//				dump($data);die;
 				if ($advert = OrderModel::buy($data))
 				{
 					$this->success('Buy success', 'index');
@@ -134,7 +134,6 @@
 					$this->error('Buy failure');
 				}
 			}
-
 
 			// 显示添加页面
 			return ZBuilder::make('form')
@@ -145,6 +144,11 @@
 				->setTrigger('timeset', '1', 'start_time')
 				->fetch();
 
+		}
+
+		function generate_code($length = 11)
+		{
+			return rand(pow(10, ($length - 1)), pow(10, $length) - 1);
 		}
 
 
