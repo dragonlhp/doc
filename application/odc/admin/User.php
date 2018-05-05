@@ -62,7 +62,7 @@
 							   ['address_id', 'Default Address', 'text','',AddressModel::getList($maps)],
  							   ['email', 'E-Mail'],
 							   ['mobile', 'Phone'],
-							   ['type', 'IS Manager', 'text','',["1"=>'Manager',"0"=>'User']],
+							   ['type', 'IS Manager', 'text','',["1"=>'Warehouse Manager',"0"=>'Customer']],
  				])
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.']])// 批量添加右侧按钮
 				->addOrder('id,name')

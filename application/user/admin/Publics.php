@@ -57,11 +57,11 @@
 				if (config('captcha_signin'))
 				{
 					$captcha = $this->request->post('captcha', '');
-					$captcha == '' && $this->error('请输入验证码');
+					$captcha == '' && $this->error('Input verification code again.');
 					if (!captcha_check($captcha, '', config('captcha')))
 					{
 						//验证失败
-						$this->error('验证码错误或失效');
+						$this->error('Invalid verification code.');
 					};
 				}
 
