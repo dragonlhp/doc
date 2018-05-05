@@ -168,6 +168,10 @@
 				{
 					$this->error('The two passwords do not match.');
 				}
+				if (empty($data['address']) || $data['address'] == '')
+				{
+					$this->error('地址不能为空.');
+				}
 
 				$user_data = [
 					'username' => $data['username'],

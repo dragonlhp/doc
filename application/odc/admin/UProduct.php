@@ -24,7 +24,7 @@
 			$map = $this->getMap();
 			// 排序
 			$order = $this->getOrder('id asc');
-			
+
 			$data_list = ProductModel::where([]);
 			$This_user = session('user_auth')['uid'];
 			// 数据列表
@@ -37,8 +37,7 @@
 							['avatar', 'Avatar', 'picture'],
 							['name', 'Name', 'text'],
 							['category_id', 'Category', 'select', CategoryModel::getList()],
-							['avatar', 'Avatar', 'text'],
-							['price', 'Price', 'text'],
+ 							['price', 'Price', 'text'],
 							['color', 'Color', 'text'],
 							['weight', 'Weight', 'text'],
 							['quantity', 'Quantity', 'text'],

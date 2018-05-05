@@ -15,7 +15,7 @@
 	 * Class Product
 	 * @package app\odc\admin
 	 */
-	class Bazaar extends BaseController
+	class Market extends BaseController
 	{
 		/**
 		 * @return mixed
@@ -95,7 +95,36 @@
 			{
 				$data = $this->request->post();
 
-				if ($advert = OrderModel::create($data))
+				$data['order_id'] = time() . uniqid(mt_rand());
+				$data['product_id'] = $id;
+				$Product = ProductModel::get($id);
+				$Inventory = InventoryModel::get($id);
+				$BuyerInfo = OrderModel::getBuyerInfo($Product->user_id);
+
+				if (!$Product)
+				{
+					$this->error('产品不存在');
+				}
+				$data['buyer_id'] = $this->user['uid'];
+				$data['supplier_id'] = $Product->user_id;
+
+
+				$data['price'] = $Product->price * $data['num'];
+
+				if ($Inventory->max_quantity < $data['num'])
+				{
+					$this->error('数量不足！请重新输入！');
+				}
+				if ($BuyerInfo['balance'] == '')
+				{
+					$this->error('金额为空，不能购买！');
+				}
+				if ($BuyerInfo['balance'] < $data['price'])
+				{
+					$this->error('钱包金额不足！');
+				}
+
+				if ($advert = OrderModel::buy($data))
 				{
 					$this->success('Buy success', 'index');
 				} else
@@ -103,13 +132,12 @@
 					$this->error('Buy failure');
 				}
 			}
+
+
 			// 显示添加页面
 			return ZBuilder::make('form')
 				->addFormItems([
-					['select', 'product_id', 'product', '', ProductModel::getList()],
-					//					['select', 'region_id', 'region', '', RegionModel::getList()],
-					['text', 'max_quantity', 'max quantity'],
-					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
+					['text', 'num', 'Buy Number'],
 				])
 				->addHidden('user_id', $this->user['uid'])
 				->setTrigger('timeset', '1', 'start_time')
