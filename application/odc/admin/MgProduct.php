@@ -26,14 +26,12 @@
 			$order = $this->getOrder('id asc');
 
 
-			$data_list = ProductModel::where([]);
+			$data_list = ProductModel::where($map);
 			$This_user = session('user_auth')['uid'];
 			// 数据列表
 
-			if (isset($map['user_id']))
-			{
-				$data_list->where($map);
-			} else
+
+			if ($this->CheckManager() && !$this->CheckAdmin())
 			{
 				$data_list->whereIn('user_id', RegionModel::getMgRegUserIDS($This_user));
 			}
@@ -64,14 +62,14 @@
 			$ZBuilder = ZBuilder::make('table');
 
 			//$addColumns[0] = ['user_id', 'User', 'select', static::userlist()];
-			$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
+			$ZBuilder->addTopSelect('user_id', 'Select User', static::getUserList($This_user));
 
 
 			$ZBuilder->setPageTips($this->user['All']);
 
 			$ZBuilder_ = $ZBuilder->setSearch(['title' => 'titile'])// 设置搜索框
 			->addColumns($addColumns)
-				->addTopButtons('add,delete')// 批量添加顶部按钮
+				->addTopButtons('delete')// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮
 				->addOrder('id,name')
 				->setRowList($datas)// 设置表格数据

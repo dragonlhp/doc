@@ -5,6 +5,7 @@
 	use app\admin\controller\Admin;
 	use app\odc\model\RegionModel;
 	use app\odc\model\RegionUserModel;
+	use app\user\model\User;
 
 	class BaseController extends Admin
 	{
@@ -22,7 +23,7 @@
 			{
 				$this->user['region_name'] = $Region[0];
 			}
-			$this->user['All']=' ';
+			$this->user['All'] = ' ';
 			foreach ($this->user as $key => $item)
 			{
 				$this->user['All'] .= "< {$key}:{$item} ><br>";
@@ -46,6 +47,14 @@
 				->column('admin_user.id,admin_user.username');
 		}
 
+		static public function getUserList($mg_user_id)
+		{
+			$ids = RegionModel::getMgRegUserIDS($mg_user_id);
+			return $data = db('admin_user')->whereIn('id', $ids)->column('id,username as name');
+			dump($data);
+			die;
+		}
+
 		public function CheckAdmin()
 		{
 			return $this->user['uid'] == 1 ? true : false;
@@ -55,7 +64,6 @@
 		{
 			return $this->user['type'] == 1 ? true : false;
 		}
-
 
 
 	}

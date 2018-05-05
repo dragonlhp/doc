@@ -24,21 +24,14 @@
 			$map = $this->getMap();
 			// 排序
 			$order = $this->getOrder('id asc');
-
-
+			
 			$data_list = ProductModel::where([]);
 			$This_user = session('user_auth')['uid'];
 			// 数据列表
-
 			$map['user_id'] = $This_user;
 			$data_list->where($map);
-
-
 			$datas = $data_list->order($order)->paginate();
-
-
 			// 使用ZBuilder快速创建数据表格
-
 			$addColumns = [ // 批量添加数据列
 							['id', 'ID'],
 							['avatar', 'Avatar', 'picture'],
@@ -56,16 +49,7 @@
 
 
 			$ZBuilder = ZBuilder::make('table');
-			if ($this->user['type'] != 0)
-			{
-				//$addColumns[0] = ['user_id', 'User', 'select', static::userlist()];
-				$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
-			} else
-			{
 
-				$ZBuilder->addTopSelect('user_id', 'Select User', RegionModel::getMgRegUserName($This_user));
-
-			}
 			$ZBuilder_ = $ZBuilder->setSearch(['title' => 'titile'])// 设置搜索框
 			->addColumns($addColumns)
 				->addTopButtons('add,delete')// 批量添加顶部按钮

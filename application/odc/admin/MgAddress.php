@@ -6,6 +6,7 @@
 	use app\common\builder\ZBuilder;
 
 	use app\odc\model\AddressModel;
+	use app\odc\model\RegionModel;
 	use app\odc\model\RegionUserModel;
 	use app\user\model\User;
 	use think\Validate;
@@ -26,9 +27,13 @@
 			$map = $this->getMap();
 			// 排序
 			$order = $this->getOrder('id asc');
-
-			$data_list = AddressModel::where($map)->order($order)->paginate();
-
+			$data_list_ = AddressModel::where($map);
+ //			dump([$This_user,$this->CheckManager() , !$this->CheckAdmin()]);die;
+			if ($this->CheckManager() && !$this->CheckAdmin())
+			{
+				$data_list_->whereIn('user_id', RegionModel::getMgRegUserIDS($this->user['uid']));
+			}
+			$data_list = $data_list_->order($order)->paginate();
 			// 使用ZBuilder快速创建数据表格
 
 			$addColumns = [ // 批量添加数据列
@@ -42,8 +47,8 @@
 			$ZBuilder = ZBuilder::make('table');
 			$ZBuilder->setPageTips($this->user['All']);
 
-			$addColumns[0] = ['user_id', 'User', 'text', '', static::userlist()];
-			$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
+			$addColumns[0] = ['user_id', 'User', 'text', '', static::getUserList($this->user['uid'])];
+			$ZBuilder->addTopSelect('user_id', 'Select User', static::getUserList($this->user['uid']));
 
 			$ZBuilder_ = $ZBuilder->setSearch(['region_name' => 'Address Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
 			->addColumns($addColumns)

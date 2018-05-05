@@ -30,7 +30,7 @@
 			// 数据列表
 			$map['admin_user.id'] = ['>', 1];
 			$data_list = RegionUserModel::where($map);
-			if (!$this->CheckManager())
+			if ($this->CheckManager() && !$this->CheckAdmin())
 			{
 				$data_list->whereIn('admin_user.id', RegionModel::getMgRegUserIDS($this->user['uid']));
 			}

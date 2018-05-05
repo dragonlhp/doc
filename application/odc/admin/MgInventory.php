@@ -26,14 +26,12 @@
 			$order = $this->getOrder('id asc');
 
 			// 数据列表
-			$data_list = InventoryModel::where([]);
+			$data_list = InventoryModel::where($map);
 			$This_user = session('user_auth')['uid'];
 			// 数据列表
 
-			if (isset($map['user_id']))
-			{
-				$data_list->where($map);
-			} else
+
+			if ($this->CheckManager() && !$this->CheckAdmin())
 			{
 				$data_list->whereIn('user_id', RegionModel::getMgRegUserIDS($This_user));
 			}
@@ -55,12 +53,12 @@
 			];
 			$ZBuilder = ZBuilder::make('table');
 
-			$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
+			$ZBuilder->addTopSelect('user_id', 'Select User', static::getUserList($This_user));
 
 			return $ZBuilder = $ZBuilder->setSearch(['title' => '标题'])// 设置搜索框
 			->setPageTips($this->user['All'])
-			->addColumns($addColumns)
-				->addTopButtons(['add' => ['title' => 'Send',], 'delete'])// 批量添加顶部按钮
+				->addColumns($addColumns)
+				->addTopButtons(['delete'])// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮
 				->addOrder('id,name')
 				->setRowList($datas)// 设置表格数据
@@ -79,6 +77,7 @@
 				$data = $this->request->post();
 				$avatar = ProductModel::where(['id' => $data['product_id']])->column('avatar');
 				$data['avatar'] = $avatar[0];
+				$data['region_id'] = $this->user['region_id'];
 				if ($advert = InventoryModel::create($data))
 				{
 					$this->success('Create success', 'index');
@@ -91,8 +90,7 @@
 			return ZBuilder::make('form')
 				->addFormItems([
 					['select', 'product_id', 'product', '', ProductModel::getList()],
-					['select', 'region_id', 'region', '', RegionModel::getList()],
-					['text', 'max_quantity', 'max quantity'],
+ 					['text', 'max_quantity', 'max quantity'],
 					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 				])
 				->addHidden('user_id', $this->user['uid'])
@@ -135,10 +133,9 @@
 
 			// 显示Edit页面
 			return ZBuilder::make('form')
-
 				->addFormItems([
 					['select', 'product_id', 'Product', '', ProductModel::getList()],
-					['select', 'region_id', 'Region', '', RegionModel::getList()],
+					//					['select', 'region_id', 'Region', '', RegionModel::getList()],
 					['text', 'max_quantity', 'MaxQuantity'],
 					['radio', 'status', 'Now ON', '', ['OFF', 'ON'], 1],
 				])

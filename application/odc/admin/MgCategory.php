@@ -30,18 +30,13 @@
 			$map['id'] = ['>', 0];
 			$map['status'] = 1;
 			$This_user = session('user_auth')['uid'];
-			$data_lists = CategoryModel::where([]);
+			$data_lists = CategoryModel::where($map);
 
 
-			if (isset($map['user_id']))
-			{
-
-				$data_lists->where($map);
-			} else
+			if ($this->CheckManager() && !$this->CheckAdmin())
 			{
 				$data_lists->whereIn('user_id', RegionModel::getMgRegUserIDS($This_user));
 			}
-
 
 			$data_list = $data_lists->select();
 
@@ -67,7 +62,8 @@
 
 			$ZBuilder = ZBuilder::make('table');
 
-			$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
+
+			$ZBuilder->addTopSelect('user_id', 'Select User', static::getUserList($This_user));
 
 			$ZBuilder->setPageTips($this->user['All']);
 
