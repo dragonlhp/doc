@@ -32,7 +32,7 @@
 			// 使用ZBuilder快速创建数据表格
 			return ZBuilder::make('table')
 							->setPageTips($this->user['All'])
-				->setSearch(['region_name' => 'Region Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
+				->setSearch(['region_name' => 'Region Name'])// 设置搜索框
 				->addColumns([ // 批量添加数据列
 							   ['id', 'ID'],
 							   ['mg_user_id', 'Mnager', 'callback', function($value)

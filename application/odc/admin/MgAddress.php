@@ -25,11 +25,13 @@
 		{
 			// 查询
 			$map = $this->getMap();
+
 			// 排序
 			$order = $this->getOrder('id asc');
 			$data_list_ = AddressModel::where($map);
 			//			dump([$This_user,$this->CheckManager() , !$this->CheckAdmin()]);die;
-			if ($this->CheckManager() && !$this->CheckAdmin())
+
+			if ($this->CheckManager() && !$this->CheckAdmin()&& !isset($map['user_id']))
 			{
 				$data_list_->whereIn('user_id', RegionModel::getMgRegUserIDS($this->user['uid']));
 			}
@@ -55,7 +57,7 @@
 
 			$ZBuilder->addTopSelect('user_id', 'Select User', static::getUserList($this->user['uid']));
 
-			$ZBuilder_ = $ZBuilder->setSearch(['region_name' => 'Address Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
+			$ZBuilder_ = $ZBuilder->setSearch(['address' => 'Address Name'])// 设置搜索框
 			->addColumns($addColumns)
 				->addTopButtons('add,delete')// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮

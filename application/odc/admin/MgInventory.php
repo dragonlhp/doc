@@ -31,7 +31,7 @@
 			// 数据列表
 
 
-			if ($this->CheckManager() && !$this->CheckAdmin())
+			if ($this->CheckManager() && !$this->CheckAdmin() && !isset($map['user_id']))
 			{
 				$data_list->whereIn('user_id', RegionModel::getMgRegUserIDS($This_user));
 			}
@@ -55,7 +55,7 @@
 
 			$ZBuilder->addTopSelect('user_id', 'Select User', static::getUserList($This_user));
 
-			return $ZBuilder = $ZBuilder->setSearch(['title' => '标题'])// 设置搜索框
+			return $ZBuilder = $ZBuilder
 			->setPageTips($this->user['All'])
 				->addColumns($addColumns)
 				->addTopButtons(['delete'])// 批量添加顶部按钮
@@ -90,7 +90,7 @@
 			return ZBuilder::make('form')
 				->addFormItems([
 					['select', 'product_id', 'product', '', ProductModel::getList()],
- 					['text', 'max_quantity', 'Quantity'],
+					['text', 'max_quantity', 'Quantity'],
 					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 				])
 				->addHidden('user_id', $this->user['uid'])

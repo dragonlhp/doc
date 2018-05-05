@@ -46,8 +46,7 @@
 			];
 			$ZBuilder = ZBuilder::make('table');
 
-			return $ZBuilder = $ZBuilder->setSearch(['title' => '标题'])// 设置搜索框
-
+			return $ZBuilder = $ZBuilder
 				->addColumns($addColumns)
 				->addTopButtons(['add' => ['title' => 'Send',], 'delete'])// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮

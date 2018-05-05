@@ -49,7 +49,7 @@
 
 			$ZBuilder = ZBuilder::make('table');
 
-			$ZBuilder_ = $ZBuilder->setSearch(['title' => 'titile'])// 设置搜索框
+			$ZBuilder_ = $ZBuilder->setSearch(['name' => 'name'])// 设置搜索框
 			->addColumns($addColumns)
 				->addTopButtons('add,delete')// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮

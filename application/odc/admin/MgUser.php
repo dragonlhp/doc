@@ -30,7 +30,7 @@
 			// 数据列表
 //			$map['admin_user.id'] = ['>', 1];
 			$data_list = RegionUserModel::where($map);
-			if ($this->CheckManager() && !$this->CheckAdmin())
+			if ($this->CheckManager() && !$this->CheckAdmin() && !isset($map['user_id']))
 			{
 				$data_list->whereIn('admin_user.id', RegionModel::getMgRegUserIDS($this->user['uid']));
 			}
@@ -47,7 +47,7 @@
 
 			//  dump([AddressModel::getList($maps)]);die;
 			return ZBuilder::make('table')
-							->setPageTips($this->user['All'])
+				->setPageTips($this->user['All'])
 				//->setSearch(['region_name' => 'Region Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
 				->addColumns([ // 批量添加数据列
 							   ['id', 'ID'],

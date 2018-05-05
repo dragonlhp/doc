@@ -33,7 +33,7 @@
 			$data_lists = CategoryModel::where($map);
 
 
-			if ($this->CheckManager() && !$this->CheckAdmin())
+			if ($this->CheckManager() && !$this->CheckAdmin() && !isset($map['user_id']))
 			{
 				$data_lists->whereIn('user_id', RegionModel::getMgRegUserIDS($This_user));
 			}
@@ -66,7 +66,7 @@
 
 			//$ZBuilder->setPageTips($this->user['All']);
 
-			$ZBuilder_str = $ZBuilder->setSearch(['region_name' => 'Region Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
+			$ZBuilder_str = $ZBuilder->setSearch(['title_display' => 'Category Name'])// 设置搜索框
 			->addColumns($addColumns)
 				->addTopButtons('delete')// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮
