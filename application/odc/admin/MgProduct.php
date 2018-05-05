@@ -54,7 +54,13 @@
 								return isset($data[$value]) ? $data[$value] : '';
 							}
 							],
-							['user_id', 'Mnager', 'test', '', self::userlist('user')],
+							[
+								'user_id', 'User', 'callback', function($value)
+							{
+								$data = self::userlist('user');
+								return isset($data[$value]) ? $data[$value] : '';
+							}
+							],
 							['avatar', 'Image', 'text'],
 							['price', 'Price', 'text'],
 							['color', 'Color', 'text'],
