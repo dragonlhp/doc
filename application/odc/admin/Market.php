@@ -31,9 +31,21 @@
 			}
 			if (isset($map['pname|cname']))
 			{
- 				$map['p.name'] = $map['pname|cname'];
+				$map['p.name'] = $map['pname|cname'];
 				$map['c.name'] = $map['pname|cname'];
 				unset($map['pname|cname']);
+
+			}
+			if (isset($map['cname']))
+			{
+ 				$map['c.name'] = $map[' cname'];
+				unset($map['cname']);
+
+			}
+			if (isset($map['pname ']))
+			{
+				$map['p.name'] = $map['pname '];
+ 				unset($map['pname']);
 
 			}
 
