@@ -38,7 +38,7 @@
 			}
 			if (isset($map['cname']))
 			{
- 				$map['c.name'] = $map[' cname'];
+ 				$map['c.name'] = $map['cname'];
 				unset($map['cname']);
 
 			}
