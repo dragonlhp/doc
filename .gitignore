@@ -8,3 +8,4 @@ composer.lock
 *.log
 /application/database.php
 install.lock
+/data/install.lock
