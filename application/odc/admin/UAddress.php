@@ -6,15 +6,15 @@
 	use app\common\builder\ZBuilder;
 
 	use app\odc\model\AddressModel;
-    use app\odc\model\RegionUserModel;
-    use app\user\model\User;
+	use app\odc\model\RegionUserModel;
+	use app\user\model\User;
 	use think\Validate;
 
 	/**
 	 * Class Address
 	 * @package app\odc\admin
 	 */
-	class Address extends BaseController
+	class UAddress extends BaseController
 	{
 		/**
 		 * @return mixed
@@ -26,11 +26,9 @@
 			$map = $this->getMap();
 			// 排序
 			$order = $this->getOrder('id asc');
-			// 数据列表
-            if ($this->user['type'] != 1)
-            {
-                $map['user_id'] = session('user_auth')['uid'];
-            }
+
+			$map['user_id'] = session('user_auth')['uid'];
+
 			$data_list = AddressModel::where($map)->order($order)->paginate();
 
 			// 使用ZBuilder快速创建数据表格
@@ -44,11 +42,8 @@
 			];
 
 			$ZBuilder = ZBuilder::make('table');
-			if ($this->user['type'] != 0)
-			{
-				$addColumns[0] = ['user_id', 'User', 'text', '',static::userlist()];
-				$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
-			}
+			$ZBuilder->setPageTips($this->user['All']);
+
 			$ZBuilder_ = $ZBuilder->setSearch(['region_name' => 'Address Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
 			->addColumns($addColumns)
 				->addTopButtons('add,delete')// 批量添加顶部按钮
@@ -72,7 +67,7 @@
 				$data = $this->request->post();
 				if ($advert = AddressModel::create($data))
 				{
-				    RegionUserModel::updated($advert->user_id,session('user_auth')['uid']);
+					RegionUserModel::updated($advert->user_id, session('user_auth')['uid']);
 					$this->success('Create Success', 'index');
 				} else
 				{

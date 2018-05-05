@@ -13,7 +13,7 @@
 	 * Class Region
 	 * @package app\odc\admin
 	 */
-	class Region extends BaseController
+	class MgRegion extends BaseController
 	{
 		/**
 		 * @return mixed
@@ -28,12 +28,15 @@
 			// 数据列表
 			$data_list = RegionModel::where($map)->order($order)->paginate();
 
+
+
 			// 使用ZBuilder快速创建数据表格
 			return ZBuilder::make('table')
+							->setPageTips($this->user['All'])
 				->setSearch(['region_name' => 'Region Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
 				->addColumns([ // 批量添加数据列
 							   ['id', 'ID'],
-							   ['mg_user_id', 'Mnager', 'select', self::userlist('mg')],
+							   ['mg_user_id', 'Mnager', 'test','', self::userlist('mg')],
 							   ['region_name', 'Region Name', 'text'],
 							   ['wh_name', 'Warehouse Name', 'text'],
 							   ['wh_address', 'Warehouse Address', 'text'],
@@ -67,8 +70,7 @@
 			}
 			// 显示添加页面
 			return ZBuilder::make('form')
-				->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
-				->addFormItems([
+ 				->addFormItems([
 					['select', 'mg_user_id', 'MgUserId', 'Manager User', self::userlist()],
 					['text', 'region_name', 'RegionName'],
 					['text', 'wh_name', 'whName'],

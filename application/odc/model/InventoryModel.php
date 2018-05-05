@@ -1,14 +1,6 @@
 <?php
 
 
-
-
-
-
-
-
-
-
 	namespace app\odc\model;
 
 	use think\Model as ThinkModel;
@@ -45,4 +37,11 @@
 		{
 			return $value != 0 ? date('Y-m-d', $value) : '';
 		}
+
+//		public function getProductIdAttr($value)
+//		{
+//		$avatar	=ProductModel::where(['product_id'=>$value])->column('avatar');
+//		dump($avatar);die;
+//			return $avatar;
+//		}
 	}

@@ -1,15 +1,9 @@
 <?php
-	/**
-	 * Created by PhpStorm.
-	 * User: mybook-lhp
-	 * Date: 18/4/21
-	 * Time: 下午9:02
-	 */
 
 	namespace app\odc\admin;
 
-
 	use app\admin\controller\Admin;
+	use app\odc\model\RegionModel;
 	use app\odc\model\RegionUserModel;
 
 	class BaseController extends Admin
@@ -22,7 +16,17 @@
 			$this->user = session('user_auth');
 
 			$this->user['type'] = RegionUserModel::where(['user_id' => $this->user['uid']])->column('type')[0];
+			$this->user['region_id'] = RegionUserModel::where(['user_id' => $this->user['uid']])->column('region_id')[0];
 
+			if ($Region = RegionModel::where(['id' => $this->user['region_id']])->column('region_name'))
+			{
+				$this->user['region_name'] = $Region[0];
+			}
+			$this->user['All']=' ';
+			foreach ($this->user as $key => $item)
+			{
+				$this->user['All'] .= "< {$key}:{$item} ><br>";
+			}
 		}
 
 		static public function userlist($type = false)
@@ -41,6 +45,17 @@
 				->join('admin_user', 'admin_user.id = dp_odc_user.user_id')
 				->column('admin_user.id,admin_user.username');
 		}
+
+		public function CheckAdmin()
+		{
+			return $this->user['uid'] == 1 ? true : false;
+		}
+
+		public function CheckManager()
+		{
+			return $this->user['type'] == 1 ? true : false;
+		}
+
 
 
 	}

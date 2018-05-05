@@ -1,6 +1,5 @@
 <?php
 
-
 	namespace app\odc\admin;
 
 	use app\admin\controller\Admin;
@@ -9,12 +8,11 @@
 	use app\odc\model\ProductModel;
 	use app\odc\model\RegionModel;
 
-
 	/**
 	 * Class Product
 	 * @package app\odc\admin
 	 */
-	class Product extends BaseController
+	class UProduct extends BaseController
 	{
 		/**
 		 * @return mixed
@@ -31,20 +29,9 @@
 			$data_list = ProductModel::where([]);
 			$This_user = session('user_auth')['uid'];
 			// 数据列表
-			if ($this->user['type'] != 1)
-			{
-				$map['user_id'] = $This_user;
-				$data_list->where($map);
-			} else
-			{
-				if (isset($map['user_id']))
-				{
-					$data_list->where($map);
-				} else
-				{
-					$data_list->whereIn('user_id', RegionModel::getMgRegUserIDS($This_user));
-				}
-			}
+
+			$map['user_id'] = $This_user;
+			$data_list->where($map);
 
 
 			$datas = $data_list->order($order)->paginate();
@@ -54,8 +41,10 @@
 
 			$addColumns = [ // 批量添加数据列
 							['id', 'ID'],
+							['avatar', 'Avatar', 'picture'],
 							['name', 'Name', 'text'],
 							['category_id', 'Category', 'select', CategoryModel::getList()],
+							['avatar', 'Avatar', 'text'],
 							['price', 'Price', 'text'],
 							['color', 'Color', 'text'],
 							['weight', 'Weight', 'text'],
@@ -116,6 +105,7 @@
 			return ZBuilder::make('form')
 				->addFormItems([
 					['text', 'name', 'name'],
+					['images', 'avatar', 'Avatar'],
 					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
 					['text', 'price', 'Price'],
 					['text', 'color', 'color'],
@@ -157,15 +147,16 @@
 
 			$info = ProductModel::get($id);
 
-			$map['id'] = ['>', 0];
+
 			$map['status'] = 1;
-			if ($this->user['type'] != 1)
-			{
-				$map['user_id'] = $this->user['uid'];
-			}
+
+			$map['user_id'] = $this->user['uid'];
+
 			// 显示Edit页面
 			return ZBuilder::make('form')
+				->setPageTips($this->user['All'])
 				->addFormItems([
+					['images', 'avatar', 'Avatar'],
 					['text', 'name', 'name'],
 					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
 					['text', 'price', 'Price'],

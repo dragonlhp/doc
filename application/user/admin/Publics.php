@@ -159,6 +159,7 @@
 		 */
 		public function register()
 		{
+
 			// 保存数据
 			if ($this->request->isPost())
 			{
@@ -173,7 +174,7 @@
 					'nickname' => $data['username'],
 					'password' => $data['password'],
 					'email'    => $data['email'],
-					'balance'    => 10000.00,
+					'balance'  => 10000.00,
 					'type'     => 0,
 					'status'   => 1,
 					'role'     => 2,
@@ -188,12 +189,12 @@
 				{
 					$address = Access::create(['user_id' => $user->id, 'address' => $data['address'], 'status' => 1]);
 
-					RegionUserModel::create(['user_id' => $user->id, 'region_id' => $data['region_id'],'address_id'=>$address->id]);
+					RegionUserModel::create(['user_id' => $user->id, 'region_id' => $data['region_id'], 'address_id' => $address->id]);
 
-					$this->success('Create成功', url('user/publics/signin'));
+					$this->success('Register Success', url('user/publics/signin'));
 				} else
 				{
-					$this->error('Create失败');
+					$this->error('Register Failure');
 				}
 			}
 			$this->assign('region', RegionModel::getList());

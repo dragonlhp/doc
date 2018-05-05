@@ -69,9 +69,9 @@
                                     <label class="col-xs-12" for="login-password">Region</label>
                                     <div class="col-xs-12">
                                         <select lass="form-control" name="region_id">
-                                            {volist name="region" id="item" key="k"}
-                                            <option value ="{$k}"  <?php echo ($k == 1)?'selected = selected" ':""  ?>>{$item}</option>
-                                            {/volist}
+                                           <?php foreach($region as$k=> $item){   ?>
+                                            <option value ="{$k}"  <?php echo ($k == 1)?'selected = selected" ':"" ; ?>>{$item}</option>
+                                            <?php  } ?>
                                         </select>
                                     </div>
                                 </div>

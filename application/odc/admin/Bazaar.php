@@ -1,14 +1,13 @@
 <?php
 
-
 	namespace app\odc\admin;
 
 	use app\admin\controller\Admin;
 	use app\common\builder\ZBuilder;
 	use app\odc\model\CategoryModel;
+	use app\odc\model\InventoryModel;
 	use app\odc\model\ProductModel;
 	use app\odc\model\RegionModel;
-
 
 	/**
 	 * Class Product
@@ -27,44 +26,61 @@
 			// 排序
 			$order = $this->getOrder('id asc');
 
+			// 数据列表
+			$data_list = InventoryModel::where([]);
+			// 数据列表
 
-			$data_list = ProductModel::where($map)->order($order)->paginate();
+
+			$data_list->where($map);
 
 
+			$datas = $data_list->order($order)->paginate();
 			// 使用ZBuilder快速创建数据表格
-
-			$addColumns = [ // 批量添加数据列
-							['id', 'ID'],
-							['name', 'Name', 'text'],
-							['category_id', 'Category', 'select', CategoryModel::getList()],
-							['color', 'Color', 'text'],
-							['weight', 'Weight', 'text'],
-							['quantity', 'Quantity', 'text'],
-							['description', 'Description', 'text'],
-							['status', 'Status', 'switch'],
-							['right_button', 'Option', 'btn']
-			];
-
-			// 字段管理按钮
-			$btnField = [
-				'title' => 'Buy',
-				'icon'  => 'fa fa-fw fa-shopping-cart',
-				'href'  => url('Bazaar/buy', ['id' => '__id__'])
+			// 批量添加数据列
+			$addColumns = [
+				['id', 'ID'],
+				['avatar', 'Avatar', 'picture'],
+				[
+					'product_id', 'Product', 'callback', function($value)
+				{
+					$data = ProductModel::getList();
+					return isset($data[$value]) ? $data[$value] : '';
+				}
+				],
+				[
+					'region_id', 'Region', 'callback', function($value)
+				{
+					$data = RegionModel::getList();
+					return isset($data[$value]) ? $data[$value] : '';
+				}
+				],
+				[
+					'user_id', 'User Name', 'test', function($value)
+				{
+					$data = self::userlist('user');
+					return isset($data[$value]) ? $data[$value] : '';
+				}
+				],
+				['max_quantity', 'max quantity', 'text'],
+				['status', 'Status', 'yesno'],
+				['right_button', 'Options', 'btn']
 			];
 			$ZBuilder = ZBuilder::make('table');
-			$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
-			$ZBuilder_ = $ZBuilder->setSearch(['name' => 'name'])// 设置搜索框
-			->addColumns($addColumns)
-				->addTopButtons(['buy' => $btnField])// 批量添加顶部按钮
-				->addRightButtons(['buy' => $btnField])// 批量添加右侧按钮
-				->addOrder('id,name')
-				->setRowList($data_list)// 设置表格数据
-				->fetch(); // 渲染模板
 
-			return $ZBuilder_;
+			$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
+
+			return $ZBuilder = $ZBuilder->setSearch(['title' => '标题'])// 设置搜索框
+			->setPageTips($this->user['All'])
+				->addColumns($addColumns)
+				->addTopButtons(['add' => ['title' => 'Send',], 'delete'])// 批量添加顶部按钮
+				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮
+				->addOrder('id,name')
+				->setRowList($datas)// 设置表格数据
+				->fetch(); // 渲染模板
 		}
 
-		public function bay(){
+		public function bay()
+		{
 
 		}
 

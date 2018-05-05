@@ -12,7 +12,7 @@
 	 * Class Inventory
 	 * @package app\odc\admin
 	 */
-	class Inventory extends BaseController
+	class UInventory extends BaseController
 	{
 		/**
 		 * @return mixed
@@ -30,7 +30,7 @@
 			}
 			// 数据列表
 			$data_list = InventoryModel::where([]);
- 			$This_user = session('user_auth')['uid'];
+			$This_user = session('user_auth')['uid'];
 			// 数据列表
 			if ($this->user['type'] != 1)
 			{
@@ -54,8 +54,9 @@
 			// 批量添加数据列
 			$addColumns = [
 				['id', 'ID'],
+				['avatar', 'Avatar', 'picture'],
 				['product_id', 'product', 'select', ProductModel::getList()],
-				['region_id', 'region', 'select', RegionModel::getList()],
+
 				['max_quantity', 'max quantity', 'text'],
 				['status', 'Status', 'switch'],
 				['right_button', 'Options', 'btn']
@@ -72,8 +73,8 @@
 
 			}
 			return $ZBuilder = $ZBuilder->setSearch(['title' => '标题'])// 设置搜索框
-			->addColumns($addColumns)
-				->addTopButtons('add,delete')// 批量添加顶部按钮
+ 			->addColumns($addColumns)
+				->addTopButtons(['add' => ['title' => 'Send',], 'delete'])// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮
 				->addOrder('id,name')
 				->setRowList($datas)// 设置表格数据
@@ -90,6 +91,8 @@
 			if ($this->request->isPost())
 			{
 				$data = $this->request->post();
+				$avatar = ProductModel::where(['id' => $data['product_id']])->column('avatar');
+				$data['avatar'] = $avatar[0];
 				if ($advert = InventoryModel::create($data))
 				{
 					$this->success('Create success', 'index');
@@ -100,6 +103,7 @@
 			}
 			// 显示添加页面
 			return ZBuilder::make('form')
+							->setPageTips($this->user['All'])
 				->addFormItems([
 					['select', 'product_id', 'product', '', ProductModel::getList()],
 					['select', 'region_id', 'region', '', RegionModel::getList()],
@@ -127,7 +131,8 @@
 			{
 				// 表单数据
 				$data = $this->request->post();
-
+				$avatar = ProductModel::where(['id' => $data['product_id']])->column('avatar');
+				$data['avatar'] = $avatar[0];
 				if (InventoryModel::update($data, ['id' => $id]))
 				{
 					// 记录行为
