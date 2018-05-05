@@ -29,12 +29,25 @@
 			{
 				$map['region_id'] = $this->user['region_id'];
 			}
+			if (isset($map['pname|cname']))
+			{
+ 				$map['p.name'] = $map['pname|cname'];
+				$map['c.name'] = $map['pname|cname'];
+				unset($map['pname|cname']);
+
+			}
 
 			// 排序
-			$order = $this->getOrder('id asc');
+			$order = $this->getOrder('i.id asc');
 
 			// 数据列表
-			$datas = $data_list = InventoryModel::where($map)->order($order)->paginate();
+//			$datas = InventoryModel::where($map)->order($order)->paginate();
+			$datas = Db::name('odc_inventory')->alias('i')
+				->field('i.*,c.name as cname')
+				->join('odc_product p', 'p.id = i.product_id')
+				->join('odc_category c', 'c.id = p.category_id')
+				->where($map)->order($order)->paginate();
+//			dump($datas);die;
 //			dump([$datas,Db::name('')->getLastSql(),$this->user['region_id']]);die;
 			// 使用ZBuilder快速创建数据表格
 			// 批量添加数据列
@@ -48,6 +61,7 @@
 					return isset($data[$value]) ? $data[$value] : '';
 				}
 				],
+				['cname', 'Category Name', 'text'],
 				[
 					'region_id', 'Region', 'callback', function($value)
 				{
@@ -76,7 +90,7 @@
 			//'icon' => 'fa fa-shopping-cart',
 			//'href' => url('bazaar/bay', ['id' => '__id__'])
 
-			return $ZBuilder = $ZBuilder->setSearch(['title' => '标题'])// 设置搜索框
+			return $ZBuilder = $ZBuilder->setSearch(['pname' => 'Product Name', 'cname' => 'Category Name'])// 设置搜索框
 			->setPageTips($this->user['All'])
 				->addColumns($addColumns)
 				->addRightButton('buy', [
@@ -95,7 +109,7 @@
 			{
 				$data = $this->request->post();
 
-				$data['order_id'] = time().$this->generate_code(5);
+				$data['order_id'] = time() . $this->generate_code(5);
 				$data['product_id'] = $id;
 				$Product = ProductModel::get($id);
 				$Inventory = InventoryModel::get($id);
@@ -126,7 +140,7 @@
 					$this->error('钱包金额不足！', '', [$BuyerInfo, $data]);
 				}
 //				dump($data);die;
-				if ($advert = OrderModel::buy($id,$data))
+				if ($advert = OrderModel::buy($id, $data))
 				{
 					$this->success('Buy success', 'index');
 				} else
