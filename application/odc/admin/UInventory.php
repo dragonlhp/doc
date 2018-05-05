@@ -40,7 +40,7 @@
 				['id', 'ID'],
 				['avatar', 'Image', 'picture'],
 				['product_id', 'product', 'select', ProductModel::getList()],
-				['max_quantity', 'max quantity', 'text'],
+				['max_quantity', 'Quantity', 'text'],
 				['status', 'Status', 'switch'],
 				['right_button', 'Options', 'btn']
 			];
@@ -83,7 +83,7 @@
 				->addFormItems([
 					['select', 'product_id', 'product', '', ProductModel::getList()],
 					//					['select', 'region_id', 'region', '', RegionModel::getList()],
-					['text', 'max_quantity', 'max quantity'],
+					['text', 'max_quantity', 'Quantity'],
 					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 				])
 				->addHidden('user_id', $this->user['uid'])
@@ -132,7 +132,7 @@
 				->addFormItems([
 					['select', 'product_id', 'Product', '', ProductModel::getList()],
 					//					['select', 'region_id', 'Region', '', RegionModel::getList()],
-					['text', 'max_quantity', 'MaxQuantity'],
+					['text', 'max_quantity', 'Quantity'],
 					['radio', 'status', 'Now ON', '', ['OFF', 'ON'], 1],
 				])
 				->addHidden('user_id', $this->user['uid'])

@@ -64,7 +64,7 @@
 					return isset($data[$value]) ? $data[$value] : '';
 				}
 				],
-				['max_quantity', 'max quantity', 'text'],
+				['max_quantity', 'Quantity', 'text'],
 				['status', 'Status', 'yesno'],
 				['right_button', 'Options', 'btn']
 			];
@@ -80,7 +80,7 @@
 			->setPageTips($this->user['All'])
 				->addColumns($addColumns)
 				->addRightButton('buy', [
-					'title' => '购买',
+					'title' => 'Buy',
 					'icon'  => 'fa fa fa-shopping-cart',
 					'href'  => url('edit', ['id' => '__id__'])
 				])
