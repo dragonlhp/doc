@@ -42,12 +42,13 @@
 				unset($map['cname']);
 
 			}
-			if (isset($map['pname ']))
+			if (isset($map['pname']))
 			{
-				$map['p.name'] = $map['pname '];
+				$map['p.name'] = $map['pname'];
  				unset($map['pname']);
 
 			}
+
 
 			// 排序
 			$order = $this->getOrder('i.id asc');
