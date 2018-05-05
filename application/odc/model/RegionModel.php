@@ -11,6 +11,7 @@
 
 	namespace app\odc\model;
 
+	use think\Db;
 	use think\Model as ThinkModel;
 
 	/**
@@ -48,5 +49,27 @@
 		static public function getList()
 		{
 			return self::where([])->column('id,region_name');
+		}
+
+
+		static public function getMgRegUserIDS($manager_id){
+
+		$data=	 Db::query("select  user_id   from   dp_odc_user  u, dp_odc_region  r where u.region_id=r.id and u.type=0 and   r.mg_user_id={$manager_id}");
+			$datas=[];
+			foreach ($data as $key => $item)
+			{
+				$datas[]=$item['user_id'];
+			}
+			return $datas;
+		}
+		static public function getMgRegUserName($manager_id){
+
+		return	 Db::query("select  user_id,username , u.region_id ,  r.mg_user_id from   dp_odc_user  u, dp_odc_region r , dp_admin_user du where u.region_id=r.id and u.type=0  and  du.id=u.user_id and  r.mg_user_id={$manager_id}");
+			$datas=[];
+			foreach ($data as $key => $item)
+			{
+				$datas[]=$item['user_id'];
+			}
+			return $datas;
 		}
 	}

@@ -13,6 +13,7 @@
 
 	use app\common\builder\ZBuilder;
 	use app\odc\model\CategoryModel;
+	use app\odc\model\RegionModel;
 	use app\user\model\Role as RoleModel;
 	use think\Cache;
 	use app\admin\controller\Admin;
@@ -37,13 +38,24 @@
 			// 数据列表
 			$map['id'] = ['>', 0];
 			$map['status'] = 1;
-
-
+			$This_user = session('user_auth')['uid'];
+			$data_lists = CategoryModel::where([]);
 			if ($this->user['type'] != 1)
 			{
 				$map['user_id'] = $this->user['uid'];
+				$data_lists->where($map);
+			}else{
+
+				if (isset($map['user_id'])){
+
+					$data_lists->where($map);
+				}else{
+					$data_lists->whereIn('user_id',RegionModel::getMgRegUserIDS($This_user));
+				}
+
 			}
-			$data_list = CategoryModel::where($map)->select();
+
+			$data_list=	$data_lists->select();
 
 			$data = [];
 			foreach ($data_list as &$item)
@@ -57,6 +69,7 @@
 							['id', 'ID'],
 							['title_display', 'Name', 'text'],
 							['sort', 'sort', 'text'],
+							['user_id', 'User', 'text'],
 							['status', 'status', 'switch'],
 							['description', 'description', 'text'],
 							['create_time', 'create_time', 'date'],
@@ -70,6 +83,11 @@
 			{
 				//$addColumns[0] = ['user_id', 'User', 'select', static::userlist()];
 				$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
+			} else
+			{
+
+				$ZBuilder->addTopSelect('user_id', 'Select User', RegionModel::getMgRegUserName($This_user));
+
 			}
 
 			$ZBuilder_str = $ZBuilder->setSearch(['region_name' => 'Region Name', 'wh_name' => 'WH_NAME'])// 设置搜索框

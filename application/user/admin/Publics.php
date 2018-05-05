@@ -1,16 +1,9 @@
 <?php
 
 
-
-
-
-
-
-
-
-
 	namespace app\user\admin;
 
+	use app\admin\model\Access;
 	use app\common\controller\Common;
 	use app\odc\model\RegionModel;
 	use app\odc\model\RegionUserModel;
@@ -27,7 +20,6 @@
 	{
 		/**
 		 * 用户登录
-
 		 * @return mixed
 		 */
 		public function signin()
@@ -104,7 +96,6 @@
 
 		/**
 		 * 跳转到第一个有权限访问的url
-
 		 * @return mixed|string
 		 */
 		private function jumpUrl()
@@ -140,7 +131,6 @@
 
 		/**
 		 * 退出登录
-
 		 */
 		public function signout()
 		{
@@ -182,7 +172,7 @@
 					'username' => $data['username'],
 					'nickname' => $data['username'],
 					'password' => $data['password'],
-					'email' => $data['email'],
+					'email'    => $data['email'],
 					'type'     => 0,
 					'status'   => 1,
 					'role'     => 2,
@@ -195,7 +185,8 @@
 
 				if ($user = UserModel::create($user_data))
 				{
-					RegionUserModel::create(['user_id' => $user->id,'region_id'=> $data['region_id']]);
+					RegionUserModel::create(['user_id' => $user->id, 'region_id' => $data['region_id']]);
+					Access::create(['user_id' => $user->id, 'address' => $data['address'], 'status' => 1]);
 					$this->success('Create成功', url('user/publics/signin'));
 				} else
 				{

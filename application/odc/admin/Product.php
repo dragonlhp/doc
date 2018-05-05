@@ -1,20 +1,13 @@
 <?php
 
 
-
-
-
-
-
-
-
-
 	namespace app\odc\admin;
 
 	use app\admin\controller\Admin;
 	use app\common\builder\ZBuilder;
 	use app\odc\model\CategoryModel;
 	use app\odc\model\ProductModel;
+	use app\odc\model\RegionModel;
 
 
 	/**
@@ -33,12 +26,29 @@
 			$map = $this->getMap();
 			// 排序
 			$order = $this->getOrder('id asc');
+
+
+			$data_list = ProductModel::where([]);
+			$This_user = session('user_auth')['uid'];
 			// 数据列表
 			if ($this->user['type'] != 1)
 			{
-				$map['user_id'] = session('user_auth')['uid'];
+				$map['user_id'] = $This_user;
+				$data_list->where($map);
+			} else
+			{
+				if (isset($map['user_id']))
+				{
+					$data_list->where($map);
+				} else
+				{
+					$data_list->whereIn('user_id', RegionModel::getMgRegUserIDS($This_user));
+				}
 			}
-			$data_list = ProductModel::where($map)->order($order)->paginate();
+
+
+			$datas = $data_list->order($order)->paginate();
+
 
 			// 使用ZBuilder快速创建数据表格
 
@@ -60,13 +70,18 @@
 			{
 				//$addColumns[0] = ['user_id', 'User', 'select', static::userlist()];
 				$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
+			} else
+			{
+
+				$ZBuilder->addTopSelect('user_id', 'Select User', RegionModel::getMgRegUserName($This_user));
+
 			}
 			$ZBuilder_ = $ZBuilder->setSearch(['title' => 'titile'])// 设置搜索框
-				->addColumns($addColumns)
+			->addColumns($addColumns)
 				->addTopButtons('add,delete')// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮
 				->addOrder('id,name')
-				->setRowList($data_list)// 设置表格数据
+				->setRowList($datas)// 设置表格数据
 				->fetch(); // 渲染模板
 
 			return $ZBuilder_;
@@ -91,12 +106,12 @@
 				}
 			}
 			// 显示添加页面
-            $map['id'] = ['>', 0];
-            $map['status'] = 1;
-            if ($this->user['type'] != 1)
-            {
-                $map['user_id'] = $this->user['uid'];
-            }
+			$map['id'] = ['>', 0];
+			$map['status'] = 1;
+			if ($this->user['type'] != 1)
+			{
+				$map['user_id'] = $this->user['uid'];
+			}
 			return ZBuilder::make('form')
 				->addFormItems([
 					['text', 'name', 'name'],
@@ -140,17 +155,17 @@
 
 			$info = ProductModel::get($id);
 
-            $map['id'] = ['>', 0];
-            $map['status'] = 1;
-            if ($this->user['type'] != 1)
-            {
-                $map['user_id'] = $this->user['uid'];
-            }
+			$map['id'] = ['>', 0];
+			$map['status'] = 1;
+			if ($this->user['type'] != 1)
+			{
+				$map['user_id'] = $this->user['uid'];
+			}
 			// 显示Edit页面
 			return ZBuilder::make('form')
 				->addFormItems([
 					['text', 'name', 'name'],
-					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue( $map)],
+					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
 					['text', 'color', 'color'],
 					['text', 'weight', 'weight'],
 					['text', 'quantity', 'quantity'],

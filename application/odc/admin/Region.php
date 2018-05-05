@@ -1,14 +1,5 @@
 <?php
 
-
-
-
-
-
-
-
-
-
 	namespace app\odc\admin;
 
 	use app\admin\controller\Admin;

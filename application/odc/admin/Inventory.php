@@ -1,14 +1,5 @@
 <?php
 
-
-
-
-
-
-
-
-
-
 	namespace app\odc\admin;
 
 	use app\admin\controller\Admin;
@@ -38,7 +29,26 @@
 				$map['user_id'] = session('user_auth')['uid'];
 			}
 			// 数据列表
-			$data_list = InventoryModel::where($map)->order($order)->paginate();
+			$data_list = InventoryModel::where([]);
+ 			$This_user = session('user_auth')['uid'];
+			// 数据列表
+			if ($this->user['type'] != 1)
+			{
+				$map['user_id'] = $This_user;
+				$data_list->where($map);
+			} else
+			{
+				if (isset($map['user_id']))
+				{
+					$data_list->where($map);
+				} else
+				{
+					$data_list->whereIn('user_id', RegionModel::getMgRegUserIDS($This_user));
+				}
+			}
+
+
+			$datas = $data_list->order($order)->paginate();
 
 			// 使用ZBuilder快速创建数据表格
 			// 批量添加数据列
@@ -55,13 +65,18 @@
 			{
 				//$addColumns[0] = ['user_id', 'User', 'select', static::userlist()];
 				$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
+			} else
+			{
+
+				$ZBuilder->addTopSelect('user_id', 'Select User', RegionModel::getMgRegUserName($This_user));
+
 			}
 			return $ZBuilder = $ZBuilder->setSearch(['title' => '标题'])// 设置搜索框
 			->addColumns($addColumns)
 				->addTopButtons('add,delete')// 批量添加顶部按钮
 				->addRightButtons(['edit', 'delete' => ['data-tips' => 'Unable to recover after deletion.。']])// 批量添加右侧按钮
 				->addOrder('id,name')
-				->setRowList($data_list)// 设置表格数据
+				->setRowList($datas)// 设置表格数据
 				->fetch(); // 渲染模板
 		}
 
