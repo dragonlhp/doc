@@ -26,7 +26,15 @@
 			// 排序
 			$order = $this->getOrder('id desc');
 
-			$data_list = OrderModel::where($map)->order($order)->paginate();
+
+
+			$data_list_ = OrderModel::where($map);
+			if ($this->CheckManager() && !$this->CheckAdmin()&& !isset($map['user_id']))
+			{
+				$data_list_->whereIn('buyer_id', RegionModel::getMgRegUserIDS($this->user['uid']));
+			}
+
+			$data_list = $data_list_->order($order)->paginate();
 
 			// 使用ZBuilder快速创建数据表格
 
