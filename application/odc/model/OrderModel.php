@@ -81,7 +81,6 @@
 				$flge = true;
 			} catch (\Exception $e)
 			{
-				dump($e);
 				// 回滚事务
 				Db::rollback();
 				$flge = false;
