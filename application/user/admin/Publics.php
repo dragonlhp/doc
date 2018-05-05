@@ -183,11 +183,7 @@
 					'status'   => 1,
 					'role'     => 2,
 				];
-				// 验证
-				$result = $this->validate($user_data, 'User');
-				// 验证失败 输出错误信息
-				if (true !== $result)
-					$this->error($result);
+
 
 				if ($user = UserModel::create($user_data))
 				{
