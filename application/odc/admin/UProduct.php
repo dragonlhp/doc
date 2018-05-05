@@ -40,7 +40,7 @@
 							['price', 'Price', 'text'],
 							['color', 'Color', 'text'],
 							['weight', 'Weight', 'text'],
-							['quantity', 'Quantity', 'text'],
+//							['quantity', 'Quantity', 'text'],
 							['description', 'Description', 'text'],
 							['status', 'Status', 'switch'],
 							['right_button', 'Option', 'btn']
@@ -93,7 +93,7 @@
 					['text', 'price', 'Price'],
 					['text', 'color', 'color'],
 					['text', 'weight', 'weight'],
-					['text', 'quantity', 'quantity'],
+//					['text', 'quantity', 'quantity'],
 					['text', 'description', 'description'],
 					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 				])
@@ -145,7 +145,7 @@
 					['text', 'price', 'Price'],
 					['text', 'color', 'color'],
 					['text', 'weight', 'weight'],
-					['text', 'quantity', 'quantity'],
+//					['text', 'quantity', 'quantity'],
 					['text', 'description', 'description'],
 					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1]
 				])
