@@ -53,6 +53,7 @@
 							   ['id', 'ID'],
 							   ['username', 'User Name'],
 							   ['nickname', 'Nick Name'],
+							   ['balance', 'balance'],
 							   ['region_id', 'Region Name', 'text', '', RegionModel::where([])->column('id,region_name')],
 							   ['address_id', 'Default Address', 'text', '', AddressModel::getList($maps)],
 							   ['email', 'E-Mail'],
@@ -99,6 +100,7 @@
 				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
 					['text', 'region_id', 'RegionName'],
+					['text', 'balance', 'balance'],
 				])
 				->setTrigger('timeset', '1', 'start_time')
 				->setFormData($info)
