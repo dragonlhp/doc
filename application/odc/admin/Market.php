@@ -99,7 +99,7 @@
 				$data['product_id'] = $id;
 				$Product = ProductModel::get($id);
 				$Inventory = InventoryModel::get($id);
-				$BuyerInfo = OrderModel::getBuyerInfo($Product->user_id);
+				$BuyerInfo = OrderModel::getBuyerInfo($this->user['uid']);
 
 				if (!$Product)
 				{
