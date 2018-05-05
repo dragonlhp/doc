@@ -126,7 +126,7 @@
 					$this->error('钱包金额不足！', '', [$BuyerInfo, $data]);
 				}
 //				dump($data);die;
-				if ($advert = OrderModel::buy($data))
+				if ($advert = OrderModel::buy($id,$data))
 				{
 					$this->success('Buy success', 'index');
 				} else

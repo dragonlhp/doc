@@ -52,7 +52,7 @@
 			return db('odc_user')->where(['user_id' => $id])->find();
 		}
 
-		static public function buy($order)
+		static public function buy($id,$order)
 		{
 
 			$flge = false;
@@ -73,7 +73,7 @@
 				$ODCUser->save();
 
 				//扣除卖家数量
-				$ODCUser = InventoryModel::where(['product_id' => $order['product_id']])->find();
+				$ODCUser = InventoryModel::get($id);
 				$ODCUser->max_quantity = $ODCUser->max_quantity - $order['num'];
 				$ODCUser->save();
 				// 提交事务
