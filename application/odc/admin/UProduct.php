@@ -34,10 +34,10 @@
 			// 使用ZBuilder快速创建数据表格
 			$addColumns = [ // 批量添加数据列
 							['id', 'ID'],
-							['avatar', 'Avatar', 'picture'],
+							['avatar', 'Image', 'picture'],
 							['name', 'Name', 'text'],
 							['category_id', 'Category', 'select', CategoryModel::getList()],
- 							['price', 'Price', 'text'],
+							['price', 'Price', 'text'],
 							['color', 'Color', 'text'],
 							['weight', 'Weight', 'text'],
 							['quantity', 'Quantity', 'text'],
@@ -88,7 +88,7 @@
 			return ZBuilder::make('form')
 				->addFormItems([
 					['text', 'name', 'name'],
-					['images', 'avatar', 'Avatar'],
+					['images', 'avatar', 'Image'],
 					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
 					['text', 'price', 'Price'],
 					['text', 'color', 'color'],
@@ -139,7 +139,7 @@
 			return ZBuilder::make('form')
 				->setPageTips($this->user['All'])
 				->addFormItems([
-					['images', 'avatar', 'Avatar'],
+					['images', 'avatar', 'Image'],
 					['text', 'name', 'name'],
 					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
 					['text', 'price', 'Price'],

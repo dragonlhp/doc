@@ -45,7 +45,7 @@
 			];
 
 			$ZBuilder = ZBuilder::make('table');
-			$ZBuilder->setPageTips($this->user['All']);
+			//$ZBuilder->setPageTips($this->user['All']);
 
 			$addColumns[0] = ['user_id', 'User', 'text', '', static::getUserList($this->user['uid'])];
 			$ZBuilder->addTopSelect('user_id', 'Select User', static::getUserList($this->user['uid']));

@@ -44,11 +44,11 @@
 
 			$addColumns = [ // 批量添加数据列
 							['id', 'ID'],
-							['avatar', 'Avatar', 'picture'],
+							['avatar', 'Image', 'picture'],
 							['name', 'Name', 'text'],
 							['category_id', 'Category', 'text', '', CategoryModel::getList()],
 							['user_id', 'Mnager', 'test', '', self::userlist('user')],
-							['avatar', 'Avatar', 'text'],
+							['avatar', 'Image', 'text'],
 							['price', 'Price', 'text'],
 							['color', 'Color', 'text'],
 							['weight', 'Weight', 'text'],
@@ -65,7 +65,7 @@
 			$ZBuilder->addTopSelect('user_id', 'Select User', static::getUserList($This_user));
 
 
-			$ZBuilder->setPageTips($this->user['All']);
+			//$ZBuilder->setPageTips($this->user['All']);
 
 			$ZBuilder_ = $ZBuilder->setSearch(['title' => 'titile'])// 设置搜索框
 			->addColumns($addColumns)
@@ -117,7 +117,7 @@
 			// 显示Edit页面
 			return ZBuilder::make('form')
 				->addFormItems([
-					['images', 'avatar', 'Avatar'],
+					['images', 'avatar', 'Image'],
 					['text', 'name', 'name'],
 					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
 					['text', 'price', 'Price'],

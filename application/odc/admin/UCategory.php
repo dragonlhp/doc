@@ -47,7 +47,7 @@
 			$addColumns = [ // 批量添加数据列
 							['id', 'ID'],
 							['title_display', 'Name', 'text'],
-							['sort', 'sort', 'text'],
+							//['sort', 'sort', 'text'],
 							['status', 'status', 'switch'],
 							['description', 'description', 'text'],
 							['right_button', 'Options', 'btn']
@@ -55,7 +55,7 @@
 
 
 			$ZBuilder = ZBuilder::make('table');
-			$ZBuilder->setPageTips($this->user['All']);
+			//$ZBuilder->setPageTips($this->user['All']);
 
 			$ZBuilder_str = $ZBuilder->setSearch(['region_name' => 'Region Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
 			->addColumns($addColumns)
@@ -100,7 +100,7 @@
 				->addFormItems([
 					['select', 'pid', 'Parent category', 'parent category', CategoryModel::getParentTrue($map)],
 					['text', 'name', 'Category name'],
-					['text', 'sort', 'Sort'],
+					//['text', 'sort', 'Sort'],
 					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 					['text', 'description', 'Ddescription'],
 				])
@@ -151,7 +151,7 @@
 				->addFormItems([
 					['select', 'pid', 'Parent category', '', CategoryModel::getParentTrue($map, $id)],
 					['text', 'name', 'Category name'],
-					['text', 'sort', 'Sort'],
+					//['text', 'sort', 'Sort'],
 					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 					['text', 'description', 'Ddescription'],
 				])

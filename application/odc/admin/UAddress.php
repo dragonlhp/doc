@@ -42,7 +42,7 @@
 			];
 
 			$ZBuilder = ZBuilder::make('table');
-			$ZBuilder->setPageTips($this->user['All']);
+			//$ZBuilder->setPageTips($this->user['All']);
 
 			$ZBuilder_ = $ZBuilder->setSearch(['region_name' => 'Address Name', 'wh_name' => 'WH_NAME'])// 设置搜索框
 			->addColumns($addColumns)

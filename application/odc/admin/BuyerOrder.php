@@ -44,7 +44,7 @@
 			];
 
 			$ZBuilder = ZBuilder::make('table');
-			$ZBuilder->setPageTips($this->user['All']);
+			//$ZBuilder->setPageTips($this->user['All']);
 
 			$ZBuilder_ = $ZBuilder->setSearch(['order_id' => 'Order ID',])// 设置搜索框
 			->addColumns($addColumns)

@@ -43,7 +43,7 @@
 			// 批量添加数据列
 			$addColumns = [
 				['id', 'ID'],
-				['avatar', 'Avatar', 'picture'],
+				['avatar', 'Image', 'picture'],
 				['product_id', 'product', 'select', ProductModel::getList()],
 				['region_id', 'region', 'select', RegionModel::getList()],
 				['user_id', 'Mnager', 'test', '', self::userlist('user')],

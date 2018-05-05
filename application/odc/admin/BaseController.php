@@ -24,10 +24,10 @@
 				$this->user['region_name'] = $Region[0];
 			}
 			$this->user['All'] = ' ';
-			foreach ($this->user as $key => $item)
-			{
-				$this->user['All'] .= "< {$key}:{$item} ><br>";
-			}
+//			foreach ($this->user as $key => $item)
+//			{
+//				$this->user['All'] .= "< {$key}:{$item} ><br>";
+//			}
 		}
 
 		static public function userlist($type = false)
