@@ -12,6 +12,7 @@
 	use app\common\builder\ZBuilder;
 	use app\odc\model\OrderModel;
 	use app\odc\model\ProductModel;
+	use app\odc\model\RegionModel;
 
 	class MgOrder extends BaseController
 	{
