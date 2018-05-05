@@ -185,8 +185,9 @@
 
 				if ($user = UserModel::create($user_data))
 				{
-					RegionUserModel::create(['user_id' => $user->id, 'region_id' => $data['region_id']]);
-					Access::create(['user_id' => $user->id, 'address' => $data['address'], 'status' => 1]);
+					$address = Access::create(['user_id' => $user->id, 'address' => $data['address'], 'status' => 1]);
+					RegionUserModel::create(['user_id' => $user->id, 'region_id' => $data['region_id'],'address_id'=>$address['id']]);
+
 					$this->success('Create成功', url('user/publics/signin'));
 				} else
 				{
