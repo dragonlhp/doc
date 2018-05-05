@@ -9,6 +9,7 @@
 	use app\odc\model\OrderModel;
 	use app\odc\model\ProductModel;
 	use app\odc\model\RegionModel;
+	use app\odc\model\RegionUserModel;
 	use think\Db;
 
 	/**
@@ -38,14 +39,14 @@
 			}
 			if (isset($map['cname']))
 			{
- 				$map['c.name'] = $map['cname'];
+				$map['c.name'] = $map['cname'];
 				unset($map['cname']);
 
 			}
 			if (isset($map['pname']))
 			{
 				$map['p.name'] = $map['pname'];
- 				unset($map['pname']);
+				unset($map['pname']);
 
 			}
 
@@ -95,8 +96,10 @@
 				['status', 'Status', 'yesno'],
 				['right_button', 'Options', 'btn']
 			];
-			$ZBuilder = ZBuilder::make('table');
 
+			$ORCUser = RegionUserModel::where(['user_id' => $this->user['uid']])->find();
+
+			$ZBuilder = ZBuilder::make('table')->setExtraHtml("<h3> your Balance :$ {$ORCUser->balance}</h3>", 'toolbar_top');
 			$ZBuilder->addTopSelect('user_id', 'Select User', static::userlist('user'));
 
 			//'title' => '酒店列表',
