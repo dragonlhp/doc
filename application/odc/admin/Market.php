@@ -113,15 +113,17 @@
 
 				if ($Inventory->max_quantity < $data['num'])
 				{
-					$this->error('数量不足！请重新输入！');
+					$this->error('数量不足！请重新输入！', '', [$Inventory, $data]);
 				}
+
 				if ($BuyerInfo['balance'] == '')
 				{
-					$this->error('金额为空，不能购买！');
+					$this->error('金额为空，不能购买！', '', $BuyerInfo);
 				}
+
 				if ($BuyerInfo['balance'] < $data['price'])
 				{
-					$this->error('钱包金额不足！');
+					$this->error('钱包金额不足！', '', [$BuyerInfo, $data]);
 				}
 
 				if ($advert = OrderModel::buy($data))
