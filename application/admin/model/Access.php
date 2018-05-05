@@ -1,14 +1,6 @@
 <?php
 
 
-
-
-
-
-
-
-
-
 namespace app\admin\model;
 
 use think\Model;
@@ -21,7 +13,7 @@ use think\Request;
 class Access extends Model
 {
     // 设置当前模型对应的完整数据表名称
-    protected $table = '__ADMIN_ACCESS__';
+    protected $table = '__ODC_ADDRESS__';
 
     /**
      * 获取用户授权节点
