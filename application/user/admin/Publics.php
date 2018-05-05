@@ -178,7 +178,6 @@
 					'nickname' => $data['username'],
 					'password' => $data['password'],
 					'email'    => $data['email'],
-					'balance'  => 10000.00,
 					'type'     => 0,
 					'status'   => 1,
 					'role'     => 2,
@@ -189,7 +188,7 @@
 				{
 					$address = Access::create(['user_id' => $user->id, 'address' => $data['address'], 'status' => 1]);
 
-					RegionUserModel::create(['user_id' => $user->id, 'region_id' => $data['region_id'], 'address_id' => $address->id]);
+					RegionUserModel::create(['user_id' => $user->id,'balance'  => 10000.00, 'region_id' => $data['region_id'], 'address_id' => $address->id]);
 
 					$this->success('Register Success', url('user/publics/signin'));
 				} else
