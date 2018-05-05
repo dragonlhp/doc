@@ -118,7 +118,7 @@
                     $.post($(this).attr('action'), $data, function (res) {
                         Dolphin.loading('hide');
                         if (res.code) {
-                            Dolphin.notify('登录成功，页面即将跳转~', 'success');
+                            Dolphin.notify('Congratulation! Register successfully and the page will redirect.~', 'success');
                             setTimeout(function () {
                                 location.href = res.url;
                             }, 1500);

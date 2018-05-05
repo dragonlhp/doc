@@ -83,7 +83,7 @@
 			return ZBuilder::make('form')
 				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
-					['text', 'address', 'AddressName'],
+					['text', 'address', 'Address name'],
 				])
 				->addHidden('user_id', $this->user['uid'])
 				->setTrigger('timeset', '1', 'start_time')

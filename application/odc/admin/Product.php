@@ -48,11 +48,9 @@
 							['category_id', 'Category', 'select', CategoryModel::getList()],
 							['color', 'Color', 'text'],
 							['weight', 'Weight', 'text'],
-							['avatar', 'Avatar', 'text'],
 							['quantity', 'Quantity', 'text'],
 							['description', 'Description', 'text'],
 							['status', 'Status', 'switch'],
-
 							['right_button', 'Option', 'btn']
 			];
 
@@ -83,7 +81,7 @@
 			// 保存数据
 			if ($this->request->isPost())
 			{
-				$data = $this->request->post();dump($data);
+				$data = $this->request->post();
 				if ($advert = ProductModel::create($data))
 				{
 					$this->success('Create success', 'index');
@@ -100,16 +98,14 @@
                 $map['user_id'] = $this->user['uid'];
             }
 			return ZBuilder::make('form')
-				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
 					['text', 'name', 'name'],
 					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
 					['text', 'color', 'color'],
 					['text', 'weight', 'weight'],
-					['text', 'avatar', 'avatar'],
 					['text', 'quantity', 'quantity'],
 					['text', 'description', 'description'],
-					['radio', 'status', '立即启用', '', ['OFF', 'ON'], 1],
+					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 				])
 				->addHidden('user_id', $this->user['uid'])
 				->fetch();
@@ -144,18 +140,22 @@
 
 			$info = ProductModel::get($id);
 
+            $map['id'] = ['>', 0];
+            $map['status'] = 1;
+            if ($this->user['type'] != 1)
+            {
+                $map['user_id'] = $this->user['uid'];
+            }
 			// 显示Edit页面
 			return ZBuilder::make('form')
-				->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
 					['text', 'name', 'name'],
-					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue()],
+					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue( $map)],
 					['text', 'color', 'color'],
 					['text', 'weight', 'weight'],
-					['text', 'avatar', 'avatar'],
 					['text', 'quantity', 'quantity'],
 					['text', 'description', 'description'],
-					['radio', 'status', '立即启用', '', ['OFF', 'ON'], 1]
+					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1]
 				])
 				->addHidden('user_id', $this->user['uid'])
 				->setFormData($info)

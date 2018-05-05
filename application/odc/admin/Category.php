@@ -57,7 +57,7 @@
 							['id', 'ID'],
 							['title_display', 'Name', 'text'],
 							['sort', 'sort', 'text'],
-							['status', '状态', 'switch'],
+							['status', 'status', 'switch'],
 							['description', 'description', 'text'],
 							['create_time', 'create_time', 'date'],
 							['create_time', 'update_time', 'date'],
@@ -114,12 +114,10 @@
 			return ZBuilder::make('form')
 
 				->addFormItems([
-					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue($map)],
-					['text', 'name', 'CategoryName'],
-					['text', 'wh_name', 'whName'],
-					['text', 'wh_address', 'whAddress'],
+					['select', 'pid', 'Parent category', 'parent category', CategoryModel::getParentTrue($map)],
+					['text', 'name', 'Category name'],
 					['text', 'sort', 'Sort'],
-					['radio', 'status', 'Now ON', '', ['OFF', 'ON'], 1],
+					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 					['text', 'description', 'Ddescription'],
 				])
 				->addHidden('user_id', $this->user['uid'])
@@ -169,12 +167,10 @@
 			return ZBuilder::make('form')
 				//->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
-					['select', 'pid', 'Parent ID', '', CategoryModel::getParentTrue($map,$id)],
-					['text', 'name', 'CategoryName'],
-					['text', 'wh_name', 'whName'],
-					['text', 'wh_address', 'whAddress'],
+					['select', 'pid', 'Parent category', '', CategoryModel::getParentTrue($map,$id)],
+					['text', 'name', 'Category name'],
 					['text', 'sort', 'Sort'],
-					['radio', 'status', '立即启用', '', ['OFF', 'ON'], 1],
+					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 					['text', 'description', 'Ddescription'],
 				])
 				->addHidden('user_id', $this->user['uid'])

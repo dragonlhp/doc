@@ -1764,7 +1764,7 @@ class Builder extends ZBuilder
                         case 'text.edit': // 可Edit的单行文本
                             $row[$column['name'].'__'.$column['type']] = '<a href="javascript:void(0);" 
                                 class="text-edit" 
-                                data-placeholder="请输入'.$column['title'].'" 
+                                data-placeholder="please input '.$column['title'].'" 
                                 data-table="'.$this->createTableToken($_table_name == '' ? $this->_table_name : $_table_name, $this->_prefix).'" 
                                 data-type="text" 
                                 data-pk="'.$row['_primary_key_value'].'" 
@@ -1773,7 +1773,7 @@ class Builder extends ZBuilder
                         case 'textarea.edit': // 可Edit的多行文本
                             $row[$column['name'].'__'.$column['type']] = '<a href="javascript:void(0);" 
                                 class="textarea-edit" 
-                                data-placeholder="请输入'.$column['title'].'" 
+                                data-placeholder="please input '.$column['title'].'" 
                                 data-table="'.$this->createTableToken($_table_name == '' ? $this->_table_name : $_table_name, $this->_prefix).'" 
                                 data-type="textarea" 
                                 data-pk="'.$row['_primary_key_value'].'" 
@@ -1783,7 +1783,7 @@ class Builder extends ZBuilder
                             $column['param'] = $column['param'] != '' ? $column['param'] : $column['name'];
                             $row[$column['name'].'__'.$column['type']] = '<a href="javascript:void(0);" 
                                 class="text-edit" 
-                                data-placeholder="请输入'.$column['title'].'" 
+                                data-placeholder="please input '.$column['title'].'" 
                                 data-table="'.$this->createTableToken($_table_name == '' ? $this->_table_name : $_table_name, $this->_prefix).'" 
                                 data-type="password" 
                                 data-value="" 
@@ -1798,7 +1798,7 @@ class Builder extends ZBuilder
                             $column['param'] = $column['param'] != '' ? $column['param'] : $column['name'];
                             $row[$column['name'].'__'.$column['type']] = '<a href="javascript:void(0);" 
                                 class="text-edit" 
-                                data-placeholder="请输入'.$column['title'].'" 
+                                data-placeholder="please input '.$column['title'].'" 
                                 data-table="'.$this->createTableToken($_table_name == '' ? $this->_table_name : $_table_name, $this->_prefix).'" 
                                 data-type="'.$column['type'].'" 
                                 data-value="'.$row[$column['name']].'" 
@@ -2303,7 +2303,7 @@ class Builder extends ZBuilder
             $this->_vars['search'] = [
                 'fields'      => $_temp_fields,
                 'field_all'   => implode('|', array_keys($_temp_fields)),
-                'placeholder' => $this->_search['placeholder'] != '' ? $this->_search['placeholder'] : '请输入'. implode('/', $_temp_fields),
+                'placeholder' => $this->_search['placeholder'] != '' ? $this->_search['placeholder'] : 'please input '. implode('/', $_temp_fields),
                 'url'         => $this->_search['url'] == '' ? $this->request->baseUrl(true) : $this->_search['url']
             ];
         }

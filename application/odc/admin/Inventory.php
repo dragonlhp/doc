@@ -46,8 +46,7 @@
 				['id', 'ID'],
 				['product_id', 'product', 'select', ProductModel::getList()],
 				['region_id', 'region', 'select', RegionModel::getList()],
-				['avatar', 'avatar', 'text'],
-				['max_quantity', 'max_quantity', 'text'],
+				['max_quantity', 'max quantity', 'text'],
 				['status', 'Status', 'switch'],
 				['right_button', 'Options', 'btn']
 			];
@@ -86,13 +85,11 @@
 			}
 			// 显示添加页面
 			return ZBuilder::make('form')
-				->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
 					['select', 'product_id', 'product', '', ProductModel::getList()],
 					['select', 'region_id', 'region', '', RegionModel::getList()],
-					['text', 'avatar', 'avatar'],
-					['text', 'max_quantity', 'max_quantity'],
-					['radio', 'status', '立即启用', '', ['OFF', 'ON'], 1],
+					['text', 'max_quantity', 'max quantity'],
+					['radio', 'status', 'effective immediately', '', ['OFF', 'ON'], 1],
 				])
 				->addHidden('user_id', $this->user['uid'])
 				->setTrigger('timeset', '1', 'start_time')
@@ -133,11 +130,9 @@
 
 			// 显示Edit页面
 			return ZBuilder::make('form')
-				->setPageTips('如果出现无法添加的情况，可能由于浏览器将本页面当成了广告，请尝试关闭浏览器的广告过滤功能再试。', 'warning')
 				->addFormItems([
 					['select', 'product_id', 'Product', '', ProductModel::getList()],
 					['select', 'region_id', 'Region', '', RegionModel::getList()],
-					['text', 'avatar', 'avatar'],
 					['text', 'max_quantity', 'MaxQuantity'],
 					['radio', 'status', 'Now ON', '', ['OFF', 'ON'], 1],
 				])

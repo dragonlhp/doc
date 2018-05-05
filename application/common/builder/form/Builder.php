@@ -1214,7 +1214,7 @@ class Builder extends ZBuilder
             'value'       => $default,
             'extra_class' => $extra_class,
             'extra_attr'  => $extra_attr,
-            'placeholder' => isset($placeholder) ? $placeholder : '请输入'.$title,
+            'placeholder' => isset($placeholder) ? $placeholder : 'please input '.$title,
         ];
 
         if ($this->_is_group) {
@@ -1321,7 +1321,7 @@ class Builder extends ZBuilder
             }
         }
 
-        $placeholder = $type == 'select' ? '请选择一项' : '请选择一项或多项';
+        $placeholder = $type == 'select' ? 'please choose one option' : 'please choose one/more options';
         if (preg_match('/(.*)\[:(.*)\]/', $title, $matches)) {
             $title       = $matches[1];
             $placeholder = $matches[2];
@@ -1541,7 +1541,7 @@ class Builder extends ZBuilder
             'group'       => $group,
             'extra_class' => $extra_class,
             'extra_attr'  => $extra_attr,
-            'placeholder' => isset($placeholder) ? $placeholder : '请输入'.$title,
+            'placeholder' => isset($placeholder) ? $placeholder : 'please input '.$title,
         ];
 
         if ($this->_is_group) {
@@ -1578,7 +1578,7 @@ class Builder extends ZBuilder
             'value'       => $default,
             'extra_class' => $extra_class,
             'extra_attr'  => $extra_attr,
-            'placeholder' => isset($placeholder) ? $placeholder : '请输入'.$title,
+            'placeholder' => isset($placeholder) ? $placeholder : 'please input '.$title,
         ];
 
         if ($this->_is_group) {
