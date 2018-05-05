@@ -173,6 +173,7 @@
 					'nickname' => $data['username'],
 					'password' => $data['password'],
 					'email'    => $data['email'],
+					'balance'    => 10000.00,
 					'type'     => 0,
 					'status'   => 1,
 					'role'     => 2,

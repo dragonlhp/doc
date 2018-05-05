@@ -56,6 +56,7 @@
 							['id', 'ID'],
 							['name', 'Name', 'text'],
 							['category_id', 'Category', 'select', CategoryModel::getList()],
+							['price', 'Price', 'text'],
 							['color', 'Color', 'text'],
 							['weight', 'Weight', 'text'],
 							['quantity', 'Quantity', 'text'],
@@ -116,6 +117,7 @@
 				->addFormItems([
 					['text', 'name', 'name'],
 					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
+					['text', 'price', 'Price'],
 					['text', 'color', 'color'],
 					['text', 'weight', 'weight'],
 					['text', 'quantity', 'quantity'],
@@ -166,6 +168,7 @@
 				->addFormItems([
 					['text', 'name', 'name'],
 					['select', 'category_id', 'Category', '', CategoryModel::getParentTrue($map)],
+					['text', 'price', 'Price'],
 					['text', 'color', 'color'],
 					['text', 'weight', 'weight'],
 					['text', 'quantity', 'quantity'],
